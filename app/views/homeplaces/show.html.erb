@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Code:</strong>
+  <%= @homeplace.code %>
+</p>
+
+<p>
+  <strong>Text:</strong>
+  <%= @homeplace.text %>
+</p>
+
+<%= link_to 'Edit', edit_homeplace_path(@homeplace) %> |
+<%= link_to 'Back', homeplaces_path %>

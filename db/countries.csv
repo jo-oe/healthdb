@@ -1,0 +1,257 @@
+name,iso3166
+Afghanistan,AFG
+Ägypten,EGY
+Åland,ALA
+Albanien,ALB
+Algerien,DZA
+Amerikanisch-Samoa,ASM
+Amerikanische Jungferninseln,VIR
+Andorra,AND
+Angola,AGO
+Anguilla,AIA
+Antarktika,ATA
+Antigua und Barbuda,ATG
+Äquatorialguinea,GNQ
+Argentinien,ARG
+Armenien,ARM
+Aruba,ABW
+Ascension,ASC
+Aserbaidschan,AZE
+Äthiopien,ETH
+Australien,AUS
+Bahamas,BHS
+Bahrain,BHR
+Bangladesch,BGD
+Barbados,BRB
+Belarus (Weißrussland),BLR
+Belgien,BEL
+Belize,BLZ
+Benin,BEN
+Bermuda,BMU
+Bhutan,BTN
+Bolivien,BOL
+"Bonaire, Sint Eustatius und Saba (Niederlande)",BES
+Bosnien und Herzegowina,BIH
+Botswana,BWA
+Bouvetinsel,BVT
+Brasilien,BRA
+Britische Jungferninseln,VGB
+Britisches Territorium im Indischen Ozean,IOT
+Brunei Darussalam,BRN
+Bulgarien,BGR
+Burkina Faso,BFA
+Burundi,BDI
+Chile,CHL
+"China, Volksrepublik",CHN
+Clipperton,CPT
+Cookinseln,COK
+Costa Rica,CRI
+Côte d’Ivoire (Elfenbeinküste),CIV
+Curaçao,CUW
+Dänemark,DNK
+Deutschland,DEU
+Diego Garcia,DGA
+Dominica,DMA
+Dominikanische Republik,DOM
+Dschibuti,DJI
+Ecuador,ECU
+El Salvador,SLV
+Eritrea,ERI
+Estland,EST
+Falklandinseln,FLK
+Färöer,FRO
+Fidschi,FJI
+Finnland,FIN
+Frankreich,FRA
+Französisch-Guayana,GUF
+Französisch-Polynesien,PYF
+Französische Süd- und Antarktisgebiete,ATF
+Gabun,GAB
+Gambia,GMB
+Georgien,GEO
+Ghana,GHA
+Gibraltar,GIB
+Grenada,GRD
+Griechenland,GRC
+Grönland,GRL
+Guadeloupe,GLP
+Guam,GUM
+Guatemala,GTM
+Guernsey (Kanalinsel),GGY
+Guinea,GIN
+Guinea-Bissau,GNB
+Guyana,GUY
+Haiti,HTI
+Heard und McDonaldinseln,HMD
+Honduras,HND
+Hongkong,HKG
+Indien,IND
+Indonesien,IDN
+Insel Man,IMN
+Irak,IRQ
+"Iran, Islamische Republik",IRN
+Irland,IRL
+Island,ISL
+Israel,ISR
+Italien,ITA
+Jamaika,JAM
+Japan,JPN
+Jemen,YEM
+Jersey (Kanalinsel),JEY
+Jordanien,JOR
+Kaimaninseln,CYM
+Kambodscha,KHM
+Kamerun,CMR
+Kanada,CAN
+Kap Verde,CPV
+Kasachstan,KAZ
+Katar,QAT
+Kenia,KEN
+Kirgisistan,KGZ
+Kiribati,KIR
+Kokosinseln,CCK
+Kolumbien,COL
+Komoren,COM
+"Kongo, Demokratische Republik (ehem. Zaire)",COD
+"Kongo, Republik (ehem. K.-Brazzaville)",COG
+"Korea, Demokratische Volksrepublik (Nordkorea)",PRK
+"Korea, Republik (Südkorea)",KOR
+Kosovo,KOS
+Kroatien,HRV
+Kuba,CUB
+Kuwait,KWT
+"Laos, Demokratische Volksrepublik",LAO
+Lesotho,LSO
+Lettland,LVA
+Libanon,LBN
+Liberia,LBR
+Libyen,LBY
+Liechtenstein,LIE
+Litauen,LTU
+Luxemburg,LUX
+Macau,MAC
+Madagaskar,MDG
+Malawi,MWI
+Malaysia,MYS
+Malediven,MDV
+Mali,MLI
+Malta,MLT
+Marokko,MAR
+Marshallinseln,MHL
+Martinique,MTQ
+Mauretanien,MRT
+Mauritius,MUS
+Mayotte,MYT
+Mazedonien,MKD
+Mexiko,MEX
+Mikronesien,FSM
+Moldawien (Republik Moldau),MDA
+Monaco,MCO
+Mongolei,MNG
+Montenegro,MNE
+Montserrat,MSR
+Mosambik,MOZ
+Myanmar (Burma),MMR
+Namibia,NAM
+Nauru,NRU
+Nepal,NPL
+Neukaledonien,NCL
+Neuseeland,NZL
+Nicaragua,NIC
+Niederlande,NLD
+Niederländische Antillen (ehemalig),ANT
+Niger,NER
+Nigeria,NGA
+Niue,NIU
+Nördliche Marianen,MNP
+Nordzypern,CTR
+Norfolkinsel,NFK
+Norwegen,NOR
+Oman,OMN
+Österreich,AUT
+Osttimor (Timor-Leste),TLS
+Pakistan,PAK
+Palästina,PSE
+Palau,PLW
+Panama,PAN
+Papua-Neuguinea,PNG
+Paraguay,PRY
+Peru,PER
+Philippinen,PHL
+Pitcairninseln,PCN
+Polen,POL
+Portugal,PRT
+Puerto Rico,PRI
+Réunion,REU
+Ruanda,RWA
+Rumänien,ROU
+Russische Föderation,RUS
+Salomonen,SLB
+Saint-Barthélemy,BLM
+Saint-Martin (franz. Teil),MAF
+Sambia,ZMB
+Samoa,WSM
+San Marino,SMR
+São Tomé und Príncipe,STP
+Saudi-Arabien,SAU
+Schweden,SWE
+Schweiz (Confoederatio Helvetica),CHE
+Senegal,SEN
+Serbien,SRB
+Seychellen,SYC
+Sierra Leone,SLE
+Simbabwe,ZWE
+Singapur,SGP
+Sint Maarten (niederl. Teil),SXM
+Slowakei,SVK
+Slowenien,SVN
+Somalia,SOM
+Spanien,ESP
+Sri Lanka,LKA
+St. Helena,SHN
+St. Kitts und Nevis,KNA
+St. Lucia,LCA
+Saint-Pierre und Miquelon,SPM
+St. Vincent und die Grenadinen,VCT
+Südafrika,ZAF
+Sudan,SDN
+Südgeorgien und die Südlichen Sandwichinseln,SGS
+Südsudan,SSD
+Suriname,SUR
+Svalbard und Jan Mayen,SJM
+Swasiland,SWZ
+"Syrien, Arabische Republik",SYR
+Tadschikistan,TJK
+Republik China (Taiwan),TWN
+"Tansania, Vereinigte Republik",TZA
+Thailand,THA
+Togo,TGO
+Tokelau,TKL
+Tonga,TON
+Trinidad und Tobago,TTO
+"Tristan da Cunha",TAA
+Tschad,TCD
+Tschechien,CZE
+Tunesien,TUN
+Türkei,TUR
+Turkmenistan,TKM
+Turks- und Caicosinseln,TCA
+Tuvalu,TUV
+Uganda,UGA
+Ukraine,UKR
+Ungarn,HUN
+United States Minor Outlying Islands,UMI
+Uruguay,URY
+Usbekistan,UZB
+Vanuatu,VUT
+Vatikanstadt,VAT
+Venezuela,VEN
+Vereinigte Arabische Emirate,ARE
+Vereinigte Staaten von Amerika,USA
+Vereinigtes Königreich Großbritannien und Nordirland,GBR
+Vietnam,VNM
+Wallis und Futuna,WLF
+Weihnachtsinsel,CXR
+Westsahara,ESH
+Zentralafrikanische Republik,CAF
+Zypern,CYP

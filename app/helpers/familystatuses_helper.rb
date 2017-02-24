@@ -1,0 +1,2 @@
+module FamilystatusesHelper
+end

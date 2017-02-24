@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Code:</strong>
+  <%= @referrer.code %>
+</p>
+
+<p>
+  <strong>Text:</strong>
+  <%= @referrer.text %>
+</p>
+
+<%= link_to 'Edit', edit_referrer_path(@referrer) %> |
+<%= link_to 'Back', referrers_path %>

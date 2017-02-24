@@ -1,0 +1,118 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_self
+ */
+
+@import "bootstrap";
+@import "bootstrap-datepicker3";
+@import "typeaheadjs";
+
+h1 {
+  padding-top: 0.5em;
+}
+
+.statusline {
+  font-size: small;
+  font-weight: bold
+}
+
+#statustime {
+  text-align: right
+}
+
+.btn-clientnew {
+  background-color: #337ab7;
+  color: #FFFFFF;
+  font-weight: bold;
+}
+
+.btn-clientindex {
+  background-color: #5bc0de;
+  color: #FFFFFF;
+  font-weight: bold;
+}
+
+.btn-logout {
+  background-color: lighten(#000, 20%);
+  color: #FFFFFF;
+  font-weight: bold;
+}
+
+.form-control {
+  vertical-align: middle;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.row {
+  vertical-align: middle;
+}
+
+.control-label {
+  vertical-align: bottom;
+  text-align: right;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+select.form-control {
+  padding: 0;
+}
+
+.clienttable {
+    border: 0px solid #909090;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.clienttable td, .clienttable th {
+    border: 1px solid #D0D0D0;
+}
+
+.clienttable tr td, .clienttable tr th {
+    border-right: 0;
+    border-top: 0;
+}
+
+.clienttable tr th {
+  border-left: 0;
+}
+
+.clienttable tr:last-child td {
+    border-bottom: 0;
+}
+
+.clienttable tr td:first-child,
+.clienttable tr th:first-child {
+    border-left: 0;
+}
+
+
+th.rotate {
+  /* Something you can count on */
+  height: 75px;
+  white-space: nowrap;
+}
+
+th.rotate > div {
+  transform:
+    /* Magic Numbers */
+    translate(22px, 22px)
+    /* 45 is really 360 - 45 */
+    rotate(315deg);
+  width: 30px;
+}
+th.rotate > div > span {
+  border-bottom: 1px solid #ccc;
+  padding: 1px 3px;
+}

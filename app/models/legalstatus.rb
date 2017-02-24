@@ -1,0 +1,2 @@
+class Legalstatus < ApplicationRecord
+end

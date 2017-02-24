@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Legalstatuses</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Code</th>
+      <th>Text</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @legalstatuses.each do |legalstatus| %>
+      <tr>
+        <td><%= legalstatus.code %></td>
+        <td><%= legalstatus.text %></td>
+        <td><%= link_to 'Show', legalstatus %></td>
+        <td><%= link_to 'Edit', edit_legalstatus_path(legalstatus) %></td>
+        <td><%= link_to 'Destroy', legalstatus, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Legalstatus', new_legalstatus_path %>

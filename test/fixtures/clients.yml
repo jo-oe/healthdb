@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  code: MyString
+  lastname: MyString
+  firstname: MyString
+  birthdate: 2017-02-22
+  sex: one
+  homeplace: one
+  citizenship: one
+  legalstatus: one
+  familystatus: one
+  childrencount: 1
+  datefirstcontact: 2017-02-22
+  referrer: one
+  referrerfreetext: MyString
+
+two:
+  code: MyString
+  lastname: MyString
+  firstname: MyString
+  birthdate: 2017-02-22
+  sex: two
+  homeplace: two
+  citizenship: two
+  legalstatus: two
+  familystatus: two
+  childrencount: 1
+  datefirstcontact: 2017-02-22
+  referrer: two
+  referrerfreetext: MyString

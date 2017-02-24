@@ -1,0 +1,93 @@
+<%= form_for(client, html: {class: "form-horizontal client-form"}) do |f| %>
+<% if client.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(client.errors.count, "error") %> prohibited this client from being saved:</h2>
+
+  <ul>
+    <% client.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+  <div class="row">
+    <%= f.label t(:client_code), class: 'col-sm-2 control-label' %>
+    <div class="col-sm-4" id='div_client_code'>
+      <%= f.text_field :code, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="row">
+    <%= f.label t(:lastname), class: 'col-sm-2 control-label' %>
+    <div class="col-sm-4" id='div_client_lastname'><%= f.text_field :lastname, class: 'form-control'  %></div>
+
+    <%= f.label t(:firstname), class: 'col-sm-2 control-label' %>
+    <div class="col-sm-4" id='div_client_firstname'><%= f.text_field :firstname, class: 'form-control'  %></div>
+  </div>
+
+  <div class="row">
+    <%= f.label t(:birthdate), class: 'col-sm-2 control-label' %>
+    <div class="col-sm-4"><%= f.text_field :birthdate, :value => client.birthdate, class: 'form-control', :id => "datepicker" %></div>
+
+    <%= f.label t(:sex), class: 'col-sm-2 control-label' %>
+    <div class="col-sm-4"><%= f.collection_select :sex_id, Sex.all, :id, :text, {prompt: true}, {:class => 'form-control'} %></div>
+  </div>
+
+  <div class="row">
+    <%= f.label t(:homeplace), class: 'col-sm-2 control-label'  %>
+    <div class="col-sm-4"><%= f.collection_select :homeplace_id, Homeplace.all, :id, :text, {prompt: true}, {:class => 'form-control'} %></div>
+  </div>
+
+  <div class="row">
+    <%= f.label t(:citizenship), class: 'col-sm-2 control-label' %>
+
+    <div class="col-sm-3" id='citizenship_typeahead'>
+      <input class='form-control typeahead' id='citizenship_input', type='text', placeholder='Staat'>
+      <%= f.text_field :citizenship_id, id: 'client_citizenship_id', type: 'hidden' %>
+    </div>
+
+    <div class="col-sm-1">
+      <input class="form-control" id='citizenship_code' type="text" value="?" disabled>
+    </div>
+
+
+    <%= f.label t(:legalstatus), class: 'col-sm-2 control-label'   %>
+    <div class="col-sm-4"><%= f.collection_select :legalstatus_id, Legalstatus.all, :id, :text, {prompt: true}, {:class => 'form-control'}  %></div>
+  </div>
+
+  <div class="row">
+    <%= f.label t(:familystatus), class: 'col-sm-2 control-label'   %>
+    <div class="col-sm-4"><%= f.collection_select :familystatus_id, Familystatus.all, :id, :text, {prompt: true}, {:class => 'form-control'}  %></div>
+
+    <%= f.label t(:childrencount), class: 'col-sm-2 control-label'   %>
+    <div class="col-sm-4"><%= f.number_field :childrencount, :value => '0', :min => '0', :max => '20', class: 'form-control' %></div>
+  </div>
+
+  <div class="row">
+    <%= f.label t(:datefirstcontact), class: 'col-sm-2 control-label' %>
+    <%
+    if !client.datefirstcontact
+      client.datefirstcontact = Date.today
+    end
+    %>
+    <div class="col-sm-4"><%= f.date_field :datefirstcontact, value: client.datefirstcontact, class: 'form-control', :id => "datepicker2" %></div>
+  </div>
+
+  <div class="row">
+    <%= f.label t(:referrer), class: 'col-sm-2 control-label' %>
+    <div class="col-sm-4"><%= f.collection_select :referrer_id, Referrer.all, :id, :text, {prompt: true}, {:class => 'form-control'}  %></div>
+
+    <%= f.label t(:referrerfreetext), class: 'col-sm-2 control-label', id: 'client_referrerfreetext_label' %>
+    <div class="col-sm-4"><%= f.text_field :referrerfreetext, class: 'form-control' %></div>
+  </div>
+
+  <div class="row"><div class="col-sm-12">&nbsp;</div></div>
+
+  <div class="row">
+    <div class="col-sm-2"><button type="submit" id="btnSubmit" class="btn btn-primary" disabled="disabled">Klient_in speichern</button></div>
+    <div class="col-sm-2"><%= link_to 'Abbrechen', clients_path, class: 'btn btn-warning' %></div>
+  </div>
+
+
+<% end %>

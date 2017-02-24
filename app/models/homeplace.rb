@@ -1,0 +1,2 @@
+class Homeplace < ApplicationRecord
+end

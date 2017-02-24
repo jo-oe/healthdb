@@ -1,0 +1,2 @@
+class Familystatus < ApplicationRecord
+end

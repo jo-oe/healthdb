@@ -1,0 +1,27 @@
+<%= form_for(homeplace) do |f| %>
+  <% if homeplace.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(homeplace.errors.count, "error") %> prohibited this homeplace from being saved:</h2>
+
+      <ul>
+      <% homeplace.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :code %>
+    <%= f.text_field :code %>
+  </div>
+
+  <div class="field">
+    <%= f.label :text %>
+    <%= f.text_field :text %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

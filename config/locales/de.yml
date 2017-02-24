@@ -1,0 +1,39 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+de:
+  client: "Klient_in"
+  clients: "Stammdatensätze (Klienten)"
+  newclient: "Neuer Stammdatensatz (Klient_in)"
+  editclient: "Stammdatensatz (Klient_in) bearbeiten"
+  client_code: "Code"
+  lastname: "Familienname"
+  firstname: "Vorname"
+  birthdate: "Geburtsdatum"
+  sex: "Geschlecht"
+  homeplace: "Wohnort"
+  citizenship: "Staatsangehörigkeit"
+  legalstatus: "Aufenthaltsstatus"
+  familystatus: "Familiensituation"
+  childrencount: "Anzahl der Kinder"
+  datefirstcontact: "Erstkontakt am:"
+  referrer: "Vermittelt von:"
+  referrerfreetext: "sonstige hier eingeben:"

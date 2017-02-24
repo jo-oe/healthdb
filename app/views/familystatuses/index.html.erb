@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Familystatuses</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Code</th>
+      <th>Text</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @familystatuses.each do |familystatus| %>
+      <tr>
+        <td><%= familystatus.code %></td>
+        <td><%= familystatus.text %></td>
+        <td><%= link_to 'Show', familystatus %></td>
+        <td><%= link_to 'Edit', edit_familystatus_path(familystatus) %></td>
+        <td><%= link_to 'Destroy', familystatus, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Familystatus', new_familystatus_path %>

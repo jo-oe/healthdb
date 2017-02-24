@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= t(:clients) %></h1>
+
+<table class='clienttable'>
+  <thead>
+    <tr>
+      <th class="rotate"><div><span><%= t(:code) %></span></div></th>
+      <th class="rotate"><div><span><%= t(:lastname) %></span></div></th>
+      <th class="rotate"><div><span><%= t(:firstname) %></span></div></th>
+      <th class="rotate"><div><span><%= t(:birthdate) %></span></div></th>
+      <th class="rotate"><div><span><%= t(:sex) %></span></div></th>
+      <th class="rotate"><div><span><%= t(:homeplace) %></span></div></th>
+      <th class="rotate"><div><span><%= t(:citizenship) %></span></div></th>
+      <th class="rotate"><div><span><%= t(:legalstatus) %></span></div></th>
+      <th class="rotate"><div><span><%= t(:familystatus) %></span></div></th>
+      <th class="rotate"><div><span><%= t(:childrencount) %></span></div></th>
+      <th class="rotate"><div><span><%= t(:datefirstcontact) %></span></div></th>
+      <th class="rotate"><div><span><%= t(:referrer) %></span></div></th>
+      <th class="rotate"><div><span><%= t(:referrerfreetext) %></span></div></th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @clients.each do |client| %>
+      <tr>
+        <td><%= client.code %></td>
+        <td><%= client.lastname %></td>
+        <td><%= client.firstname %></td>
+        <td><%= client.birthdate %></td>
+        <td><%= client.sex.code %></td>
+        <td><%= client.homeplace.code %></td>
+        <td><%= client.citizenship.iso3166 %></td>
+        <td><%= client.legalstatus.code %></td>
+        <td><%= client.familystatus.code %></td>
+        <td><%= client.childrencount %></td>
+        <td><%= client.datefirstcontact %></td>
+        <td><%= client.referrer.code %></td>
+        <td><%= client.referrerfreetext %></td>
+        <td><%= link_to 'Show', client %></td>
+        <td><%= link_to 'Edit', edit_client_path(client) %></td>
+        <td><%= link_to 'Destroy', client, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

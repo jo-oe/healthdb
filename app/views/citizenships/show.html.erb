@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Iso3166:</strong>
+  <%= @citizenship.iso3166 %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @citizenship.name %>
+</p>
+
+<%= link_to 'Edit', edit_citizenship_path(@citizenship) %> |
+<%= link_to 'Back', citizenships_path %>

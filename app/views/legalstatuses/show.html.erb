@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Code:</strong>
+  <%= @legalstatus.code %>
+</p>
+
+<p>
+  <strong>Text:</strong>
+  <%= @legalstatus.text %>
+</p>
+
+<%= link_to 'Edit', edit_legalstatus_path(@legalstatus) %> |
+<%= link_to 'Back', legalstatuses_path %>

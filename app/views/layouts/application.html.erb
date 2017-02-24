@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Healthdb</title>
+  <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body>
+
+  <div class='container-fluid'>
+    <div class='row statusline'>
+      <div class='col-sm-3'>
+        Datenverwaltung Clearingstelle
+      </div>
+      <div class='col-sm-3'>
+        Benutzer_in: <%= %>
+      </div>
+      <div class='col-sm-3'>
+        &nbsp;
+      </div>
+      <div class='col-sm-3' id='statustime'>
+        <%= Time.now.strftime("%d.%m.%Y %H:%M:%S") %>
+      </div>
+    </div>
+
+    <div class='row menu'>
+      <div class='col-sm-12 menuitem'>
+        <%= link_to t(:newclient), new_client_path, class: 'btn btn-sm btn-clientnew' %>
+        <%= link_to 'Klientenliste', clients_path, class: 'btn btn-sm btn-clientindex' %>
+        <%= link_to 'Abmelden', clients_path, class: 'btn btn-sm btn-logout' %>
+      </div>
+    </div>
+    <div class='row'>
+      <div class='col-sm-12'>
+        <%= yield %>
+      </div>
+    </div>
+  </div>
+
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+<%= form_for(legalstatus) do |f| %>
+  <% if legalstatus.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(legalstatus.errors.count, "error") %> prohibited this legalstatus from being saved:</h2>
+
+      <ul>
+      <% legalstatus.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :code %>
+    <%= f.text_field :code %>
+  </div>
+
+  <div class="field">
+    <%= f.label :text %>
+    <%= f.text_field :text %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
