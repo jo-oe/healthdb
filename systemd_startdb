@@ -1,0 +1,5 @@
+#!/bin/sh
+sleep 10
+cd /data/healthdb
+/usr/local/rvm/bin/systemd_rails s -p 10081 -b `./getip.sh` -e development
+
