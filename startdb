@@ -1,4 +1,1 @@
-#!/bin/sh
-cd /data/healthdb
-export SECRET_KEY_BASE="`cat .secret_environment`"
-rails s -p 10081 -b `./getip.sh` -e production
+startdb-development
