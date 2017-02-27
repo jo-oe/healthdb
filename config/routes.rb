@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :users
   get 'main_menu/index'
 
   get 'citizenships/typeahead/:query' => 'citizenships#typeahead'
