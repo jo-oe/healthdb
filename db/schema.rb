@@ -12,15 +12,15 @@
 
 ActiveRecord::Schema.define(version: 20170222162416) do
 
-  create_table "citizenships", force: :cascade do |t|
+  create_table "citizenships", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "iso3166",    limit: 3
     t.string   "name"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
-    t.index ["iso3166"], name: "index_citizenships_on_iso3166", unique: true
+    t.index ["iso3166"], name: "index_citizenships_on_iso3166", unique: true, using: :btree
   end
 
-  create_table "clients", force: :cascade do |t|
+  create_table "clients", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "code",             limit: 8
     t.string   "lastname"
     t.string   "firstname"
@@ -36,44 +36,44 @@ ActiveRecord::Schema.define(version: 20170222162416) do
     t.string   "referrerfreetext"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
-    t.index ["citizenship_id"], name: "index_clients_on_citizenship_id"
-    t.index ["code"], name: "index_clients_on_code", unique: true
-    t.index ["familystatus_id"], name: "index_clients_on_familystatus_id"
-    t.index ["homeplace_id"], name: "index_clients_on_homeplace_id"
-    t.index ["legalstatus_id"], name: "index_clients_on_legalstatus_id"
-    t.index ["referrer_id"], name: "index_clients_on_referrer_id"
-    t.index ["sex_id"], name: "index_clients_on_sex_id"
+    t.index ["citizenship_id"], name: "index_clients_on_citizenship_id", using: :btree
+    t.index ["code"], name: "index_clients_on_code", unique: true, using: :btree
+    t.index ["familystatus_id"], name: "index_clients_on_familystatus_id", using: :btree
+    t.index ["homeplace_id"], name: "index_clients_on_homeplace_id", using: :btree
+    t.index ["legalstatus_id"], name: "index_clients_on_legalstatus_id", using: :btree
+    t.index ["referrer_id"], name: "index_clients_on_referrer_id", using: :btree
+    t.index ["sex_id"], name: "index_clients_on_sex_id", using: :btree
   end
 
-  create_table "familystatuses", force: :cascade do |t|
+  create_table "familystatuses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "code",       limit: 1
     t.string   "text"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
   end
 
-  create_table "homeplaces", force: :cascade do |t|
+  create_table "homeplaces", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "code",       limit: 1
     t.string   "text"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
   end
 
-  create_table "legalstatuses", force: :cascade do |t|
+  create_table "legalstatuses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "code",       limit: 1
     t.string   "text"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
   end
 
-  create_table "referrers", force: :cascade do |t|
+  create_table "referrers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "code",       limit: 1
     t.string   "text"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
   end
 
-  create_table "sexes", force: :cascade do |t|
+  create_table "sexes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "code",       limit: 1
     t.string   "text"
     t.datetime "created_at",           null: false
