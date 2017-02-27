@@ -63,8 +63,10 @@ Legalstatus.delete_all
 Familystatus.delete_all
 Referrer.delete_all
 
+p "Creating citizenships"
 Citizenship.create( [ :iso3166 => '000', :name => 'unbekannt'])
 CSV.foreach('db/countries.csv', col_sep: ',', headers: true) do |row|
+ p row
  Citizenship.create(row.to_h)
 end
 

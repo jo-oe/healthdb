@@ -1,6 +1,7 @@
 class CitizenshipsController < ApplicationController
   before_action :set_citizenship, only: [:show, :edit, :update, :destroy]
 
+
   def autocomplete
     render json: Citizenship.search(params[:query], match: :word_start, limit: 10).map do |citizenship|
       { name: citizenship.name, iso3166: citizenship.iso3166 }

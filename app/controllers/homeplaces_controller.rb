@@ -1,4 +1,5 @@
 class HomeplacesController < ApplicationController
+  before_filter :authorize_admin
   before_action :set_homeplace, only: [:show, :edit, :update, :destroy]
 
   # GET /homeplaces

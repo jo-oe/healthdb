@@ -1,4 +1,5 @@
 class ReferrersController < ApplicationController
+  before_filter :authorize_admin
   before_action :set_referrer, only: [:show, :edit, :update, :destroy]
 
   # GET /referrers

@@ -1,4 +1,5 @@
 class LegalstatusesController < ApplicationController
+  before_filter :authorize_admin
   before_action :set_legalstatus, only: [:show, :edit, :update, :destroy]
 
   # GET /legalstatuses

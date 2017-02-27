@@ -1,8 +1,16 @@
 Rails.application.routes.draw do
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  get '/logout' => 'sessions#destroy'
+
+  get '/signup' => 'users#new'
+  post '/users' => 'users#create'
+
   get 'main_menu/index'
 
   get 'citizenships/typeahead/:query' => 'citizenships#typeahead'
 
+  resources :users
   resources :clients
   resources :sexes
   resources :referrers

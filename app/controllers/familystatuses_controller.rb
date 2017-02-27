@@ -1,4 +1,5 @@
 class FamilystatusesController < ApplicationController
+  before_filter :authorize_admin
   before_action :set_familystatus, only: [:show, :edit, :update, :destroy]
 
   # GET /familystatuses
