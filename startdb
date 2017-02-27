@@ -1,6 +1,6 @@
 #!/bin/sh
 sleep 10
 cd /data/healthdb
-source ./.secret_environment
+export SECRET_KEY_BASE="`cat .secret_environment`"
 rails s -p 10081 -b `./getip.sh` -e production
 

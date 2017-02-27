@@ -100,14 +100,14 @@ select.form-control {
 
 th.rotate {
   /* Something you can count on */
-  height: 75px;
+  height: 85px;
   white-space: nowrap;
 }
 
 th.rotate > div {
   transform:
     /* Magic Numbers */
-    translate(22px, 22px)
+    translate(22px, 27px)
     /* 45 is really 360 - 45 */
     rotate(315deg);
   width: 30px;
