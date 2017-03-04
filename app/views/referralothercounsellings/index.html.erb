@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Referralothercounsellings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Code</th>
+      <th>Text</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @referralothercounsellings.each do |referralothercounselling| %>
+      <tr>
+        <td><%= referralothercounselling.code %></td>
+        <td><%= referralothercounselling.text %></td>
+        <td><%= link_to 'Show', referralothercounselling %></td>
+        <td><%= link_to 'Edit', edit_referralothercounselling_path(referralothercounselling) %></td>
+        <td><%= link_to 'Destroy', referralothercounselling, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Referralothercounselling', new_referralothercounselling_path %>

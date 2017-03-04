@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Referralmedicals</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Code</th>
+      <th>Text</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @referralmedicals.each do |referralmedical| %>
+      <tr>
+        <td><%= referralmedical.code %></td>
+        <td><%= referralmedical.text %></td>
+        <td><%= link_to 'Show', referralmedical %></td>
+        <td><%= link_to 'Edit', edit_referralmedical_path(referralmedical) %></td>
+        <td><%= link_to 'Destroy', referralmedical, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Referralmedical', new_referralmedical_path %>

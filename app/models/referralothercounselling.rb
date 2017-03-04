@@ -1,0 +1,2 @@
+class Referralothercounselling < ApplicationRecord
+end

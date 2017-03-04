@@ -1,0 +1,2 @@
+class Insurancestatus < ApplicationRecord
+end

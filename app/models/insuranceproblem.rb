@@ -1,0 +1,2 @@
+class Insuranceproblem < ApplicationRecord
+end

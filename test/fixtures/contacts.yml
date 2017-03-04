@@ -1,0 +1,55 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  client: one
+  contactdate: 2017-03-04
+  counsellor: one
+  contactreason: one
+  contactreasonfreetext: MyString
+  insurancestatus: one
+  counselledperson: one
+  translatorused: one
+  has_insuranceproblem: false
+  has_paymentproblem: false
+  has_housingproblem: false
+  has_workproblem: false
+  has_psychosocialproblem: false
+  has_healthproblem: false
+  insuranceproblem: one
+  healthproblem: one
+  referral: one
+  referralcaritas: one
+  referraldiakonie: one
+  referralothercounselling: one
+  referralmedical: one
+  referralauthority: one
+  successfulinsurance: one
+  failedinsurance: one
+  comment: MyText
+
+two:
+  client: two
+  contactdate: 2017-03-04
+  counsellor: two
+  contactreason: two
+  contactreasonfreetext: MyString
+  insurancestatus: two
+  counselledperson: two
+  translatorused: two
+  has_insuranceproblem: false
+  has_paymentproblem: false
+  has_housingproblem: false
+  has_workproblem: false
+  has_psychosocialproblem: false
+  has_healthproblem: false
+  insuranceproblem: two
+  healthproblem: two
+  referral: two
+  referralcaritas: two
+  referraldiakonie: two
+  referralothercounselling: two
+  referralmedical: two
+  referralauthority: two
+  successfulinsurance: two
+  failedinsurance: two
+  comment: MyText

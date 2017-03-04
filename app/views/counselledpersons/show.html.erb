@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Code:</strong>
+  <%= @counselledperson.code %>
+</p>
+
+<p>
+  <strong>Text:</strong>
+  <%= @counselledperson.text %>
+</p>
+
+<%= link_to 'Edit', edit_counselledperson_path(@counselledperson) %> |
+<%= link_to 'Back', counselledpersons_index_path %>

@@ -1,0 +1,2 @@
+module ReferralauthoritiesHelper
+end

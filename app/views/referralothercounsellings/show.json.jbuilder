@@ -1,0 +1,1 @@
+json.partial! "referralothercounsellings/referralothercounselling", referralothercounselling: @referralothercounselling

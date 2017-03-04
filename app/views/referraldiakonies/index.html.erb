@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Referraldiakonies</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Code</th>
+      <th>Text</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @referraldiakonies.each do |referraldiakony| %>
+      <tr>
+        <td><%= referraldiakony.code %></td>
+        <td><%= referraldiakony.text %></td>
+        <td><%= link_to 'Show', referraldiakony %></td>
+        <td><%= link_to 'Edit', edit_referraldiakony_path(referraldiakony) %></td>
+        <td><%= link_to 'Destroy', referraldiakony, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Referraldiakony', new_referraldiakony_path %>

@@ -1,0 +1,2 @@
+class Referraldiakonie < ApplicationRecord
+end

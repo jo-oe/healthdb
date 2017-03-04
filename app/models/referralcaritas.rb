@@ -1,0 +1,2 @@
+class Referralcaritas < ApplicationRecord
+end

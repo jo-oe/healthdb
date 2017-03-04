@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Translatoruseds</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Code</th>
+      <th>Text</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @translatoruseds.each do |translatorused| %>
+      <tr>
+        <td><%= translatorused.code %></td>
+        <td><%= translatorused.text %></td>
+        <td><%= link_to 'Show', translatorused %></td>
+        <td><%= link_to 'Edit', edit_translatorused_path(translatorused) %></td>
+        <td><%= link_to 'Destroy', translatorused, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Translatorused', new_translatorused_path %>

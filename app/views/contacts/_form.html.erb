@@ -1,0 +1,142 @@
+<%= form_for(contact) do |f| %>
+  <% if contact.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(contact.errors.count, "error") %> prohibited this contact from being saved:</h2>
+
+      <ul>
+      <% contact.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :client_id %>
+    <%= f.text_field :client_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :contactdate %>
+    <%= f.date_select :contactdate %>
+  </div>
+
+  <div class="field">
+    <%= f.label :counsellor_id %>
+    <%= f.text_field :counsellor_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :contactreason_id %>
+    <%= f.text_field :contactreason_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :contactreasonfreetext %>
+    <%= f.text_field :contactreasonfreetext %>
+  </div>
+
+  <div class="field">
+    <%= f.label :insurancestatus_id %>
+    <%= f.text_field :insurancestatus_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :counselledperson_id %>
+    <%= f.text_field :counselledperson_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :translatorused_id %>
+    <%= f.text_field :translatorused_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :has_insuranceproblem %>
+    <%= f.check_box :has_insuranceproblem %>
+  </div>
+
+  <div class="field">
+    <%= f.label :has_paymentproblem %>
+    <%= f.check_box :has_paymentproblem %>
+  </div>
+
+  <div class="field">
+    <%= f.label :has_housingproblem %>
+    <%= f.check_box :has_housingproblem %>
+  </div>
+
+  <div class="field">
+    <%= f.label :has_workproblem %>
+    <%= f.check_box :has_workproblem %>
+  </div>
+
+  <div class="field">
+    <%= f.label :has_psychosocialproblem %>
+    <%= f.check_box :has_psychosocialproblem %>
+  </div>
+
+  <div class="field">
+    <%= f.label :has_healthproblem %>
+    <%= f.check_box :has_healthproblem %>
+  </div>
+
+  <div class="field">
+    <%= f.label :insuranceproblem_id %>
+    <%= f.text_field :insuranceproblem_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :healthproblem_id %>
+    <%= f.text_field :healthproblem_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :referral_id %>
+    <%= f.text_field :referral_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :referralcaritas_id %>
+    <%= f.text_field :referralcaritas_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :referraldiakonie_id %>
+    <%= f.text_field :referraldiakonie_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :referralothercounselling_id %>
+    <%= f.text_field :referralothercounselling_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :referralmedical_id %>
+    <%= f.text_field :referralmedical_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :referralauthority_id %>
+    <%= f.text_field :referralauthority_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :successfulinsurance_id %>
+    <%= f.text_field :successfulinsurance_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :failedinsurance_id %>
+    <%= f.text_field :failedinsurance_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :comment %>
+    <%= f.text_area :comment %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170227120458) do
+ActiveRecord::Schema.define(version: 20170304182139) do
 
   create_table "citizenships", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "iso3166",    limit: 3
@@ -45,7 +45,81 @@ ActiveRecord::Schema.define(version: 20170227120458) do
     t.index ["sex_id"], name: "index_clients_on_sex_id", using: :btree
   end
 
+  create_table "contactreasons", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_german2_ci" do |t|
+    t.string   "code",       limit: 1
+    t.string   "text"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  create_table "contacts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_german2_ci" do |t|
+    t.integer  "client_id"
+    t.date     "contactdate"
+    t.integer  "user_id"
+    t.integer  "contactreason_id"
+    t.string   "contactreasonfreetext"
+    t.integer  "insurancestatus_id"
+    t.integer  "counselledpersons_id"
+    t.integer  "translatorused_id"
+    t.boolean  "has_insuranceproblem"
+    t.boolean  "has_paymentproblem"
+    t.boolean  "has_housingproblem"
+    t.boolean  "has_workproblem"
+    t.boolean  "has_psychosocialproblem"
+    t.boolean  "has_healthproblem"
+    t.integer  "insuranceproblem_id"
+    t.integer  "healthproblem_id"
+    t.integer  "referral_id"
+    t.integer  "referralcaritas_id"
+    t.integer  "referraldiakonie_id"
+    t.integer  "referralothercounselling_id"
+    t.integer  "referralmedical_id"
+    t.integer  "referralauthority_id"
+    t.integer  "successfulinsurance_id"
+    t.integer  "failedinsurance_id"
+    t.text     "comment",                     limit: 65535
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
+    t.index ["client_id"], name: "index_contacts_on_client_id", using: :btree
+    t.index ["contactreason_id"], name: "index_contacts_on_contactreason_id", using: :btree
+    t.index ["counselledpersons_id"], name: "index_contacts_on_counselledpersons_id", using: :btree
+    t.index ["failedinsurance_id"], name: "index_contacts_on_failedinsurance_id", using: :btree
+    t.index ["healthproblem_id"], name: "index_contacts_on_healthproblem_id", using: :btree
+    t.index ["insuranceproblem_id"], name: "index_contacts_on_insuranceproblem_id", using: :btree
+    t.index ["insurancestatus_id"], name: "index_contacts_on_insurancestatus_id", using: :btree
+    t.index ["referral_id"], name: "index_contacts_on_referral_id", using: :btree
+    t.index ["referralauthority_id"], name: "index_contacts_on_referralauthority_id", using: :btree
+    t.index ["referralcaritas_id"], name: "index_contacts_on_referralcaritas_id", using: :btree
+    t.index ["referraldiakonie_id"], name: "index_contacts_on_referraldiakonie_id", using: :btree
+    t.index ["referralmedical_id"], name: "index_contacts_on_referralmedical_id", using: :btree
+    t.index ["referralothercounselling_id"], name: "index_contacts_on_referralothercounselling_id", using: :btree
+    t.index ["successfulinsurance_id"], name: "index_contacts_on_successfulinsurance_id", using: :btree
+    t.index ["translatorused_id"], name: "index_contacts_on_translatorused_id", using: :btree
+    t.index ["user_id"], name: "index_contacts_on_user_id", using: :btree
+  end
+
+  create_table "counselledpersons", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_german2_ci" do |t|
+    t.string   "code",       limit: 1
+    t.string   "text"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  create_table "failedinsurances", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_german2_ci" do |t|
+    t.string   "code",       limit: 1
+    t.string   "text"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
   create_table "familystatuses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "code",       limit: 1
+    t.string   "text"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  create_table "healthproblems", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_german2_ci" do |t|
     t.string   "code",       limit: 1
     t.string   "text"
     t.datetime "created_at",           null: false
@@ -59,7 +133,70 @@ ActiveRecord::Schema.define(version: 20170227120458) do
     t.datetime "updated_at",           null: false
   end
 
+  create_table "insuranceproblems", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_german2_ci" do |t|
+    t.string   "code",       limit: 1
+    t.string   "text"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  create_table "insurancestatuses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_german2_ci" do |t|
+    t.string   "code",       limit: 1
+    t.string   "text"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
   create_table "legalstatuses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "code",       limit: 1
+    t.string   "text"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  create_table "problems", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_german2_ci" do |t|
+    t.string   "code",       limit: 1
+    t.string   "text"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  create_table "referralauthorities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_german2_ci" do |t|
+    t.string   "code",       limit: 1
+    t.string   "text"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  create_table "referralcaritas", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_german2_ci" do |t|
+    t.string   "code",       limit: 1
+    t.string   "text"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  create_table "referraldiakonies", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_german2_ci" do |t|
+    t.string   "code",       limit: 1
+    t.string   "text"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  create_table "referralmedicals", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_german2_ci" do |t|
+    t.string   "code",       limit: 1
+    t.string   "text"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  create_table "referralothercounsellings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_german2_ci" do |t|
+    t.string   "code",       limit: 1
+    t.string   "text"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  create_table "referrals", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_german2_ci" do |t|
     t.string   "code",       limit: 1
     t.string   "text"
     t.datetime "created_at",           null: false
@@ -80,6 +217,20 @@ ActiveRecord::Schema.define(version: 20170227120458) do
     t.datetime "updated_at",           null: false
   end
 
+  create_table "successfulinsurances", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_german2_ci" do |t|
+    t.string   "code",       limit: 1
+    t.string   "text"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  create_table "translatoruseds", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_german2_ci" do |t|
+    t.string   "code",       limit: 1
+    t.string   "text"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "username"
     t.string   "signature",       limit: 2
@@ -89,4 +240,20 @@ ActiveRecord::Schema.define(version: 20170227120458) do
     t.index ["signature"], name: "index_users_on_signature", unique: true, using: :btree
   end
 
+  add_foreign_key "contacts", "clients"
+  add_foreign_key "contacts", "contactreasons"
+  add_foreign_key "contacts", "counselledpersons", column: "counselledpersons_id"
+  add_foreign_key "contacts", "failedinsurances"
+  add_foreign_key "contacts", "healthproblems"
+  add_foreign_key "contacts", "insuranceproblems"
+  add_foreign_key "contacts", "insurancestatuses"
+  add_foreign_key "contacts", "referralauthorities"
+  add_foreign_key "contacts", "referralcaritas", column: "referralcaritas_id"
+  add_foreign_key "contacts", "referraldiakonies", column: "referraldiakonie_id"
+  add_foreign_key "contacts", "referralmedicals"
+  add_foreign_key "contacts", "referralothercounsellings"
+  add_foreign_key "contacts", "referrals"
+  add_foreign_key "contacts", "successfulinsurances"
+  add_foreign_key "contacts", "translatoruseds"
+  add_foreign_key "contacts", "users"
 end

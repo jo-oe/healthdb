@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Referralcaritas</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Code</th>
+      <th>Text</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @referralcaritas.each do |referralcarita| %>
+      <tr>
+        <td><%= referralcarita.code %></td>
+        <td><%= referralcarita.text %></td>
+        <td><%= link_to 'Show', referralcarita %></td>
+        <td><%= link_to 'Edit', edit_referralcarita_path(referralcarita) %></td>
+        <td><%= link_to 'Destroy', referralcarita, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Referralcarita', new_referralcarita_path %>

@@ -1,4 +1,6 @@
 class Client < ApplicationRecord
+  has_many :contacts
+
   belongs_to :sex
   belongs_to :homeplace
   belongs_to :citizenship

@@ -1,0 +1,2 @@
+class Counselledpersons < ApplicationRecord
+end

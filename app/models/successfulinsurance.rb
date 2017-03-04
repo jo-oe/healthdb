@@ -1,0 +1,2 @@
+class Successfulinsurance < ApplicationRecord
+end

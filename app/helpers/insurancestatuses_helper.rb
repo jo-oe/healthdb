@@ -1,0 +1,2 @@
+module InsurancestatusesHelper
+end

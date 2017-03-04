@@ -1,0 +1,27 @@
+<%= form_for(referralothercounselling) do |f| %>
+  <% if referralothercounselling.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(referralothercounselling.errors.count, "error") %> prohibited this referralothercounselling from being saved:</h2>
+
+      <ul>
+      <% referralothercounselling.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :code %>
+    <%= f.text_field :code %>
+  </div>
+
+  <div class="field">
+    <%= f.label :text %>
+    <%= f.text_field :text %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

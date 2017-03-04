@@ -1,4 +1,20 @@
 Rails.application.routes.draw do
+  resources :contacts
+  resources :problems
+  resources :referralcaritas
+  resources :counselledpersons
+  resources :failedinsurances
+  resources :successfulinsurances
+  resources :referralauthorities
+  resources :referralmedicals
+  resources :referralothercounsellings
+  resources :referraldiakonies
+  resources :referrals
+  resources :healthproblems
+  resources :insuranceproblems
+  resources :translatoruseds
+  resources :insurancestatuses
+  resources :contactreasons
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'

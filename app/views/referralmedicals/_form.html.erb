@@ -1,0 +1,27 @@
+<%= form_for(referralmedical) do |f| %>
+  <% if referralmedical.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(referralmedical.errors.count, "error") %> prohibited this referralmedical from being saved:</h2>
+
+      <ul>
+      <% referralmedical.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :code %>
+    <%= f.text_field :code %>
+  </div>
+
+  <div class="field">
+    <%= f.label :text %>
+    <%= f.text_field :text %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

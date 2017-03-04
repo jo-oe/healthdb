@@ -1,0 +1,2 @@
+class Referralmedical < ApplicationRecord
+end

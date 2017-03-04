@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Successfulinsurances</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Code</th>
+      <th>Text</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @successfulinsurances.each do |successfulinsurance| %>
+      <tr>
+        <td><%= successfulinsurance.code %></td>
+        <td><%= successfulinsurance.text %></td>
+        <td><%= link_to 'Show', successfulinsurance %></td>
+        <td><%= link_to 'Edit', edit_successfulinsurance_path(successfulinsurance) %></td>
+        <td><%= link_to 'Destroy', successfulinsurance, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Successfulinsurance', new_successfulinsurance_path %>
