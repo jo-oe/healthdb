@@ -3,11 +3,11 @@ class CreateContacts < ActiveRecord::Migration[5.0]
     create_table :contacts do |t|
       t.belongs_to :client, foreign_key: true
       t.date :contactdate
-      t.belongs_to :user, foreign_key: "counsellor_id"
+      t.belongs_to :counsellor, class_name: "User"
       t.belongs_to :contactreason, foreign_key: true
       t.string :contactreasonfreetext
       t.belongs_to :insurancestatus, foreign_key: true
-      t.belongs_to :counselledpersons, foreign_key: true
+      t.belongs_to :counselledperson, class_name: "Counselledpersons"
       t.belongs_to :translatorused, foreign_key: true
       t.boolean :has_insuranceproblem
       t.boolean :has_paymentproblem

@@ -55,11 +55,11 @@ ActiveRecord::Schema.define(version: 20170304182139) do
   create_table "contacts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_german2_ci" do |t|
     t.integer  "client_id"
     t.date     "contactdate"
-    t.integer  "user_id"
+    t.integer  "counsellor_id"
     t.integer  "contactreason_id"
     t.string   "contactreasonfreetext"
     t.integer  "insurancestatus_id"
-    t.integer  "counselledpersons_id"
+    t.integer  "counselledperson_id"
     t.integer  "translatorused_id"
     t.boolean  "has_insuranceproblem"
     t.boolean  "has_paymentproblem"
@@ -82,7 +82,8 @@ ActiveRecord::Schema.define(version: 20170304182139) do
     t.datetime "updated_at",                                null: false
     t.index ["client_id"], name: "index_contacts_on_client_id", using: :btree
     t.index ["contactreason_id"], name: "index_contacts_on_contactreason_id", using: :btree
-    t.index ["counselledpersons_id"], name: "index_contacts_on_counselledpersons_id", using: :btree
+    t.index ["counselledperson_id"], name: "index_contacts_on_counselledperson_id", using: :btree
+    t.index ["counsellor_id"], name: "index_contacts_on_counsellor_id", using: :btree
     t.index ["failedinsurance_id"], name: "index_contacts_on_failedinsurance_id", using: :btree
     t.index ["healthproblem_id"], name: "index_contacts_on_healthproblem_id", using: :btree
     t.index ["insuranceproblem_id"], name: "index_contacts_on_insuranceproblem_id", using: :btree
@@ -95,7 +96,6 @@ ActiveRecord::Schema.define(version: 20170304182139) do
     t.index ["referralothercounselling_id"], name: "index_contacts_on_referralothercounselling_id", using: :btree
     t.index ["successfulinsurance_id"], name: "index_contacts_on_successfulinsurance_id", using: :btree
     t.index ["translatorused_id"], name: "index_contacts_on_translatorused_id", using: :btree
-    t.index ["user_id"], name: "index_contacts_on_user_id", using: :btree
   end
 
   create_table "counselledpersons", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_german2_ci" do |t|
@@ -242,7 +242,6 @@ ActiveRecord::Schema.define(version: 20170304182139) do
 
   add_foreign_key "contacts", "clients"
   add_foreign_key "contacts", "contactreasons"
-  add_foreign_key "contacts", "counselledpersons", column: "counselledpersons_id"
   add_foreign_key "contacts", "failedinsurances"
   add_foreign_key "contacts", "healthproblems"
   add_foreign_key "contacts", "insuranceproblems"
@@ -255,5 +254,4 @@ ActiveRecord::Schema.define(version: 20170304182139) do
   add_foreign_key "contacts", "referrals"
   add_foreign_key "contacts", "successfulinsurances"
   add_foreign_key "contacts", "translatoruseds"
-  add_foreign_key "contacts", "users"
 end
