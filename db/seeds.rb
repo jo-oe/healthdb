@@ -11,18 +11,18 @@ require 'csv'
 # Client selection fields initialisation
 
 p "Creating citizenships"
-Citizenship.delete_all
-Citizenship.create( [ :iso3166 => '000', :name => 'unbekannt'])
-CSV.foreach('db/countries.csv', col_sep: ',', headers: true) do |row|
+ Citizenship.delete_all
+ Citizenship.create( [ :id => '000', :name => 'unbekannt'])
+ CSV.foreach('db/countries.csv', col_sep: ',', headers: true) do |row|
  Citizenship.create(row.to_h)
 end
 
 p 'Creating sexes: '
 ss = [
-  [ :code => 'F', :text => 'weiblich' ],
-  [ :code => 'M', :text => 'männlich' ],
-  [ :code => 'O', :text => 'anderes' ],
-  [ :code => 'U', :text => 'unbekannt' ],
+  [ :id => 'F', :text => 'weiblich' ],
+  [ :id => 'M', :text => 'männlich' ],
+  [ :id => 'O', :text => 'anderes' ],
+  [ :id => 'U', :text => 'unbekannt' ],
 ]
 Sex.delete_all
 ss.each do |s|
@@ -31,11 +31,11 @@ end
 
 p 'Creating homeplaces: '
 hs = [
-  [ :code => 'U', :text => 'unbekannt' ],
-  [ :code => 'K', :text => 'Köln' ],
-  [ :code => 'N', :text => 'sonstige NRW' ],
-  [ :code => 'D', :text => 'sonstige Deutschland' ],
-  [ :code => 'A', :text => 'Ausland' ]
+  [ :id => 'U', :text => 'unbekannt' ],
+  [ :id => 'K', :text => 'Köln' ],
+  [ :id => 'N', :text => 'sonstige NRW' ],
+  [ :id => 'D', :text => 'sonstige Deutschland' ],
+  [ :id => 'A', :text => 'Ausland' ]
 ]
 Homeplace.delete_all
 hs.each do |h|
@@ -44,15 +44,15 @@ end
 
 p 'Creating legalstatuses: '
 ls = [
-  [ :code => 'U', :text => 'unbekannt' ],
-  [ :code => 'E', :text => 'EU-Bürger' ],
-  [ :code => 'V', :text => 'Nicht-EU-Bürger mit Visum' ],
-  [ :code => 'W', :text => 'Nicht-EU-Bürger, in anderem EU-Land lebend' ],
-  [ :code => 'A', :text => 'Flüchtling im laufenden Verfahren (asylsuchend)' ],
-  [ :code => 'B', :text => 'Flüchtling BÜMA' ],
-  [ :code => 'F', :text => 'Flüchtling anerkannt' ],
-  [ :code => 'P', :text => 'Papierlos' ],
-  [ :code => 'D', :text => 'Deutsche_r' ]
+  [ :id => 'U', :text => 'unbekannt' ],
+  [ :id => 'E', :text => 'EU-Bürger' ],
+  [ :id => 'V', :text => 'Nicht-EU-Bürger mit Visum' ],
+  [ :id => 'W', :text => 'Nicht-EU-Bürger, in anderem EU-Land lebend' ],
+  [ :id => 'A', :text => 'Flüchtling im laufenden Verfahren (asylsuchend)' ],
+  [ :id => 'B', :text => 'Flüchtling BÜMA' ],
+  [ :id => 'F', :text => 'Flüchtling anerkannt' ],
+  [ :id => 'P', :text => 'Papierlos' ],
+  [ :id => 'D', :text => 'Deutsche_r' ]
 ]
 Legalstatus.delete_all
 ls.each do |l|
@@ -61,11 +61,11 @@ end
 
 p 'Creating familystatuses: '
 fs = [
-  [ :code => 'U', :text => 'unbekannt' ],
-  [ :code => 'L', :text => 'ledig' ],
-  [ :code => 'V', :text => 'verheiratet/eingetragene Lebenspartnerschaft' ],
-  [ :code => 'Z', :text => 'unverheiratet zusammenlebend (Bedarfsgemeinschaft)' ],
-  [ :code => 'O', :text => 'sonstige' ]
+  [ :id => 'U', :text => 'unbekannt' ],
+  [ :id => 'L', :text => 'ledig' ],
+  [ :id => 'V', :text => 'verheiratet/eingetragene Lebenspartnerschaft' ],
+  [ :id => 'Z', :text => 'unverheiratet zusammenlebend (Bedarfsgemeinschaft)' ],
+  [ :id => 'O', :text => 'sonstige' ]
 ]
 Familystatus.delete_all
 fs.each do |f|
@@ -74,15 +74,15 @@ end
 
 p 'Creating referrers: '
 rs = [
-  [ :code => 'U', :text => 'unbekannt' ],
-  [ :code => 'G', :text => 'Gesundheitsamt' ],
-  [ :code => 'D', :text => 'Suchtberatung/Drogenambulanz' ],
-  [ :code => 'M', :text => 'Malteser Migranten Medizin' ],
-  [ :code => 'N', :text => 'MMD' ],
-  [ :code => 'W', :text => 'Flüchtlingsunterkunft/Wohnheim' ],
-  [ :code => 'K', :text => 'Krankenhaus' ],
-  [ :code => 'A', :text => 'Arztpraxis' ],
-  [ :code => 'O', :text => 'sonstige' ]
+  [ :id => 'U', :text => 'unbekannt' ],
+  [ :id => 'G', :text => 'Gesundheitsamt' ],
+  [ :id => 'D', :text => 'Suchtberatung/Drogenambulanz' ],
+  [ :id => 'M', :text => 'Malteser Migranten Medizin' ],
+  [ :id => 'N', :text => 'MMD' ],
+  [ :id => 'W', :text => 'Flüchtlingsunterkunft/Wohnheim' ],
+  [ :id => 'K', :text => 'Krankenhaus' ],
+  [ :id => 'A', :text => 'Arztpraxis' ],
+  [ :id => 'O', :text => 'sonstige' ]
 ]
 Referrer.delete_all
 rs.each do |r|
@@ -94,12 +94,12 @@ end
 
 p 'Creating contactreasons: '
 cs = [
-  [ :code => 'V', :text => 'Versicherung (allgemein)' ],
-  [ :code => 'K', :text => 'Krankenhaus-Kosten' ],
-  [ :code => 'A', :text => 'Arztkosten' ],
-  [ :code => 'M', :text => 'Medizinischer Versorgungsbedarf (akut)' ],
-  [ :code => 'R', :text => 'Aufenthaltsrecht' ],
-  [ :code => 'S', :text => 'sonstiges' ]
+  [ :id => 'V', :text => 'Versicherung (allgemein)' ],
+  [ :id => 'K', :text => 'Krankenhaus-Kosten' ],
+  [ :id => 'A', :text => 'Arztkosten' ],
+  [ :id => 'M', :text => 'Medizinischer Versorgungsbedarf (akut)' ],
+  [ :id => 'R', :text => 'Aufenthaltsrecht' ],
+  [ :id => 'O', :text => 'sonstiges' ]
 ]
 
 Contactreason.delete_all
@@ -109,13 +109,13 @@ end
 
 p 'Creating insurancestatuses: '
 is = [
-  [ :code => 'N', :text => 'keine Versicherung' ],
-  [ :code => 'G', :text => 'GKV-Karte (SGB oder AsylbLG)' ],
-  [ :code => 'P', :text => 'PKV' ],
-  [ :code => 'E', :text => 'EHIC' ],
-  [ :code => 'A', :text => 'AsylbLG ohne Karte' ],
-  [ :code => 'R', :text => 'Reiseversicherung' ],
-  [ :code => 'U', :text => 'unklar' ]
+  [ :id => 'N', :text => 'keine Versicherung' ],
+  [ :id => 'G', :text => 'GKV-Karte (SGB oder AsylbLG)' ],
+  [ :id => 'P', :text => 'PKV' ],
+  [ :id => 'E', :text => 'EHIC' ],
+  [ :id => 'A', :text => 'AsylbLG ohne Karte' ],
+  [ :id => 'R', :text => 'Reiseversicherung' ],
+  [ :id => 'U', :text => 'unklar' ]
 ]
 
 Insurancestatus.delete_all
@@ -125,13 +125,13 @@ end
 
 p 'Creating counselledpersons: '
 cs = [
-  [ :code => 'K', :text => 'Klient_in' ],
-  [ :code => 'P', :text => 'Eltern' ],
-  [ :code => 'F', :text => 'andere Familienangehörige/Erwachsene' ],
-  [ :code => 'V', :text => 'Vormund/Betreuer' ],
-  [ :code => 'M', :text => 'Medizinische Einrichtung (Personal)' ],
-  [ :code => 'H', :text => 'sonstige profesionelle Helfer' ],
-  [ :code => 'E', :text => 'ehrenamtliche Helfer' ],
+  [ :id => 'K', :text => 'Klient_in' ],
+  [ :id => 'P', :text => 'Eltern' ],
+  [ :id => 'F', :text => 'andere Familienangehörige/Erwachsene' ],
+  [ :id => 'V', :text => 'Vormund/Betreuer' ],
+  [ :id => 'M', :text => 'Medizinische Einrichtung (Personal)' ],
+  [ :id => 'H', :text => 'sonstige profesionelle Helfer' ],
+  [ :id => 'E', :text => 'ehrenamtliche Helfer' ],
 ]
 
 Counselledpersons.delete_all
@@ -141,28 +141,28 @@ end
 
 p 'Creating translatoruseds: '
 ts = [
-  [ :code => 'N', :text => 'nicht erforderlich' ],
-  [ :code => 'P', :text => 'professionell aus Projekt' ],
-  [ :code => 'M', :text => 'professionell mitgebracht' ],
-  [ :code => 'F', :text => 'Freund/Familie' ],
-  [ :code => 'E', :text => 'Ehrenamt' ],
-  [ :code => 'V', :text => 'Video/Telefon' ],
-  [ :code => 'X', :text => 'erforderlich aber nicht vorhanden' ]
+  [ :id => 'N', :text => 'nicht erforderlich' ],
+  [ :id => 'P', :text => 'professionell aus Projekt' ],
+  [ :id => 'M', :text => 'professionell mitgebracht' ],
+  [ :id => 'F', :text => 'Freund/Familie' ],
+  [ :id => 'E', :text => 'Ehrenamt' ],
+  [ :id => 'V', :text => 'Video/Telefon' ],
+  [ :id => 'X', :text => 'erforderlich aber nicht vorhanden' ]
 ]
 
 Translatorused.delete_all
-is.each do |t|
+ts.each do |t|
   Translatorused.create(t)
 end
 
 p 'Creating problems: '
 pbs = [
-  [ :code => 'V', :text => 'Versicherung' ],
-  [ :code => 'K', :text => 'Kosten medizinische Versorgung (Krankenhaus/ambulant)' ],
-  [ :code => 'W', :text => 'Wohnung' ],
-  [ :code => 'A', :text => 'Arbeit/soziale Absicherung' ],
-  [ :code => 'P', :text => 'psychosoziale Probleme' ],
-  [ :code => 'G', :text => 'Gesundheit' ]
+  [ :id => 'V', :text => 'Versicherung' ],
+  [ :id => 'K', :text => 'Kosten medizinische Versorgung (Krankenhaus/ambulant)' ],
+  [ :id => 'W', :text => 'Wohnung' ],
+  [ :id => 'A', :text => 'Arbeit/soziale Absicherung' ],
+  [ :id => 'P', :text => 'psychosoziale Probleme' ],
+  [ :id => 'G', :text => 'Gesundheit' ]
 ]
 
 Problem.delete_all
@@ -172,13 +172,13 @@ end
 
 p 'Creating insuranceproblems: '
 is = [
-  [ :code => 'G', :text => 'Versicherung klären allgemein' ],
-  [ :code => 'S', :text => 'Beitragsschulden' ],
-  [ :code => 'E', :text => 'EHIC unklar' ],
-  [ :code => 'V', :text => 'Vorversicherungszeiten unklar' ],
-  [ :code => 'F', :text => 'Familienversicherung' ],
-  [ :code => 'D', :text => 'doppelt versichert' ],
-  [ :code => 'O', :text => 'sonstiges' ]
+  [ :id => 'G', :text => 'Versicherung klären allgemein' ],
+  [ :id => 'S', :text => 'Beitragsschulden' ],
+  [ :id => 'E', :text => 'EHIC unklar' ],
+  [ :id => 'V', :text => 'Vorversicherungszeiten unklar' ],
+  [ :id => 'F', :text => 'Familienversicherung' ],
+  [ :id => 'D', :text => 'doppelt versichert' ],
+  [ :id => 'O', :text => 'sonstiges' ]
 ]
 
 Insuranceproblem.delete_all
@@ -188,12 +188,12 @@ end
 
 p 'Creating healthproblems: '
 hs = [
-  [ :code => 'S', :text => 'somatisch' ],
-  [ :code => 'P', :text => 'psychisch' ],
-  [ :code => 'T', :text => 'Traumatisierung (auch Verdacht)' ],
-  [ :code => 'D', :text => 'Sucht' ],
-  [ :code => 'S', :text => 'Schwangerschaft' ],
-  [ :code => 'O', :text => 'sonstiges' ]
+  [ :id => 'S', :text => 'somatisch' ],
+  [ :id => 'P', :text => 'psychisch' ],
+  [ :id => 'T', :text => 'Traumatisierung (auch Verdacht)' ],
+  [ :id => 'D', :text => 'Sucht' ],
+  [ :id => 'R', :text => 'Schwangerschaft' ],
+  [ :id => 'O', :text => 'sonstiges' ]
 ]
 
 Healthproblem.delete_all
@@ -203,29 +203,30 @@ end
 
 p 'Creating referrals: '
 rs = [
-  [ :code => 'N', :text => 'keine' ],
-  [ :code => 'D', :text => 'innerhalb Diakonie' ],
-  [ :code => 'C', :text => 'innerhalb Caritas' ],
-  [ :code => 'M', :text => 'medizinische Versorgung' ],
-  [ :code => 'A', :text => 'Behörde' ],
-  [ :code => 'B', :text => 'andere Beratungsstellen' ],
-  [ :code => 'O', :text => 'sonstiges' ]
+  [ :id => 'N', :text => 'keine' ],
+  [ :id => 'D', :text => 'innerhalb Diakonie' ],
+  [ :id => 'C', :text => 'innerhalb Caritas' ],
+  [ :id => 'M', :text => 'medizinische Versorgung' ],
+  [ :id => 'A', :text => 'Behörde' ],
+  [ :id => 'B', :text => 'andere Beratungsstellen' ],
+  [ :id => 'O', :text => 'sonstiges' ]
 ]
 
 Referral.delete_all
 rs.each do |r|
   Referral.create(r)
+  sleep 2
 end
 
 p 'Creating referralcaritas: '
 rcs = [
-  [ :code => 'F', :text => 'SKF' ],
-  [ :code => 'M', :text => 'SKM' ],
-  [ :code => 'B', :text => 'Bonvena' ],
-  [ :code => 'I', :text => 'FIM' ],
-  [ :code => 'J', :text => 'Jugendmig.' ],
-  [ :code => 'K', :text => 'KIZ' ],
-  [ :code => 'O', :text => 'sonstiges' ]
+  [ :id => 'F', :text => 'SKF' ],
+  [ :id => 'M', :text => 'SKM' ],
+  [ :id => 'B', :text => 'Bonvena' ],
+  [ :id => 'I', :text => 'FIM' ],
+  [ :id => 'J', :text => 'Jugendmig.' ],
+  [ :id => 'K', :text => 'KIZ' ],
+  [ :id => 'O', :text => 'sonstiges' ]
 ]
 
 Referralcaritas.delete_all
@@ -235,10 +236,10 @@ end
 
 p 'Creating referraldiakonies: '
 rds = [
-  [ :code => 'M', :text => 'FD Migration' ],
-  [ :code => 'B', :text => 'MBE' ],
-  [ :code => 'P', :text => 'Bündnis ohne Papiere' ],
-  [ :code => 'O', :text => 'sonstiges' ]
+  [ :id => 'M', :text => 'FD Migration' ],
+  [ :id => 'B', :text => 'MBE' ],
+  [ :id => 'P', :text => 'Bündnis ohne Papiere' ],
+  [ :id => 'O', :text => 'sonstiges' ]
 ]
 
 Referraldiakonie.delete_all
@@ -248,14 +249,14 @@ end
 
 p 'Creating referralothercounsellings: '
 ros = [
-  [ :code => 'F', :text => 'Flüchtlingsrat' ],
-  [ :code => 'R', :text => 'Rom e.V.' ],
-  [ :code => 'G', :text => 'Agisra' ],
-  [ :code => 'H', :text => 'AIDS-Hilfe' ],
-  [ :code => 'A', :text => 'AWO' ],
-  [ :code => 'P', :text => 'ProFamilia' ],
-  [ :code => 'W', :text => 'Angebote für OfW' ],
-  [ :code => 'O', :text => 'sonstiges' ]
+  [ :id => 'F', :text => 'Flüchtlingsrat' ],
+  [ :id => 'R', :text => 'Rom e.V.' ],
+  [ :id => 'G', :text => 'Agisra' ],
+  [ :id => 'H', :text => 'AIDS-Hilfe' ],
+  [ :id => 'A', :text => 'AWO' ],
+  [ :id => 'P', :text => 'ProFamilia' ],
+  [ :id => 'W', :text => 'Angebote für OfW' ],
+  [ :id => 'O', :text => 'sonstiges' ]
 ]
 
 Referralothercounselling.delete_all
@@ -265,11 +266,11 @@ end
 
 p 'Creating referralmedicals: '
 rms = [
-  [ :code => 'M', :text => 'Gesundheitsamt' ],
-  [ :code => 'B', :text => 'Malteser Migranten Medizin' ],
-  [ :code => 'K', :text => 'Krankenhaus' ],
-  [ :code => 'P', :text => 'Praxis' ],
-  [ :code => 'O', :text => 'sonstiges' ]
+  [ :id => 'M', :text => 'Gesundheitsamt' ],
+  [ :id => 'B', :text => 'Malteser Migranten Medizin' ],
+  [ :id => 'K', :text => 'Krankenhaus' ],
+  [ :id => 'P', :text => 'Praxis' ],
+  [ :id => 'O', :text => 'sonstiges' ]
 ]
 
 Referralmedical.delete_all
@@ -279,13 +280,13 @@ end
 
 p 'Creating referralauthorities: '
 ras = [
-  [ :code => 'S', :text => 'Sozialamt' ],
-  [ :code => 'A', :text => 'Ausländeramt' ],
-  [ :code => 'J', :text => 'Jugendamt' ],
-  [ :code => 'C', :text => 'jobcenter' ],
-  [ :code => 'W', :text => 'Wohnungsamt' ],
-  [ :code => 'B', :text => 'BAMF' ],
-  [ :code => 'O', :text => 'sonstiges' ]
+  [ :id => 'S', :text => 'Sozialamt' ],
+  [ :id => 'A', :text => 'Ausländeramt' ],
+  [ :id => 'J', :text => 'Jugendamt' ],
+  [ :id => 'C', :text => 'jobcenter' ],
+  [ :id => 'W', :text => 'Wohnungsamt' ],
+  [ :id => 'B', :text => 'BAMF' ],
+  [ :id => 'O', :text => 'sonstiges' ]
 ]
 
 Referralauthority.delete_all
@@ -295,16 +296,16 @@ end
 
 p 'Creating successfulinsurances: '
 ss = [
-  [ :code => 'N', :text => 'nicht erhoben' ],
-  [ :code => 'G', :text => 'Pflichtversicherung GKV' ],
-  [ :code => 'P', :text => 'PKV' ],
-  [ :code => 'E', :text => 'EHIC' ],
-  [ :code => 'A', :text => 'AsylbLG' ],
-  [ :code => 'R', :text => 'Auslandsreiseversicherung' ],
-  [ :code => 'F', :text => 'freiwillig versichert GKV' ],
-  [ :code => 'H', :text => 'Rückkehr ins Heimatland ohne Versicherung' ],
-  [ :code => 'K', :text => 'keine' ],
-  [ :code => 'O', :text => 'sonstiges' ]
+  [ :id => 'N', :text => 'nicht erhoben' ],
+  [ :id => 'G', :text => 'Pflichtversicherung GKV' ],
+  [ :id => 'P', :text => 'PKV' ],
+  [ :id => 'E', :text => 'EHIC' ],
+  [ :id => 'A', :text => 'AsylbLG' ],
+  [ :id => 'R', :text => 'Auslandsreiseversicherung' ],
+  [ :id => 'F', :text => 'freiwillig versichert GKV' ],
+  [ :id => 'H', :text => 'Rückkehr ins Heimatland ohne Versicherung' ],
+  [ :id => 'K', :text => 'keine' ],
+  [ :id => 'O', :text => 'sonstiges' ]
 ]
 
 Successfulinsurance.delete_all
@@ -314,15 +315,25 @@ end
 
 p 'Creating failedinsurances: '
 fs = [
-  [ :code => 'S', :text => 'Beitragsschulden' ],
-  [ :code => 'V', :text => 'Vorversicherungszeiten' ],
-  [ :code => 'W', :text => 'Weigerung der Kasse bei SGB XII' ],
-  [ :code => 'N', :text => 'kein nachweisbarer Anspruch auf Sozialleistungen' ],
-  [ :code => 'A', :text => 'Aufenthaltsstatus' ],
-  [ :code => 'O', :text => 'sonstiges' ]
+  [ :id => 'S', :text => 'Beitragsschulden' ],
+  [ :id => 'V', :text => 'Vorversicherungszeiten' ],
+  [ :id => 'W', :text => 'Weigerung der Kasse bei SGB XII' ],
+  [ :id => 'N', :text => 'kein nachweisbarer Anspruch auf Sozialleistungen' ],
+  [ :id => 'A', :text => 'Aufenthaltsstatus' ],
+  [ :id => 'O', :text => 'sonstiges' ]
 ]
 
 Failedinsurance.delete_all
 fs.each do |f|
   Failedinsurance.create(f)
+end
+
+p 'Creating users: '
+users = [
+  [ :id => '1', :signature => "00", :username => "admin", :password_digest => "$2a$10$phCeSW/EI1KfHMj3HIfZxO7Lmn1taci4Yb2z9DPaTt3ZeXc6o2.Mm" ],
+  [ :id => '2', :signature => "T1", :username => "testuser1", :password_digest => "$2a$10$Rnvk4ciJP1lLIx0UuJq4OuoG.E9mUqx7DhZqJ8TK1kzVVW/GOKcsq"]
+]
+
+users.each do |user|
+  User.create(user)
 end

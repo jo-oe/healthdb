@@ -5,7 +5,6 @@ $( document ).on('turbolinks:load', function() {
   var citizenship_id = $('#client_citizenship_id');
 
   var citizenship_typeahead = $('#citizenship_typeahead .typeahead');
-  var citizenship_code = $('#citizenship_code');
 
   var citizenship_countries = [];
   var citizenship_country_names = [];
@@ -40,9 +39,9 @@ $( document ).on('turbolinks:load', function() {
     $.each (citizenship_countries, function ( c, n ) {
       if ( id == Number(n.id)) {
 
-        code = n.iso3166;
+        code = n.id;
         name = n.name;
-        citizenship_code.val(code);
+        citizenship_id.val(id);
         citizenship_typeahead.typeahead('val', name);
         return false;
       };
@@ -59,14 +58,12 @@ $( document ).on('turbolinks:load', function() {
 
     $.each (citizenship_countries, function ( c, n ) {
       if ( content.toLowerCase() == n.name.toLowerCase() ) {
-        code = n.iso3166;
         id = n.id;
         legal = true;
         return false;
       };
     });
 
-    citizenship_code.val(code);
     citizenship_id.val(id);
     if(legal) {
       document.getElementById('citizenship_typeahead').className = "col-sm-3 has-success";
@@ -76,6 +73,20 @@ $( document ).on('turbolinks:load', function() {
       document.getElementById('citizenship_input').className = "form-control typeahead form-control-danger";
     }
   };
+
+  function citizenshipIdChanged() {
+    var id = citizenship_id.val();
+    $.each (citizenship_countries, function ( c, n ) {
+      if ( id == n.id ) {
+        citizenship_typeahead.val(n.name);
+        legal = true;
+        return false;
+      };
+    });
+
+    document.getElementById('citizenship_typeahead').className = "col-sm-3 has-success";
+    document.getElementById('citizenship_input').className = "form-control typeahead form-control-success";
+  }
 
   function validateCode( param ) {
     var inputid;
@@ -154,15 +165,13 @@ $( document ).on('turbolinks:load', function() {
   };
 
 function checkToggleReferrerFreetext () {
-  console.log( $('#client_referrer_id').val() );
-  if ( $('#client_referrer_id').val() == 9) {
+  if ( $('#client_referrer_id').val() == "O") {
       $('#client_referrerfreetext').prop('hidden', false);
       $('#client_referrerfreetext_label').prop('hidden', false);
     } else {
       $('#client_referrerfreetext').prop('hidden', true);
       $('#client_referrerfreetext_label').prop('hidden', true);
     }
-
 }
 
   if( document.getElementsByClassName('client-form').length) {
@@ -222,7 +231,9 @@ function checkToggleReferrerFreetext () {
       language: "de"
     });
 
-    addCodeValidator('client_code');
+    $('#client_citizenship_id').on('change', citizenshipIdChanged);
+
+    addCodeValidator('client_id');
     addStringValidator('client_lastname');
     addStringValidator('client_firstname');
     $('#client_referrer_id').on('change', checkToggleReferrerFreetext);

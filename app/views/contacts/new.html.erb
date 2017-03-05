@@ -1,5 +1,9 @@
-<h1>New Contact</h1>
+<h1><%= t(:newcontact) %></h1>
 
-<%= render 'form', contact: @contact %>
+<% if (@contact.client_id) %>
+  <%= render 'form', contact: @contact %>
+<% else %>
+  <h2>Fehler: Um einen Kontakt einzugeben, muss ein_e Klientin <%= link_to "ausgewählt", clients_path %> oder <%= link_to "angelegt", new_client_path %> werden!</h2>
+<% end %>
 
-<%= link_to 'Back', contacts_path %>
+<%= link_to t(:back), contacts_path %>

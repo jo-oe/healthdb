@@ -1,5 +1,5 @@
 class ClientsController < ApplicationController
-  before_filter :authorize
+  # before_filter :authorize
   before_action :set_client, only: [:show, :edit, :update, :destroy]
 
   # GET /clients
@@ -16,6 +16,16 @@ class ClientsController < ApplicationController
   # GET /clients/new
   def new
     @client = Client.new
+    @codefixed = Date.today.strftime("%y") + User.find_by_id(session[:user_id]).signature
+    @client.id = @codefixed+"0000"
+    (1..9999).each do |i|
+      @thiscode = @codefixed+i.to_s.rjust(4, '0')
+      p @thiscode
+      if(!Client.find_by_id(@thiscode))
+        @client.id = @thiscode
+        break
+      end
+    end
   end
 
   # GET /clients/1/edit
@@ -26,10 +36,9 @@ class ClientsController < ApplicationController
   # POST /clients.json
   def create
     @client = Client.new(client_params)
-
     respond_to do |format|
       if @client.save
-        format.html { redirect_to @client, notice: 'Client was successfully created.' }
+        format.html { redirect_to new_contact_url(:client_id =>  @client.id), notice: 'Client was successfully created.' }
         format.json { render :show, status: :created, location: @client }
       else
         format.html { render :new }
@@ -63,13 +72,13 @@ class ClientsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_client
-      @client = Client.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_client
+    @client = Client.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def client_params
-      params.require(:client).permit(:code, :lastname, :firstname, :birthdate, :sex_id, :homeplace_id, :citizenship_id, :legalstatus_id, :familystatus_id, :childrencount, :datefirstcontact, :referrer_id, :referrerfreetext)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def client_params
+    params.require(:client).permit(:id, :lastname, :firstname, :birthdate, :sex_id, :homeplace_id, :citizenship_id, :legalstatus_id, :familystatus_id, :childrencount, :datefirstcontact, :referrer_id, :referrerfreetext)
+  end
 end

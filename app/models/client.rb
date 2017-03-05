@@ -8,9 +8,7 @@ class Client < ApplicationRecord
   belongs_to :familystatus
   belongs_to :referrer
 
-  validates :code, presence: true, length: {minimum: 8, maximum: 8}
-  validates :lastname, presence: true
-  validates :firstname, presence: true
+  validates :id, presence: true, length: {minimum: 8, maximum: 8}
   validates :sex, presence: true
   validates :homeplace, presence: true
   validates :citizenship, presence: true

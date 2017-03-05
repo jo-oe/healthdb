@@ -15,6 +15,8 @@ class ContactsController < ApplicationController
   # GET /contacts/new
   def new
     @contact = Contact.new
+    @contact.client_id = params[:client_id]
+    @contact.counsellor_id = session[:user_id]
   end
 
   # GET /contacts/1/edit

@@ -3,16 +3,26 @@ class Contact < ApplicationRecord
   belongs_to :counsellor, class_name: "User", foreign_key: "counsellor_id"
   belongs_to :contactreason
   belongs_to :insurancestatus
-  belongs_to :counselledperson, class_name: "Counselledpersons", foreign_key: "counselledperson_id"
+  belongs_to :counselledperson, class_name: "Counselledpersons"
   belongs_to :translatorused
-  belongs_to :insuranceproblem
-  belongs_to :healthproblem
+  belongs_to :insuranceproblem, required: false
+  belongs_to :healthproblem, required: false
   belongs_to :referral
-  belongs_to :referralcaritas
-  belongs_to :referraldiakonie
-  belongs_to :referralothercounselling
-  belongs_to :referralmedical
-  belongs_to :referralauthority
+  belongs_to :referralcaritas, required: false
+  belongs_to :referraldiakonie, required: false
+  belongs_to :referralothercounselling, required: false
+  belongs_to :referralmedical, required: false
+  belongs_to :referralauthority, required: false
   belongs_to :successfulinsurance
   belongs_to :failedinsurance
+
+  validates_associated :client
+  validates_associated :counsellor
+  validates_associated :contactreason
+  validates_associated :insurancestatus
+  validates_associated :counselledperson
+  validates_associated :translatorused
+  validates_associated :referral
+  validates_associated :successfulinsurance
+  validates_associated :failedinsurance
 end

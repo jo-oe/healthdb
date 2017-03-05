@@ -12,32 +12,29 @@
 
 ActiveRecord::Schema.define(version: 20170304182139) do
 
-  create_table "citizenships", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "iso3166",    limit: 3
+  create_table "citizenships", id: :string, limit: 3, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
-    t.index ["iso3166"], name: "index_citizenships_on_iso3166", unique: true, using: :btree
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["id"], name: "index_citizenships_on_id", unique: true, using: :btree
   end
 
-  create_table "clients", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "code",             limit: 8
+  create_table "clients", id: :string, limit: 8, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "lastname"
     t.string   "firstname"
     t.date     "birthdate"
-    t.integer  "sex_id"
-    t.integer  "homeplace_id"
-    t.integer  "citizenship_id"
-    t.integer  "legalstatus_id"
-    t.integer  "familystatus_id"
+    t.string   "sex_id",           limit: 1
+    t.string   "homeplace_id",     limit: 1
+    t.string   "citizenship_id",   limit: 3
+    t.string   "legalstatus_id",   limit: 1
+    t.string   "familystatus_id",  limit: 1
     t.integer  "childrencount"
     t.date     "datefirstcontact"
-    t.integer  "referrer_id"
+    t.string   "referrer_id",      limit: 1
     t.string   "referrerfreetext"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
     t.index ["citizenship_id"], name: "index_clients_on_citizenship_id", using: :btree
-    t.index ["code"], name: "index_clients_on_code", unique: true, using: :btree
     t.index ["familystatus_id"], name: "index_clients_on_familystatus_id", using: :btree
     t.index ["homeplace_id"], name: "index_clients_on_homeplace_id", using: :btree
     t.index ["legalstatus_id"], name: "index_clients_on_legalstatus_id", using: :btree
@@ -45,38 +42,37 @@ ActiveRecord::Schema.define(version: 20170304182139) do
     t.index ["sex_id"], name: "index_clients_on_sex_id", using: :btree
   end
 
-  create_table "contactreasons", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_german2_ci" do |t|
-    t.string   "code",       limit: 1
+  create_table "contactreasons", id: :string, limit: 1, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "text"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "contacts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_german2_ci" do |t|
-    t.integer  "client_id"
+  create_table "contacts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "client_id",                   limit: 8
     t.date     "contactdate"
     t.integer  "counsellor_id"
-    t.integer  "contactreason_id"
+    t.string   "contactreason_id",            limit: 1
     t.string   "contactreasonfreetext"
-    t.integer  "insurancestatus_id"
-    t.integer  "counselledperson_id"
-    t.integer  "translatorused_id"
+    t.string   "insurancestatus_id",          limit: 1
+    t.string   "counselledperson_id",         limit: 1
+    t.string   "translatorused_id",           limit: 1
     t.boolean  "has_insuranceproblem"
     t.boolean  "has_paymentproblem"
     t.boolean  "has_housingproblem"
     t.boolean  "has_workproblem"
     t.boolean  "has_psychosocialproblem"
     t.boolean  "has_healthproblem"
-    t.integer  "insuranceproblem_id"
-    t.integer  "healthproblem_id"
-    t.integer  "referral_id"
-    t.integer  "referralcaritas_id"
-    t.integer  "referraldiakonie_id"
-    t.integer  "referralothercounselling_id"
-    t.integer  "referralmedical_id"
-    t.integer  "referralauthority_id"
-    t.integer  "successfulinsurance_id"
-    t.integer  "failedinsurance_id"
+    t.string   "insuranceproblem_id",         limit: 1
+    t.string   "healthproblem_id",            limit: 1
+    t.string   "referral_id",                 limit: 1
+    t.string   "referralcaritas_id",          limit: 1
+    t.string   "referraldiakonie_id",         limit: 1
+    t.string   "referralothercounselling_id", limit: 1
+    t.string   "referralmedical_id",          limit: 1
+    t.string   "referralauthority_id",        limit: 1
+    t.string   "successfulinsurance_id",      limit: 1
+    t.string   "failedinsurance_id",          limit: 1
     t.text     "comment",                     limit: 65535
     t.datetime "created_at",                                null: false
     t.datetime "updated_at",                                null: false
@@ -98,148 +94,135 @@ ActiveRecord::Schema.define(version: 20170304182139) do
     t.index ["translatorused_id"], name: "index_contacts_on_translatorused_id", using: :btree
   end
 
-  create_table "counselledpersons", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_german2_ci" do |t|
-    t.string   "code",       limit: 1
+  create_table "counselledpersons", id: :string, limit: 1, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "text"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "failedinsurances", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_german2_ci" do |t|
-    t.string   "code",       limit: 1
+  create_table "failedinsurances", id: :string, limit: 1, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "text"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "familystatuses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "code",       limit: 1
+  create_table "familystatuses", id: :string, limit: 1, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "text"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "healthproblems", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_german2_ci" do |t|
-    t.string   "code",       limit: 1
+  create_table "healthproblems", id: :string, limit: 1, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "text"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "homeplaces", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "code",       limit: 1
+  create_table "homeplaces", id: :string, limit: 1, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "text"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "insuranceproblems", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_german2_ci" do |t|
-    t.string   "code",       limit: 1
+  create_table "insuranceproblems", id: :string, limit: 1, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "text"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "insurancestatuses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_german2_ci" do |t|
-    t.string   "code",       limit: 1
+  create_table "insurancestatuses", id: :string, limit: 1, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "text"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "legalstatuses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "code",       limit: 1
+  create_table "legalstatuses", id: :string, limit: 1, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "text"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "problems", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_german2_ci" do |t|
-    t.string   "code",       limit: 1
+  create_table "problems", id: :string, limit: 1, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "text"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "referralauthorities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_german2_ci" do |t|
-    t.string   "code",       limit: 1
+  create_table "referralauthorities", id: :string, limit: 1, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "text"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "referralcaritas", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_german2_ci" do |t|
-    t.string   "code",       limit: 1
+  create_table "referralcaritas", id: :string, limit: 1, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "text"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "referraldiakonies", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_german2_ci" do |t|
-    t.string   "code",       limit: 1
+  create_table "referraldiakonies", id: :string, limit: 1, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "text"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "referralmedicals", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_german2_ci" do |t|
-    t.string   "code",       limit: 1
+  create_table "referralmedicals", id: :string, limit: 1, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "text"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "referralothercounsellings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_german2_ci" do |t|
-    t.string   "code",       limit: 1
+  create_table "referralothercounsellings", id: :string, limit: 1, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "text"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "referrals", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_german2_ci" do |t|
-    t.string   "code",       limit: 1
+  create_table "referrals", id: :string, limit: 1, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "text"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "referrers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "code",       limit: 1
+  create_table "referrers", id: :string, limit: 1, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "text"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "sexes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "code",       limit: 1
+  create_table "sexes", id: :string, limit: 1, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "text"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "successfulinsurances", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_german2_ci" do |t|
-    t.string   "code",       limit: 1
+  create_table "successfulinsurances", id: :string, limit: 1, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "text"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "translatoruseds", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_german2_ci" do |t|
-    t.string   "code",       limit: 1
+  create_table "translatoruseds", id: :string, limit: 1, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "text"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "username"
     t.string   "signature",       limit: 2
+    t.string   "username"
     t.string   "password_digest"
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
     t.index ["signature"], name: "index_users_on_signature", unique: true, using: :btree
   end
 
+  add_foreign_key "clients", "citizenships"
+  add_foreign_key "clients", "familystatuses"
+  add_foreign_key "clients", "homeplaces"
+  add_foreign_key "clients", "legalstatuses"
+  add_foreign_key "clients", "referrers"
+  add_foreign_key "clients", "sexes"
   add_foreign_key "contacts", "clients"
   add_foreign_key "contacts", "contactreasons"
   add_foreign_key "contacts", "failedinsurances"

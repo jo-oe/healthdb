@@ -24,7 +24,7 @@ de:
   clients: "Stammdatensätze (Klienten)"
   newclient: "Neuer Stammdatensatz (Klient_in)"
   editclient: "Stammdatensatz (Klient_in) bearbeiten"
-  client_code: "Code"
+  client_id: "Code"
   lastname: "Familienname"
   firstname: "Vorname"
   birthdate: "Geburtsdatum"
@@ -37,3 +37,8 @@ de:
   datefirstcontact: "Erstkontakt am:"
   referrer: "Vermittelt von:"
   referrerfreetext: "sonstige hier eingeben:"
+
+  back: "zurück"
+
+  client_data: "Klientendaten"
+  newcontact: "Neuen Kontakt erfassen"

@@ -1,7 +1,7 @@
 class CreateFailedinsurances < ActiveRecord::Migration[5.0]
   def change
-    create_table :failedinsurances do |t|
-      t.string :code, limit: 1
+    create_table :failedinsurances, {:id => false }  do |t|
+      t.string :id, limit: 1, primary_key: true
       t.string :text
 
       t.timestamps

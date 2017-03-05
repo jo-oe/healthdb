@@ -12,9 +12,9 @@
 <% end %>
 
   <div class="row">
-    <%= f.label t(:client_code), class: 'col-sm-2 control-label' %>
-    <div class="col-sm-4" id='div_client_code'>
-      <%= f.text_field :code, class: 'form-control' %>
+    <%= f.label t(:client_id), class: 'col-sm-2 control-label' %>
+    <div class="col-sm-4" id='div_client_id'>
+      <%= f.text_field :id, class: 'form-control' %>
     </div>
   </div>
 
@@ -44,13 +44,10 @@
 
     <div class="col-sm-3" id='citizenship_typeahead'>
       <input class='form-control typeahead' id='citizenship_input', type='text', placeholder='Staat'>
-      <%= f.text_field :citizenship_id, id: 'client_citizenship_id', type: 'hidden' %>
     </div>
-
     <div class="col-sm-1">
-      <input class="form-control" id='citizenship_code' type="text" value="?" disabled>
+      <%= f.collection_select :citizenship_id, Citizenship.all, :id, :id, {prompt: true}, {:class => 'form-control'} %>
     </div>
-
 
     <%= f.label t(:legalstatus), class: 'col-sm-2 control-label'   %>
     <div class="col-sm-4"><%= f.collection_select :legalstatus_id, Legalstatus.all, :id, :text, {prompt: true}, {:class => 'form-control'}  %></div>

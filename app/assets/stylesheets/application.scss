@@ -104,13 +104,13 @@ select.form-control {
 }
 
 
-th.rotate {
+.clienttable th.rotate {
   /* Something you can count on */
   height: 85px;
   white-space: nowrap;
 }
 
-th.rotate > div {
+.clienttable th.rotate > div {
   transform:
     /* Magic Numbers */
     translate(22px, 27px)
@@ -118,7 +118,8 @@ th.rotate > div {
     rotate(315deg);
   width: 30px;
 }
-th.rotate > div > span {
+
+.clienttable th.rotate > div > span {
   border-bottom: 1px solid #ccc;
   padding: 1px 3px;
 }
@@ -128,4 +129,123 @@ th.rotate > div > span {
   font-size: large;
   font-weight: bold;
   color: #FF0000;
+}
+
+
+table.hdb-form-layout-table {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  width: 960px;
+  text-align: center;
+}
+
+tr.hdb-form-row {
+  padding-left: 2px;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-right: 2px;
+  text-align: left;
+  height: 22px;
+}
+
+tr.hdb-form-row-grouptitle {
+  font-weight: bold;
+}
+
+td.hdb-form-grouptitle {
+  padding-left: 60px;
+  padding-top: 10px;
+  font-weight: bold;
+}
+
+td.hdb-form-field {
+  text-align: left;
+  width: 288px;
+  padding-right: 20px;
+  height: 22px;
+}
+
+td.hdb-form-label {
+  text-align: right;
+  padding-right: 10px;
+  width: 192px;
+  height: 20px;
+  vertical-align: middle;
+}
+
+.hdb-label {
+  vertical-align: middle;
+  text-align: right;
+  height: 100%;
+  margin: 0;
+}
+
+td.hdb-form-checkboxlabel {
+  text-align: left;
+  min-width: 220px;
+  padding-right: 20px;
+}
+
+td.hdb-form-checkbox {
+  text-align: right;
+  padding-left: 40px;
+  padding-right: 10px;
+}
+
+.hdb-radio-box {
+  text-align: left;
+  width: 480px;
+}
+
+.hdb-form-input {
+  height: 22px !important ;
+  padding-top: 1px !important ;
+  padding-bottom: 1px !important ;
+  padding-left: 5px !important ;
+  padding-right: 10px !important ;
+  margin: 1px;
+}
+
+.hdb-form-radio-label {
+  padding-left: 162px;
+  padding-right: 50px;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.hdb-form-radio {
+  box-sizing: content-box;
+  margin-right: 10px;
+  margin-bottom: 2px;
+  vertical-align: middle;
+  height: 100%;
+  width: 20px;
+}
+
+table.hdb-client-data {
+  background-color: #F0F0F0;
+  text-align: left;
+  width: 70%;
+}
+
+.hdb-form-noinput-headrow {
+  text-align: left;
+  font-weight: bold;
+  border-bottom: 1px solid #303030;
+}
+
+.hdb-form-noinput-headcol {
+  padding-left: 100px;
+}
+
+.hdb-form-noinput-label {
+  width: 150px;
+  text-align: right;
+}
+
+.hdb-form-noinput-field {
+  width: 192px;
+  text-align: left;
+  padding-left: 5px;
 }

@@ -1,7 +1,7 @@
 class CreateCounselledpersons < ActiveRecord::Migration[5.0]
   def change
-    create_table :counselledpersons do |t|
-      t.string :code, limit: 1
+    create_table :counselledpersons, {:id => false }  do |t|
+      t.string :id, limit: 1, primary_key: true
       t.string :text
 
       t.timestamps

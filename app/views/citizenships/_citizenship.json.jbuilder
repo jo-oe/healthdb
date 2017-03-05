@@ -1,1 +1,1 @@
-json.extract! citizenship, :id, :iso3166, :name
+json.extract! citizenship, :id, :name
