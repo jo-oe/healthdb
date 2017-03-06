@@ -320,7 +320,7 @@ end
 
 p 'Creating successfulinsurances: '
 ss = [
-  [ :id => 'N', :text => 'nicht erhoben' ],
+  [ :id => '0', :text => 'nicht erhoben' ],
   [ :id => 'G', :text => 'Pflichtversicherung GKV' ],
   [ :id => 'P', :text => 'PKV' ],
   [ :id => 'E', :text => 'EHIC' ],
@@ -346,6 +346,7 @@ fs = [
   [ :id => 'N', :text => 'kein nachweisbarer Anspruch auf Sozialleistungen' ],
   [ :id => 'A', :text => 'Aufenthaltsstatus' ],
   [ :id => 'O', :text => 'sonstiges' ]
+  [ :id => '0', :text => 'nicht erhoben' ]
 ]
 
 Failedinsurance.delete_all

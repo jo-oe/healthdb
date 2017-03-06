@@ -1,4 +1,4 @@
-<h1><%= t(:clients) %></h1>
+<h1 class="h1client"><%= t(:clients) %></h1>
 
 <% if (notice) %>
   <p id="notice"><%= notice %></p>
@@ -29,8 +29,8 @@
   <tbody>
     <tr>
       <td colspan="4" class="hdb-clientsearch-desc">
-        <%= link_to t(:reset_search), clients_path, class: 'btn btn-sm btn-resetsearch' %>
-        <%= submit_tag t(:search_for), class: 'btn btn-sm btn-search' %>
+        <%= link_to t(:reset_search), clients_path, class: 'btn btn-sm btn-hdb-std btn-resetsearch' %>
+        <%= submit_tag t(:search_for), class: 'btn btn-sm btn-hdb-std btn-search' %>
       </td>
       <td class="hdb-clientsearch-field"><%= text_field_tag :id, params[:id], class: "form-control hdb-clientsearch-input" %></td>
       <td class="hdb-clientsearch-field"><%= text_field_tag :lastname, params[:lastname], class: "form-control hdb-clientsearch-input" %></td>
@@ -49,10 +49,10 @@
 
     <% @clients.each do |client| %>
       <tr>
-        <td><%= link_to t(:edit), edit_client_path(client) %></td>
-        <td><%= link_to t(:add_contact), new_contact_path(:client_id => client.id) %></td>
-        <td><%= link_to t(:list_contacts), contacts_path(:client_id => client.id) %></td>
-        <td><%= link_to t(:destroy), client, method: :delete, data: { confirm: t(:deleteclientconfirm) } %></td>
+        <td><%= link_to t(:edit_client), edit_client_path(client), class: 'btn btn-table-mini btn-client-edit' %></td>
+        <td><%= link_to t(:add_contact), new_contact_path(:client_id => client.id), class: 'btn btn-table-mini btn-contact-new' %></td>
+        <td><%= link_to t(:list_contacts), contacts_path(:client_id => client.id), class: 'btn btn-table-mini btn-contact-edit'  %></td>
+        <td><%= link_to t(:destroy), client, method: :delete, data: { confirm: t(:deleteclientconfirm) }, class: 'btn btn-table-mini btn-client-delete' %></td>
         <td><%= client.id %></td>
         <td><%= client.lastname %></td>
         <td><%= client.firstname %></td>

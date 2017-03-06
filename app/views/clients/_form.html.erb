@@ -11,7 +11,7 @@
 </div>
 <% end %>
 
-<table class="hdb-form-layout-table">
+<table class="hdb-form-layout-table hdb-form-client">
   <tr class="field hdb-form-row">
     <td class="hdb-form-label"><%= f.label :id, class: "hdb-label" %></td>
     <td class="hdb-form-field" id='td_client_id'><%= f.text_field :id, class: "form-control hdb-form-input" %></td>
@@ -45,7 +45,7 @@
         <tr>
           <td class="hdb-form-nest-w80">
             <div class='hdb-typeahead-div-w80' id='div_client_citizenship_typeahead'>
-              <%= f.text_field :citizenship, class: "form-control typeahead hdb-form-input", id: "citizenship_input", placeholder: 'Staat' %>
+              <%= text_field_tag :citizenship_input, nil, class: "form-control typeahead hdb-form-input", id: "citizenship_input", placeholder: 'Staat' %>
             </div>
           </td>
           <td class="hdb-form-nest-w20">
@@ -87,12 +87,11 @@
 
   <tr class="actions">
     <td colspan="4" class="hdb-form-buttons">
-      <button type="submit" id="btnSubmit" class="btn btn-primary" disabled="disabled"><%= t(:save_client) %></button>
-      <%= link_to t(:list_contacts), contacts_path(:client_id => client.id), class: 'btn btn-warning' %>
-      <%= link_to 'Abbrechen', clients_path, class: 'btn btn-danger' %></div>
+      <button type="submit" id="btnSubmit" class="btn btn-hdb-std btn-client-new" disabled="disabled"><%= t(:save_client) %></button>
+      <%= link_to t(:list_contacts), contacts_path(:client_id => client.id), class: 'btn btn-hdb-std btn-warning' %>
+      <%= link_to 'Abbrechen', clients_path, class: 'btn btn-hdb-std btn-danger' %></div>
     </td>
   </tr>
-
 </table>
 
 <% end %>

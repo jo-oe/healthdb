@@ -55,15 +55,13 @@ $( document ).on('turbolinks:load', function() {
 
   function initCitizenship( ) {
     var code = "?";
-    var id = Number(citizenship_id.val());
+    var id = citizenship_id.val();
     var name = "";
+    console.log("Init, id: " + id);
 
     $.each (citizenship_countries, function ( c, n ) {
-      if ( id == Number(n.id)) {
-
-        code = n.id;
+      if ( id == n.id ) {
         name = n.name;
-        citizenship_id.val(id);
         citizenship_typeahead.typeahead('val', name);
         return false;
       };
@@ -225,7 +223,6 @@ function checkToggleReferrerFreetext () {
       citizenship_typeahead.bind('typeahead:change', checkCitizenship);
       citizenship_typeahead.bind('typeahead:idle', checkCitizenship);
       checkCitizenship();
-
     });
 
     $('#client_birthdate_datepicker').datepicker({
@@ -257,6 +254,7 @@ function checkToggleReferrerFreetext () {
     $('#client_citizenship_id').on('change', citizenshipIdChanged);
 
     addCodeValidator('client_id');
+
     $('#client_referrer_id').on('change', checkToggleReferrerFreetext);
     checkToggleReferrerFreetext();
   };

@@ -58,14 +58,14 @@
     <td class="hdb-form-noinput-field"><%= @contact.client.referrer.text %></td>
   </tr>
   <tr><td colspan="4">
-    <%= link_to t(:edit_client), edit_client_path(contact.client), class: "btn btn-edit-client" %><span class="client-edit-cancel-warning"><%= t(:edit_client_cancel_warning) %></span></td>
+    <%= link_to t(:edit_client), edit_client_path(contact.client), class: "btn btn-hdb-std btn-client-edit" %><span class="client-edit-cancel-warning"><%= t(:edit_client_cancel_warning) %></span></td>
     </tr>
 
 </table>
 
 <hr />
 
-<table class="hdb-form-layout-table">
+<table class="hdb-form-layout-table hdb-form-contact">
   <tr class="field hdb-form-row">
     <%
     if !contact.contactdate
@@ -101,43 +101,48 @@
     <td class="hdb-form-field"><%= f.collection_select :translatorused_id, Translatorused.order('created_at'), :id, :text, {prompt: true}, {:class => "form-control hdb-form-input hdb-form-select" } %></td>
   </tr>
 
-  <tr class="hdb-form-row hdb-form-row-grouptitle">
-    <td colspan="2" class="hdb-form-grouptitle"><%= label :contact, :identifiedproblems %></td>
+  <tr class="hdb-form-row hdb-form-row-grouptitle hdb-form-contact-darker">
+    <td colspan="4" class="hdb-form-grouptitle"><%= label :contact, :identifiedproblems %></td>
   </tr>
 
-  <tr class="field hdb-form-row">
+  <tr class="field hdb-form-row hdb-form-contact-darker">
     <td class="hdb-form-checkbox"><%= f.check_box :has_insuranceproblem %></td>
     <td class="hdb-form-checkboxlabel"><%= f.label :has_insuranceproblem, class: "hdb-label" %></td>
     <td class="hdb-form-label"><%= f.label :insuranceproblem, class: "hdb-label", id: "contact_insuranceproblem_id_label" %></td>
     <td class="hdb-form-field"><%= f.collection_select :insuranceproblem_id, Insuranceproblem.order('created_at'), :id, :text, {prompt: true}, {:class => "form-control hdb-form-input hdb-form-select" } %></td>
   </tr>
 
-  <tr class="field hdb-form-row">
+  <tr class="field hdb-form-row hdb-form-contact-darker">
     <td class="hdb-form-checkbox"><%= f.check_box :has_paymentproblem %></td>
     <td class="hdb-form-checkboxlabel"><%= f.label :has_paymentproblem, class: "hdb-label" %></td>
+    <td colspan="2"></td>
   </tr>
 
-  <tr class="field hdb-form-row">
+  <tr class="field hdb-form-row hdb-form-contact-darker">
     <td class="hdb-form-checkbox"><%= f.check_box :has_housingproblem %></td>
     <td class="hdb-form-checkboxlabel"><%= f.label :has_housingproblem, class: "hdb-label" %></td>
+    <td colspan="2"></td>
   </tr>
 
-  <tr class="field hdb-form-row">
+  <tr class="field hdb-form-row hdb-form-contact-darker">
     <td class="hdb-form-checkbox"><%= f.check_box :has_legalproblem %></td>
     <td class="hdb-form-checkboxlabel"><%= f.label :has_legalproblem, class: "hdb-label" %></td>
+    <td colspan="2"></td>
   </tr>
 
-  <tr class="field hdb-form-row">
+  <tr class="field hdb-form-row hdb-form-contact-darker">
     <td class="hdb-form-checkbox"><%= f.check_box :has_workproblem %></td>
     <td class="hdb-form-checkboxlabel"><%= f.label :has_workproblem, class: "hdb-label" %></td>
+    <td colspan="2"></td>
   </tr>
 
-  <tr class="field hdb-form-row">
+  <tr class="field hdb-form-row hdb-form-contact-darker">
     <td class="hdb-form-checkbox"><%= f.check_box :has_psychosocialproblem %></td>
     <td class="hdb-form-checkboxlabel"><%= f.label :has_psychosocialproblem, class: "hdb-label" %></td>
+    <td colspan="2"></td>
   </tr>
 
-  <tr class="field hdb-form-row">
+  <tr class="field hdb-form-row hdb-form-contact-darker">
     <td class="hdb-form-checkbox"><%= f.check_box :has_healthproblem %></td>
     <td class="hdb-form-checkboxlabel"><%= f.label :has_healthproblem, class: "hdb-label" %></td>
     <td class="hdb-form-label"><%= f.label :healthproblem, class: "hdb-label", id: "contact_healthproblem_id_label" %></td>
@@ -182,24 +187,24 @@
     </td>
   </tr>
 
-  <tr class="field hdb-form-row">
+  <tr class="field hdb-form-row hdb-form-contact-darker">
     <td class="hdb-form-label"><%= f.label :successfulinsurance, class: "hdb-label" %></td>
     <td class="hdb-form-field"><%= f.collection_select :successfulinsurance_id, Successfulinsurance.order('created_at'), :id, :text, {prompt: true}, {:class => "form-control hdb-form-input hdb-form-select" } %></td>
     <td class="hdb-form-label"><%= f.label :failedinsurance, class: "hdb-label" %></td>
     <td class="hdb-form-field"><%= f.collection_select :failedinsurance_id, Failedinsurance.order('created_at'), :id, :text, {prompt: true}, {:class => "form-control hdb-form-input hdb-form-select" } %></td>
   </tr>
 
-  <tr class="field hdb-form-row">
+  <tr class="field hdb-form-row hdb-form-contact-darker">
     <td class="hdb-form-label"><%= f.label :comment, class: "hdb-label" %></td>
     <td class="hdb-form-field" colspan="3"><%= f.text_area :comment, class: "form-control hdb-comment" %></td>
   </tr>
 
   <tr class="actions">
     <td colspan="4" class="hdb-form-buttons">
-      <%= f.submit t(:save_contact), class: "btn btn-primary" %>
-      <%= link_to 'Abbrechen', contacts_path(:client_id => contact.client.id), class: 'btn btn-warning' %>
+      <%= f.submit t(:save_contact), class: "btn btn-hdb-std btn-contact-new" %>
+      <%= link_to 'Abbrechen', contacts_path(:client_id => contact.client.id), class: 'btn btn-hdb-std btn-warning' %>
     </td>
   </tr>
-
 </table>
+
 <% end %>

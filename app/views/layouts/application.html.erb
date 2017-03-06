@@ -32,11 +32,11 @@
       <div class='col-sm-12 menuitem'>
 
       <% if !current_user %>
-        <%= link_to 'Anmelden', '/login', class: 'btn btn-sm btn-login' %>
+        <%= link_to 'Anmelden', '/login', class: 'btn btn-sm btn-hdb-std btn-login' %>
       <% else %>
-        <%= link_to t(:new_client), new_client_path, class: 'btn btn-sm btn-clientnew' %>
-        <%= link_to 'Klientenliste', clients_path, class: 'btn btn-sm btn-clientindex' %>
-        <%= link_to 'Abmelden', '/logout', class: 'btn btn-sm btn-logout' %>
+        <%= link_to t(:new_client), new_client_path, class: 'btn btn-sm btn-hdb-std btn-client-new' %>
+        <%= link_to 'Klientenliste', clients_path, class: 'btn btn-sm btn-hdb-std btn-client-index' %>
+        <%= link_to 'Abmelden', '/logout', class: 'btn btn-sm btn-hdb-std btn-logout' %>
       <% end %>
       </div>
     </div>

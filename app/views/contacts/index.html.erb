@@ -1,4 +1,4 @@
-<h1><%= t(:contacts) %></h1>
+<h1 class="h1contact"><%= t(:contacts) %></h1>
 
 <% if (notice) %>
   <p id="notice"><%= notice %></p>
@@ -39,8 +39,8 @@
   <tbody>
     <% @contacts.each do |contact| %>
       <tr>
-        <td><%= link_to t(:edit), edit_contact_path(contact) %></td>
-        <td><%= link_to t(:destroy), contact, method: :delete, data: { confirm: t(:deletecontactconfirm) } %></td>
+        <td><%= link_to t(:edit), edit_contact_path(contact), class: 'btn btn-table-mini btn-contact-edit'  %></td>
+        <td><%= link_to t(:destroy), contact, method: :delete, data: { confirm: t(:deletecontactconfirm) }, class: 'btn btn-table-mini btn-contact-delete'  %></td>
         <td><%= link_to contact.client_id, edit_client_path(contact.client) %></td>
         <td><%= contact.contactdate %></td>
         <td><%= contact.counsellor_id %></td>
@@ -74,5 +74,5 @@
 <br>
 
 <% if (params[:client_id]) %>
-<%= link_to t(:add_contact), new_contact_path(:client_id => params[:client_id]) %>
+<%= link_to t(:add_contact), new_contact_path(:client_id => params[:client_id]), class: 'btn btn-sm btn-hdb-std btn-contact-new'  %>
 <% end %>

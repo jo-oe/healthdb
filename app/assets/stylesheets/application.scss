@@ -14,7 +14,6 @@
 *= require_self
 */
 
-@import "bootstrap";
 @import "bootstrap-datepicker3";
 @import "typeaheadjs";
 
@@ -33,94 +32,6 @@ label {
   font-weight: bold;
 }
 
-.btn {
-  text-decoration: none;
-  vertical-align: middle;
-  padding-left: 4px !important;
-  padding-right: 4px !important;
-  padding-bottom: 3px !important;
-  padding-top: 4px !important;
-  margin: 2px;
-  font-family: verdana, arial, helvetica, sans-serif !important;
-}
-
-.btn-primary {
-  color: #F0F0F0 !important;
-  font-weight: bold !important;
-  background-color: #2868b0 !important;
-  background: linear-gradient(to bottom right, #2870c0, #286080);
-  border: #084070 solid 2px !important;
-  &:hover {
-    color: #FFFFFF !important;
-    background: linear-gradient(to bottom right, #2880f0, #287090);
-  }
-}
-
-.btn-primary.disabled, .btn-primary:disabled {
-  color: #808080 !important;
-  background-color: #2060a0 !important;
-  background: linear-gradient(to bottom right, #2870b0, #185080);
-  border: #0004080 solid 2px !important;
-}
-
-.btn-warning {
-  color: #f0f0f0 !important;
-  font-weight: bold !important;
-  background: linear-gradient(to bottom right, #d08020, #a07010);
-  border: #906000 solid 2px !important;
-  &:hover {
-    color: #FFFFFF !important;
-    background: linear-gradient(to bottom right, #f09020, #c07010);
-  }
-}
-
-.btn-danger {
-  color: #f0f0f0 !important;
-  font-weight: bold !important;
-  background: linear-gradient(to bottom right, #e05040, #803020);
-  border: #702010 solid 2px !important;
-  &:hover {
-    color: #FFFFFF !important;
-    background: linear-gradient(to bottom right, #ff6050, #c04020);
-  }
-}
-
-.btn-clientnew {
-  color: #F0F0F0 !important;
-  font-weight: bold !important;
-  background-color: #2868b0 !important;
-  background: linear-gradient(to bottom right, #2870c0, #286080);
-  border: #084070 solid 2px !important;
-  &:hover {
-    color: #FFFFFF !important;
-    background: linear-gradient(to bottom right, #2880f0, #287090);
-  }
-}
-
-.btn-clientindex, .btn-edit-client {
-  color: #F0F0F0 !important;
-  font-weight: bold !important;
-  background-color: #3090b0 !important;
-  background: linear-gradient(to bottom right, #3098d0, #308890);
-  border: #307090 solid 2px !important;
-  &:hover {
-    color: #FFFFFF !important;
-    background: linear-gradient(to bottom right, #30a8f0, #3098b0);
-  }
-}
-
-
-
-.btn-logout {
-  color: #F0F0F0 !important;
-  background: linear-gradient(to bottom right, #505050, #101010);
-  font-weight: bold !important;
-  border: #000000 solid 2px !important;
-  &:hover {
-    color: #FFFFFF !important;
-    background: linear-gradient(to bottom right, #808080, #202020);
-  }
-}
 
 .btn-login {
   color: #f0f0f0 !important;
@@ -148,7 +59,7 @@ label {
   color: #101010 !important;
   font-weight: bold !important;
   background: linear-gradient(to bottom right, #FFF8B0, #F0E080);
-  border: #F0E090 solid 2px !important;
+  border: #E8D870 solid 2px !important;
   &:hover {
     color: #000000 !important;
     background: linear-gradient(to bottom right, #FFFFD0, #F8E8A0);
@@ -344,7 +255,6 @@ td.hdb-form-checkbox {
   padding-top: 1px !important;
   color: #A0A0A0 !important;
   border: 0;
-  background: transparent !important;
 }
 
 .tt-menu {
@@ -375,9 +285,22 @@ table.hdb-client-data-table {
   padding: 0px;
   margin: 0px;
   border-collapse: true;
-  background-color: #F0F0F0;
+  background-color: #DAEAFF;
   text-align: left;
   width: 800px;
+}
+
+table.hdb-form-contact {
+  background-color: #DAFFEA;
+}
+
+table.hdb-form-client {
+  background-color: #DAEAFF;
+}
+
+
+tr.hdb-form-contact-darker td {
+  background-color: #C0F8E0;
 }
 
 .hdb-form-noinput-headrow {
@@ -415,10 +338,141 @@ table.hdb-client-data-table {
   padding-left: 20px;
   padding-top: 10px;
   text-align: left;
-  padding-bottom: 30px;
+  padding-bottom: 10px;
 }
 
 .client-edit-cancel-warning {
   padding-left: 10px;
   color: #E00000;
+}
+
+.btn {
+  text-decoration: none;
+  vertical-align: middle;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+  padding-bottom: 2px !important;
+  padding-top: 4px !important;
+  margin: 2px;
+  font-family: verdana, arial, helvetica, sans-serif !important;
+}
+
+.btn-table-mini {
+  white-space: normal;
+  padding-left: 2px !important;
+  padding-right: 2px !important;
+  padding-top: 2px !important;
+  padding-bottom: 1px !important;
+  margin: 1px !important;
+  line-height: 1.05;
+  border: 1px;
+  border-style: solid;
+}
+
+.btn-hdb-std {
+  border-style: solid;
+  border-width: 2px;
+  font-weight: bold !important;
+}
+
+.btn-primary {
+  color: #F0F0F0 !important;
+  background: linear-gradient(to bottom right, #2870c0, #286080);
+  border-color: #084070 !important;
+  &:hover {
+    color: #FFFFFF !important;
+    background: linear-gradient(to bottom right, #2880f0, #287090);
+  }
+}
+
+.btn-primary.disabled, .btn-primary:disabled {
+  color: #808080 !important;
+  background: linear-gradient(to bottom right, #2870b0, #185080);
+  border-color: #0004080 !important;
+}
+
+.btn-warning {
+  color: #f0f0f0 !important;
+  background: linear-gradient(to bottom right, #d08020, #a07010);
+  border-color: #906000 !important;
+  &:hover {
+    color: #FFFFFF !important;
+    background: linear-gradient(to bottom right, #f09020, #c07010);
+  }
+}
+
+.btn-danger {
+  color: #f0f0f0 !important;
+  background: linear-gradient(to bottom right, #e05040, #803020);
+  border-color: #702010 !important;
+  &:hover {
+    color: #FFFFFF !important;
+    background: linear-gradient(to bottom right, #ff6050, #c04020);
+  }
+}
+
+.btn-logout {
+  color: #F0F0F0 !important;
+  background: linear-gradient(to bottom right, #505050, #101010);
+  border-color: #000000 !important;
+  &:hover {
+    color: #FFFFFF !important;
+    background: linear-gradient(to bottom right, #808080, #202020);
+  }
+}
+
+.btn-client-new {
+  color: #F0F0F0 !important;
+  background: linear-gradient(to bottom right, #2870c0, #286080);
+  border-color: #084070 !important;
+  &:hover {
+    color: #FFFFFF !important;
+    background: linear-gradient(to bottom right, #2880f0, #287090);
+  }
+
+  &.disabled, &:disabled {
+    color: #808080 !important;
+    background: linear-gradient(to bottom right, #2870b0, #185080);
+    border-color: #0004080 !important;
+  }
+}
+
+.btn-client-edit, .btn-client-index {
+  color: #F0F0F0 !important;
+  background: linear-gradient(to bottom right, #3098D8, #308090);
+  border-color: #307090!important;
+  &:hover {
+    color: #FFFFFF !important;
+    background: linear-gradient(to bottom right, #30A8FF, #3098A8);
+  }
+}
+
+.btn-contact-new {
+  color: #F0F0F0 !important;
+  background: linear-gradient(to bottom right, #00D030, #008010);
+  border-color: #007010 !important;
+  &:hover {
+    color: #FFFFFF !important;
+    background: linear-gradient(to bottom right, #10E040, #08A020);
+  }
+}
+
+.btn-contact-edit {
+  color: #F0F0F0 !important;
+  background: linear-gradient(to bottom right, #48A070, #307048);
+  border-color: #306040 !important;
+  &:hover {
+    color: #FFFFFF !important;
+    background: linear-gradient(to bottom right, #58C090, #409068);
+  }
+}
+
+.btn-client-delete, .btn-contact-delete {
+  color: #f0f0f0 !important;
+  background: linear-gradient(to bottom right, #e05040, #803020);
+  border-color: #702010 !important;
+  &:hover {
+    color: #FFFFFF !important;
+    background: linear-gradient(to bottom right, #ff6050, #c04020);
+  }
 }

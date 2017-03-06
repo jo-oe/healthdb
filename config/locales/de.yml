@@ -82,15 +82,18 @@ de:
   destroy: "löschen"
   search_for: "Suche nach:"
   reset_search: "Suche zurücksetzen"
+  login: "Anmeldung"
+  log_in: "Anmelden ..."
+  login_failed: "Anmeldung fehlgeschlagen"
 
   deleteclientconfirm: "Sind Sie sicher, dass Sie den Klienten vollständig löschen wollen?\n(Das wird nur funktionieren, wenn alle Kontakte dieses Klienten vorher gelöscht wurden)"
   deletecontactconfirm: "Sind Sie sicher, dass Sie den Kontakt vollständig löschen wollen?"
 
   client: "Klient_in"
   clients: "Stammdatensätze (Klienten)"
-  new_client: "Neuer Stammdatensatz (Klient_in)"
-  edit_client: "Stammdatensatz (Klient_in) bearbeiten"
-  edit_client_cancel_warning: "Achtung, die aktuellen Eingaben hier werden beim Wechsel zu den Klientendaten verworfen!"
+  new_client: "Neuer Stammdatensatz"
+  edit_client: "Stammdatensatz bearbeiten"
+  edit_client_cancel_warning: "Achtung, die aktuellen Eingaben zum Kontakt werden beim Wechsel zu den Stammdaten verworfen!"
   save_client: "Stammdatensatz speichern und neuen Kontakt anlegen"
 
   client_successfully_created: "Stammdatensatz erfolgreich angelegt."
