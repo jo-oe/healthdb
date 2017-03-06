@@ -1,89 +1,80 @@
+@import "bootstrap";
+
 body {
+  line-height: 1.05;
   background-color: #fff;
+  padding: 2px;
   color: #333;
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
-  line-height: 18px;
   margin: 33px;
 }
 
 p, ol, ul, td {
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
-  line-height: 18px;
-  margin: 33px;
+  line-height: 1.00;
 }
-
 pre {
   background-color: #eee;
   padding: 10px;
   font-size: 11px;
 }
 
+h1 {
+  font-size: 2.0rem !important;
+  margin-top: 1.0rem !important;
+  margin-bottom: 0.1rem !important;
+  padding: 0 !important;
+  font-weight: 500 !important;
+  line-height: 1.1 !important;
+  color: inherit !important;
+}
+
+
 a {
-  color: #000;
+  color: #003090;
+  text-decoration: underline;
 
   &:visited {
-    color: #666;
+    color: #003090;
   }
 
   &:hover {
-    color: #fff;
-    background-color: #000;
+    color: #003090;
+    background-color: #FFF0D8;
   }
 }
 
-th {
-  padding-bottom: 5px;
-}
-
 td {
-  padding-bottom: 7px;
-  padding-left: 5px;
-  padding-right: 5px;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-left: 4px;
+  padding-right: 4px;
 }
 
 div {
   &.field, &.actions {
-    margin-bottom: 10px;
   }
 }
 
 #notice {
-  color: green;
+  @extend .alert, .alert-success, .alert-dismissible, .fade, .show;
 }
 
 .field_with_errors {
-  padding: 2px;
-  background-color: red;
-  display: table;
+  background-color: #FFD8D0;
 }
 
 #error_explanation {
-  width: 450px;
-  border: 2px solid red;
-  padding: 7px;
-  padding-bottom: 0;
-  margin-bottom: 20px;
-  background-color: #f0f0f0;
+  @extend .alert, .alert-danger, .alert-dismissible, .fade, .show;
 
   h2 {
-    text-align: left;
-    font-weight: bold;
-    padding: 5px 5px 5px 15px;
-    font-size: 12px;
-    margin: -7px;
-    margin-bottom: 0;
-    background-color: #c00;
-    color: #fff;
-  }
+    @extend .alert-heading;
+    }
 
   ul li {
-    font-size: 12px;
     list-style: square;
+    padding-top: 3px;
+    padding-bottom: 3px;
   }
 }
 
 label {
-  display: block;
 }

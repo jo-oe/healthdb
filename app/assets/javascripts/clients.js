@@ -1,10 +1,32 @@
 
+
+function addSearchTypeahead( field ) {
+  console.log("Adding typeahead for field "+field);
+
+  var bh = new Bloodhound({
+    datumTokenizer: Bloodhound.tokenizers.obj.whitespace(field),
+      queryTokenizer: Bloodhound.tokenizers.whitespace,
+      prefetch: '/clients.json',
+      remote: {
+        url: 'clients.json?sf='+field+'&s=%QUERY',
+        wildcard: '%QUERY'
+      }
+    });
+
+    $('#'+field).typeahead(null, {
+      name: field,
+      display: field,
+      source: bh
+    });
+}
+
+
 $( document ).on('turbolinks:load', function() {
   var form_validity = [];
 
   var citizenship_id = $('#client_citizenship_id');
 
-  var citizenship_typeahead = $('#citizenship_typeahead .typeahead');
+  var citizenship_typeahead = $('#div_client_citizenship_typeahead .typeahead');
 
   var citizenship_countries = [];
   var citizenship_country_names = [];
@@ -66,11 +88,11 @@ $( document ).on('turbolinks:load', function() {
 
     citizenship_id.val(id);
     if(legal) {
-      document.getElementById('citizenship_typeahead').className = "col-sm-3 has-success";
-      document.getElementById('citizenship_input').className = "form-control typeahead form-control-success";
+      document.getElementById('div_client_citizenship_typeahead').className = "hdb-typeahead-div-w80 has-success";
+      document.getElementById('citizenship_input').className = "form-control typeahead form-control-success hdb-form-input hdb-form-input-w80";
     } else {
-      document.getElementById('citizenship_typeahead').className = "col-sm-3 has-danger";
-      document.getElementById('citizenship_input').className = "form-control typeahead form-control-danger";
+      document.getElementById('div_client_citizenship_typeahead').className = "hdb-typeahead-div-w80 has-danger";
+      document.getElementById('citizenship_input').className = "form-control typeahead form-control-danger hdb-form-input hdb-form-input-w80";
     }
   };
 
@@ -84,8 +106,8 @@ $( document ).on('turbolinks:load', function() {
       };
     });
 
-    document.getElementById('citizenship_typeahead').className = "col-sm-3 has-success";
-    document.getElementById('citizenship_input').className = "form-control typeahead form-control-success";
+    $('#citizenship_typeahead').className = "col-sm-3 has-success";
+    $('#citizenship_input').className = "form-control typeahead form-control-success";
   }
 
   function validateCode( param ) {
@@ -96,14 +118,14 @@ $( document ).on('turbolinks:load', function() {
       inputid = param;
     };
     var input = document.getElementById(inputid);
-    var div = document.getElementById('div_'+inputid);
+    var td = document.getElementById('td_'+inputid);
     if(input.value.length == 8) {
-      input.className = "form-control form-control-success";
-      div.className = "col-sm-4 has-success";
+      input.className = "form-control form-control-success hdb-form-input";
+      td.className = "hdb-form-field has-success";
       form_validity[inputid] = true;
     } else {
-      input.className = "form-control form-control-danger";
-      div.className = "col-sm-4 has-danger";
+      input.className = "form-control form-control-danger hdb-form-input";
+      td.className = "hdb-form-field has-danger";
       form_validity[inputid] = false;
     };
   };
@@ -145,7 +167,7 @@ $( document ).on('turbolinks:load', function() {
   };
 
   function addCodeValidator( fieldid ) {
-    var fieldid_div = "#div_" + fieldid;
+    var fieldid_td = "#td_" + fieldid;
     var fieldid_input = "#" + fieldid;
     form_validity[fieldid] = false;
     $(fieldid_input).on('input', validateCode);
@@ -185,7 +207,7 @@ function checkToggleReferrerFreetext () {
       citizenship_typeahead.typeahead({
         hint: true,
         highlight: true,
-        minLength: 3
+        minLength: 2
       },
       {
         name: 'citizenship_countries',
@@ -206,7 +228,7 @@ function checkToggleReferrerFreetext () {
 
     });
 
-    $('#datepicker').datepicker({
+    $('#client_birthdate_datepicker').datepicker({
       format: "dd.mm.yyyy",
       startDate: "01.01.1900",
       endDate: "today",
@@ -220,8 +242,9 @@ function checkToggleReferrerFreetext () {
       language: "de"
     });
 
-    $('#datepicker2').datepicker({
+    $('#client_datefirstcontact_datepicker').datepicker({
       format: "dd.mm.yyyy",
+      startDate: "09.06.2016",
       endDate: "today",
       weekStart: 1,
       maxViewMode: 3,
@@ -234,8 +257,6 @@ function checkToggleReferrerFreetext () {
     $('#client_citizenship_id').on('change', citizenshipIdChanged);
 
     addCodeValidator('client_id');
-    addStringValidator('client_lastname');
-    addStringValidator('client_firstname');
     $('#client_referrer_id').on('change', checkToggleReferrerFreetext);
     checkToggleReferrerFreetext();
   };

@@ -5,7 +5,14 @@ class ClientsController < ApplicationController
   # GET /clients
   # GET /clients.json
   def index
-    @clients = Client.all
+    if(params['filter']="yes")
+      @clients = Client.where(nil)
+      Client.new.attributes.each do |attr_name, attr_value|
+        @clients = @clients.where("#{attr_name} like ?", "%"+params[attr_name]+"%") if params[attr_name].present?
+      end
+    else
+      @clients = Client.all
+    end
   end
 
   # GET /clients/1
@@ -38,7 +45,7 @@ class ClientsController < ApplicationController
     @client = Client.new(client_params)
     respond_to do |format|
       if @client.save
-        format.html { redirect_to new_contact_url(:client_id =>  @client.id), notice: 'Client was successfully created.' }
+        format.html { redirect_to new_contact_url(:client_id =>  @client.id), notice: t(:client_successfully_created) }
         format.json { render :show, status: :created, location: @client }
       else
         format.html { render :new }
@@ -52,7 +59,7 @@ class ClientsController < ApplicationController
   def update
     respond_to do |format|
       if @client.update(client_params)
-        format.html { redirect_to @client, notice: 'Client was successfully updated.' }
+        format.html { redirect_to new_contact_url(:client_id =>  @client.id), notice: t(:client_successfully_updated) }
         format.json { render :show, status: :ok, location: @client }
       else
         format.html { render :edit }
@@ -66,7 +73,7 @@ class ClientsController < ApplicationController
   def destroy
     @client.destroy
     respond_to do |format|
-      format.html { redirect_to clients_url, notice: 'Client was successfully destroyed.' }
+      format.html { redirect_to clients_url, notice: t(:client_successfully_updated) }
       format.json { head :no_content }
     end
   end

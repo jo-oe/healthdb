@@ -1,7 +1,7 @@
 <%= form_for(contact) do |f| %>
 <% if contact.errors.any? %>
 <div id="error_explanation">
-  <h2><%= pluralize(contact.errors.count, "error") %> prohibited this contact from being saved:</h2>
+  <h2><%= pluralize(contact.errors.count, t(:error)) %> <%= t(:contact_prohibited_save) %></h2>
 
   <ul>
     <% contact.errors.full_messages.each do |message| %>
@@ -12,51 +12,54 @@
 <% end %>
 
 <%= f.hidden_field :client_id %>
-<table class="hdb-form-layout-table hdb-client-data">
+<table class="hdb-client-data-table">
   <tr class="hdb-form-noinput-headrow">
-    <th class="hdb-form-noinput-headcol" colspan="2"><%= t(:client_data) %></td>
-    <th class="hdb-form-noinput-label"><%= f.label t(:client_id), class: "hdb-label" %></td>
-    <th class="hdb-form-noinput-field"><%= @contact.client.id %></td>
+    <th class="hdb-form-noinput-headcol" colspan="2"><label class="hdb-label"><%= t(:client_data) %></label></th>
+    <th class="hdb-form-noinput-headcol hdb-form-noinput-label"><%= label :client, :id, class: "hdb-label" %></th>
+    <th class="hdb-form-noinput-headcol hdb-form-noinput-field"><%= @contact.client.id %></th>
   </tr>
   <tr class="hdb-form-noinput-row">
-    <td class="hdb-form-noinput-label"><%= f.label t(:firstname), class: "hdb-label" %></td>
+    <td class="hdb-form-noinput-label"><%= label :client, :firstname, class: "hdb-label" %></td>
     <td class="hdb-form-noinput-field"><%= @contact.client.firstname %></td>
 
-    <td class="hdb-form-noinput-label"><%= f.label t(:lastname), class: "hdb-label" %></td>
+    <td class="hdb-form-noinput-label"><%= label :client, :lastname, class: "hdb-label" %></td>
     <td class="hdb-form-noinput-field"><%= @contact.client.lastname %></td>
   </tr>
   <tr class="hdb-form-noinput-row">
-    <td class="hdb-form-noinput-label"><%= f.label t(:birthdate), class: "hdb-label" %></td>
+    <td class="hdb-form-noinput-label"><%= label :client, :birthdate, class: "hdb-label" %></td>
     <td class="hdb-form-noinput-field"><%= @contact.client.birthdate %></td>
 
-    <td class="hdb-form-noinput-label"><%= f.label t(:sex), class: "hdb-label" %></td>
+    <td class="hdb-form-noinput-label"><%= label :client, :sex, class: "hdb-label" %></td>
     <td class="hdb-form-noinput-field"><%= @contact.client.sex.text %></td>
   </tr>
   <tr class="hdb-form-noinput-row">
-    <td class="hdb-form-noinput-label"><%= f.label t(:homeplace), class: "hdb-label" %></td>
+    <td class="hdb-form-noinput-label"><%= label :client, :homeplace, class: "hdb-label" %></td>
     <td class="hdb-form-noinput-field"><%= @contact.client.homeplace.text %></td>
   </tr>
   <tr class="hdb-form-noinput-row">
-    <td class="hdb-form-noinput-label"><%= f.label t(:citizenship), class: "hdb-label" %></td>
+    <td class="hdb-form-noinput-label"><%= label :client, :citizenship, class: "hdb-label" %></td>
     <td class="hdb-form-noinput-field"><%= @contact.client.citizenship.name %></td>
 
-    <td class="hdb-form-noinput-label"><%= f.label t(:legalstatus), class: "hdb-label" %></td>
+    <td class="hdb-form-noinput-label"><%= label :client, :legalstatus, class: "hdb-label" %></td>
     <td class="hdb-form-noinput-field"><%= @contact.client.legalstatus.text %></td>
   </tr>
   <tr class="hdb-form-noinput-row">
-    <td class="hdb-form-noinput-label"><%= f.label t(:familystatus), class: "hdb-label" %></td>
+    <td class="hdb-form-noinput-label"><%= label :client, :familystatus, class: "hdb-label" %></td>
     <td class="hdb-form-noinput-field"><%= @contact.client.familystatus.text %></td>
 
-    <td class="hdb-form-noinput-label"><%= f.label t(:childrencount), class: "hdb-label" %></td>
+    <td class="hdb-form-noinput-label"><%= label :client, :childrencount, class: "hdb-label" %></td>
     <td class="hdb-form-noinput-field"><%= @contact.client.childrencount %></td>
   </tr>
   <tr class="hdb-form-noinput-row">
-    <td class="hdb-form-noinput-label"><%= f.label t(:datefirstcontact), class: "hdb-label" %></td>
+    <td class="hdb-form-noinput-label"><%= label :client, :datefirstcontact, class: "hdb-label" %></td>
     <td class="hdb-form-noinput-field"><%= @contact.client.datefirstcontact %></td>
 
-    <td class="hdb-form-noinput-label"><%= f.label t(:referrer), class: "hdb-label" %></td>
+    <td class="hdb-form-noinput-label"><%= label :client, :referrer, class: "hdb-label" %></td>
     <td class="hdb-form-noinput-field"><%= @contact.client.referrer.text %></td>
   </tr>
+  <tr><td colspan="4">
+    <%= link_to t(:edit_client), edit_client_path(contact.client), class: "btn btn-edit-client" %><span class="client-edit-cancel-warning"><%= t(:edit_client_cancel_warning) %></span></td>
+    </tr>
 
 </table>
 
@@ -64,44 +67,49 @@
 
 <table class="hdb-form-layout-table">
   <tr class="field hdb-form-row">
+    <%
+    if !contact.contactdate
+      contact.contactdate = Date.today
+    end
+    %>
     <td class="hdb-form-label"><%= f.label :contactdate, class: "hdb-label" %></td>
-    <td class="hdb-form-field"><%= f.date_select :contactdate, class: "hdb-form-input" %></td>
+    <td class="hdb-form-field"><%= f.date_field :contactdate, :value => contact.contactdate, class: "form-control hdb-form-input", :id => "contactdate_datepicker" %></td>
 
-    <td class="hdb-form-label"><%= f.label :counsellor_id, class: "hdb-label" %></td>
-    <td class="hdb-form-field"><%= f.collection_select :counsellor_id, User.all, :id, :username, {prompt: false}, { :class => "form-control hdb-form-select hdb-form-input" } %></td>
+    <td class="hdb-form-label"><%= f.label :counsellor, class: "hdb-label" %></td>
+    <td class="hdb-form-field"><%= f.collection_select :counsellor_id, User.order('created_at'), :id, :username, {prompt: false}, { :class => "form-control hdb-form-input hdb-form-select" } %></td>
   </tr>
 
   <tr class="field hdb-form-row">
-    <td class="hdb-form-label"><%= f.label :contactreason_id, class: "hdb-label" %></td>
-    <td class="hdb-form-field"><%= f.collection_select :contactreason_id, Contactreason.all, :id, :text, {prompt: true}, {:class => "form-control hdb-form-select hdb-form-input" } %></td>
+    <td class="hdb-form-label"><%= f.label :contactreason, class: "hdb-label" %></td>
+    <td class="hdb-form-field"><%= f.collection_select :contactreason_id, Contactreason.order('created_at'), :id, :text, {prompt: true}, {:class => "form-control hdb-form-input hdb-form-select" } %></td>
     <td class="hdb-form-label"><%= f.label :contactreasonfreetext, class: "hdb-label", id: "contact_contactreasonfreetext_label" %></td>
     <td class="hdb-form-field"><%= f.text_field :contactreasonfreetext, class: "form-control hdb-form-input" %></td>
   </tr>
 
   <tr class="field hdb-form-row">
-    <td class="hdb-form-label"><%= f.label :insurancestatus_id, class: "hdb-label" %></td>
-    <td class="hdb-form-field"><%= f.collection_select :insurancestatus_id, Insurancestatus.all, :id, :text, {prompt: true}, {:class => "form-control hdb-form-select hdb-form-input" } %></td>
+    <td class="hdb-form-label"><%= f.label :insurancestatus, class: "hdb-label" %></td>
+    <td class="hdb-form-field"><%= f.collection_select :insurancestatus_id, Insurancestatus.order('created_at'), :id, :text, {prompt: true}, {:class => "form-control hdb-form-input hdb-form-select" } %></td>
   </tr>
 
   <tr class="field hdb-form-row">
-    <td class="hdb-form-label"><%= f.label :counselledperson_id, class: "hdb-label" %></td>
-    <td class="hdb-form-field"><%= f.collection_select :counselledperson_id, Counselledpersons.all, :id, :text, {prompt: true}, {:class => "form-control hdb-form-select hdb-form-input" } %></td>
+    <td class="hdb-form-label"><%= f.label :counselledperson, class: "hdb-label" %></td>
+    <td class="hdb-form-field"><%= f.collection_select :counselledperson_id, Counselledpersons.order('created_at'), :id, :text, {prompt: true}, {:class => "form-control hdb-form-input hdb-form-select" } %></td>
   </tr>
 
   <tr class="field hdb-form-row">
-    <td class="hdb-form-label"><%= f.label :translatorused_id, class: "hdb-label" %></td>
-    <td class="hdb-form-field"><%= f.collection_select :translatorused_id, Translatorused.all, :id, :text, {prompt: true}, {:class => "form-control hdb-form-select hdb-form-input" } %></td>
+    <td class="hdb-form-label"><%= f.label :translatorused, class: "hdb-label" %></td>
+    <td class="hdb-form-field"><%= f.collection_select :translatorused_id, Translatorused.order('created_at'), :id, :text, {prompt: true}, {:class => "form-control hdb-form-input hdb-form-select" } %></td>
   </tr>
 
   <tr class="hdb-form-row hdb-form-row-grouptitle">
-    <td class="hdb-form-grouptitle"><%= t(:identifiedproblems) %></td>
+    <td colspan="2" class="hdb-form-grouptitle"><%= label :contact, :identifiedproblems %></td>
   </tr>
 
   <tr class="field hdb-form-row">
     <td class="hdb-form-checkbox"><%= f.check_box :has_insuranceproblem %></td>
     <td class="hdb-form-checkboxlabel"><%= f.label :has_insuranceproblem, class: "hdb-label" %></td>
-    <td class="hdb-form-label"><%= f.label :insuranceproblem_id, class: "hdb-label", id: "contact_insuranceproblem_id_label" %></td>
-    <td class="hdb-form-field"><%= f.collection_select :insuranceproblem_id, Insuranceproblem.all, :id, :text, {prompt: true}, {:class => "form-control hdb-form-select hdb-form-input" } %></td>
+    <td class="hdb-form-label"><%= f.label :insuranceproblem, class: "hdb-label", id: "contact_insuranceproblem_id_label" %></td>
+    <td class="hdb-form-field"><%= f.collection_select :insuranceproblem_id, Insuranceproblem.order('created_at'), :id, :text, {prompt: true}, {:class => "form-control hdb-form-input hdb-form-select" } %></td>
   </tr>
 
   <tr class="field hdb-form-row">
@@ -112,6 +120,11 @@
   <tr class="field hdb-form-row">
     <td class="hdb-form-checkbox"><%= f.check_box :has_housingproblem %></td>
     <td class="hdb-form-checkboxlabel"><%= f.label :has_housingproblem, class: "hdb-label" %></td>
+  </tr>
+
+  <tr class="field hdb-form-row">
+    <td class="hdb-form-checkbox"><%= f.check_box :has_legalproblem %></td>
+    <td class="hdb-form-checkboxlabel"><%= f.label :has_legalproblem, class: "hdb-label" %></td>
   </tr>
 
   <tr class="field hdb-form-row">
@@ -127,12 +140,12 @@
   <tr class="field hdb-form-row">
     <td class="hdb-form-checkbox"><%= f.check_box :has_healthproblem %></td>
     <td class="hdb-form-checkboxlabel"><%= f.label :has_healthproblem, class: "hdb-label" %></td>
-    <td class="hdb-form-label"><%= f.label :healthproblem_id, class: "hdb-label", id: "contact_healthproblem_id_label" %></td>
-    <td class="hdb-form-field"><%= f.collection_select :healthproblem_id, Healthproblem.all, :id, :text, {prompt: true}, {:class => "form-control hdb-form-select hdb-form-input" } %></td>
+    <td class="hdb-form-label"><%= f.label :healthproblem, class: "hdb-label", id: "contact_healthproblem_id_label" %></td>
+    <td class="hdb-form-field"><%= f.collection_select :healthproblem_id, Healthproblem.order('created_at'), :id, :text, {prompt: true}, {:class => "form-control hdb-form-input hdb-form-select" } %></td>
   </tr>
 
   <tr class="hdb-form-row hdb-form-row-grouptitle">
-    <td class="hdb-form-grouptitle"><%= t(:referral) %></td>
+    <td colspan="2" class="hdb-form-grouptitle"><%= label :contact, :referral %></td>
   </tr>
 
   <tr rowspan="7" class="hdb-radio-rowspan">
@@ -145,24 +158,24 @@
       <table class="hdb-form-layout-subtable">
         <tr><td>&nbsp;</td></tr>
         <tr class="field hdb-form-row">
-          <td class="hdb-form-label"><%= f.label :referraldiakonie_id, class: "hdb-label", id: "contact_referraldiakonie_id_label" %></td>
-          <td class="hdb-form-field"><%= f.collection_select :referraldiakonie_id, Referraldiakonie.all, :id, :text, {prompt: true}, {:class => "form-control hdb-form-select hdb-form-input" } %></td>
+          <td class="hdb-form-label"><%= f.label :referraldiakonie, class: "hdb-label", id: "contact_referraldiakonie_id_label" %></td>
+          <td class="hdb-form-field"><%= f.collection_select :referraldiakonie_id, Referraldiakonie.order('created_at'), :id, :text, {prompt: true}, {:class => "form-control hdb-form-input hdb-form-select" } %></td>
         </tr>
         <tr class="field hdb-form-row">
-          <td class="hdb-form-label"><%= f.label :referralcaritas_id, class: "hdb-label", id: "contact_referralcaritas_id_label"  %></td>
-          <td class="hdb-form-field"><%= f.collection_select :referralcaritas_id, Referralcaritas.all, :id, :text, {prompt: true}, {:class => "form-control hdb-form-select hdb-form-input" } %></td>
+          <td class="hdb-form-label"><%= f.label :referralcaritas, class: "hdb-label", id: "contact_referralcaritas_id_label"  %></td>
+          <td class="hdb-form-field"><%= f.collection_select :referralcaritas_id, Referralcaritas.order('created_at'), :id, :text, {prompt: true}, {:class => "form-control hdb-form-input hdb-form-select" } %></td>
         </tr>
         <tr class="field hdb-form-row">
-          <td class="hdb-form-label"><%= f.label :referralmedical_id, class: "hdb-label", id: "contact_referralmedical_id_label"  %></td>
-          <td class="hdb-form-field"><%= f.collection_select :referralmedical_id, Referralmedical.all, :id, :text, {prompt: true}, {:class => "form-control hdb-form-select hdb-form-input" } %></td>
+          <td class="hdb-form-label"><%= f.label :Referralmedical, class: "hdb-label", id: "contact_referralmedical_id_label"  %></td>
+          <td class="hdb-form-field"><%= f.collection_select :referralmedical_id, Referralmedical.order('created_at'), :id, :text, {prompt: true}, {:class => "form-control hdb-form-input hdb-form-select" } %></td>
         </tr>
         <tr class="field hdb-form-row">
-          <td class="hdb-form-label"><%= f.label :referralauthority_id, class: "hdb-label", id: "contact_referralauthority_id_label"  %></td>
-          <td class="hdb-form-field"><%= f.collection_select :referralauthority_id, Referralauthority.all, :id, :text, {prompt: true}, {:class => "form-control hdb-form-select hdb-form-input" } %></td>
+          <td class="hdb-form-label"><%= f.label :referralauthority, class: "hdb-label", id: "contact_referralauthority_id_label"  %></td>
+          <td class="hdb-form-field"><%= f.collection_select :referralauthority_id, Referralauthority.order('created_at'), :id, :text, {prompt: true}, {:class => "form-control hdb-form-input hdb-form-select" } %></td>
         </tr>
         <tr class="field hdb-form-row">
-          <td class="hdb-form-label"><%= f.label :referralothercounselling_id, class: "hdb-label", id: "contact_referralothercounselling_id_label"  %></td>
-          <td class="hdb-form-field"><%= f.collection_select :referralothercounselling_id, Referralothercounselling.all, :id, :text, {prompt: true}, {:class => "form-control hdb-form-select hdb-form-input" } %></td>
+          <td class="hdb-form-label"><%= f.label :referralothercounselling, class: "hdb-label", id: "contact_referralothercounselling_id_label"  %></td>
+          <td class="hdb-form-field"><%= f.collection_select :referralothercounselling_id, Referralothercounselling.order('created_at'), :id, :text, {prompt: true}, {:class => "form-control hdb-form-input hdb-form-select" } %></td>
         </tr>
         <tr><td>&nbsp;</td></tr>
       </table>
@@ -170,19 +183,22 @@
   </tr>
 
   <tr class="field hdb-form-row">
-    <td class="hdb-form-label"><%= f.label :successfulinsurance_id, class: "hdb-label" %></td>
-    <td class="hdb-form-field"><%= f.collection_select :successfulinsurance_id, Successfulinsurance.all, :id, :text, {prompt: true}, {:class => "form-control hdb-form-select hdb-form-input" } %></td>
-    <td class="hdb-form-label"><%= f.label :failedinsurance_id, class: "hdb-label" %></td>
-    <td class="hdb-form-field"><%= f.collection_select :failedinsurance_id, Failedinsurance.all, :id, :text, {prompt: true}, {:class => "form-control hdb-form-select hdb-form-input" } %></td>
+    <td class="hdb-form-label"><%= f.label :successfulinsurance, class: "hdb-label" %></td>
+    <td class="hdb-form-field"><%= f.collection_select :successfulinsurance_id, Successfulinsurance.order('created_at'), :id, :text, {prompt: true}, {:class => "form-control hdb-form-input hdb-form-select" } %></td>
+    <td class="hdb-form-label"><%= f.label :failedinsurance, class: "hdb-label" %></td>
+    <td class="hdb-form-field"><%= f.collection_select :failedinsurance_id, Failedinsurance.order('created_at'), :id, :text, {prompt: true}, {:class => "form-control hdb-form-input hdb-form-select" } %></td>
   </tr>
 
   <tr class="field hdb-form-row">
     <td class="hdb-form-label"><%= f.label :comment, class: "hdb-label" %></td>
-    <td class="hdb-form-field"><%= f.text_area :comment %></td>
+    <td class="hdb-form-field" colspan="3"><%= f.text_area :comment, class: "form-control hdb-comment" %></td>
   </tr>
 
   <tr class="actions">
-    <td class="hdb_form_button"><%= f.submit %></td>
+    <td colspan="4" class="hdb-form-buttons">
+      <%= f.submit t(:save_contact), class: "btn btn-primary" %>
+      <%= link_to 'Abbrechen', contacts_path(:client_id => contact.client.id), class: 'btn btn-warning' %>
+    </td>
   </tr>
 
 </table>

@@ -11,10 +11,10 @@ require 'csv'
 # Client selection fields initialisation
 
 p "Creating citizenships"
- Citizenship.delete_all
- Citizenship.create( [ :id => '000', :name => 'unbekannt'])
- CSV.foreach('db/countries.csv', col_sep: ',', headers: true) do |row|
- Citizenship.create(row.to_h)
+Citizenship.delete_all
+Citizenship.create( [ :id => '000', :name => 'unbekannt'])
+CSV.foreach('db/countries.csv', col_sep: ',', headers: true) do |row|
+  Citizenship.create(row.to_h)
 end
 
 p 'Creating sexes: '
@@ -27,6 +27,7 @@ ss = [
 Sex.delete_all
 ss.each do |s|
   Sex.create(s)
+  sleep 1
 end
 
 p 'Creating homeplaces: '
@@ -40,6 +41,7 @@ hs = [
 Homeplace.delete_all
 hs.each do |h|
   Homeplace.create(h)
+  sleep 1
 end
 
 p 'Creating legalstatuses: '
@@ -57,6 +59,7 @@ ls = [
 Legalstatus.delete_all
 ls.each do |l|
   Legalstatus.create(l)
+  sleep 1
 end
 
 p 'Creating familystatuses: '
@@ -70,6 +73,7 @@ fs = [
 Familystatus.delete_all
 fs.each do |f|
   Familystatus.create(f)
+  sleep 1
 end
 
 p 'Creating referrers: '
@@ -87,6 +91,7 @@ rs = [
 Referrer.delete_all
 rs.each do |r|
   Referrer.create(r)
+  sleep 1
 end
 
 
@@ -105,6 +110,7 @@ cs = [
 Contactreason.delete_all
 cs.each do |c|
   Contactreason.create(c)
+  sleep 1
 end
 
 p 'Creating insurancestatuses: '
@@ -121,6 +127,7 @@ is = [
 Insurancestatus.delete_all
 is.each do |i|
   Insurancestatus.create(i)
+  sleep 1
 end
 
 p 'Creating counselledpersons: '
@@ -137,6 +144,7 @@ cs = [
 Counselledpersons.delete_all
 cs.each do |c|
   Counselledpersons.create(c)
+  sleep 1
 end
 
 p 'Creating translatoruseds: '
@@ -153,6 +161,7 @@ ts = [
 Translatorused.delete_all
 ts.each do |t|
   Translatorused.create(t)
+  sleep 1
 end
 
 p 'Creating problems: '
@@ -168,6 +177,7 @@ pbs = [
 Problem.delete_all
 is.each do |pb|
   Problem.create(pb)
+  sleep 1
 end
 
 p 'Creating insuranceproblems: '
@@ -178,12 +188,14 @@ is = [
   [ :id => 'V', :text => 'Vorversicherungszeiten unklar' ],
   [ :id => 'F', :text => 'Familienversicherung' ],
   [ :id => 'D', :text => 'doppelt versichert' ],
-  [ :id => 'O', :text => 'sonstiges' ]
+  [ :id => 'O', :text => 'sonstiges' ],
+  [ :id => '0', :text => 'nicht definiert']
 ]
 
 Insuranceproblem.delete_all
 is.each do |i|
   Insuranceproblem.create(i)
+  sleep 1
 end
 
 p 'Creating healthproblems: '
@@ -193,12 +205,14 @@ hs = [
   [ :id => 'T', :text => 'Traumatisierung (auch Verdacht)' ],
   [ :id => 'D', :text => 'Sucht' ],
   [ :id => 'R', :text => 'Schwangerschaft' ],
-  [ :id => 'O', :text => 'sonstiges' ]
+  [ :id => 'O', :text => 'sonstiges' ],
+  [ :id => '0', :text => 'nicht definiert']
 ]
 
 Healthproblem.delete_all
 hs.each do |h|
   Healthproblem.create(h)
+  sleep 1
 end
 
 p 'Creating referrals: '
@@ -215,7 +229,7 @@ rs = [
 Referral.delete_all
 rs.each do |r|
   Referral.create(r)
-  sleep 2
+  sleep 1
 end
 
 p 'Creating referralcaritas: '
@@ -226,12 +240,14 @@ rcs = [
   [ :id => 'I', :text => 'FIM' ],
   [ :id => 'J', :text => 'Jugendmig.' ],
   [ :id => 'K', :text => 'KIZ' ],
-  [ :id => 'O', :text => 'sonstiges' ]
+  [ :id => 'O', :text => 'sonstiges' ],
+  [ :id => '0', :text => 'nicht definiert']
 ]
 
 Referralcaritas.delete_all
 rcs.each do |rc|
   Referralcaritas.create(rc)
+  sleep 1
 end
 
 p 'Creating referraldiakonies: '
@@ -239,12 +255,14 @@ rds = [
   [ :id => 'M', :text => 'FD Migration' ],
   [ :id => 'B', :text => 'MBE' ],
   [ :id => 'P', :text => 'Bündnis ohne Papiere' ],
-  [ :id => 'O', :text => 'sonstiges' ]
+  [ :id => 'O', :text => 'sonstiges' ],
+  [ :id => '0', :text => 'nicht definiert']
 ]
 
 Referraldiakonie.delete_all
 rds.each do |rd|
   Referraldiakonie.create(rd)
+  sleep 1
 end
 
 p 'Creating referralothercounsellings: '
@@ -256,12 +274,14 @@ ros = [
   [ :id => 'A', :text => 'AWO' ],
   [ :id => 'P', :text => 'ProFamilia' ],
   [ :id => 'W', :text => 'Angebote für OfW' ],
-  [ :id => 'O', :text => 'sonstiges' ]
+  [ :id => 'O', :text => 'sonstiges' ],
+  [ :id => '0', :text => 'nicht definiert']
 ]
 
 Referralothercounselling.delete_all
 ros.each do |ro|
   Referralothercounselling.create(ro)
+  sleep 1
 end
 
 p 'Creating referralmedicals: '
@@ -270,12 +290,14 @@ rms = [
   [ :id => 'B', :text => 'Malteser Migranten Medizin' ],
   [ :id => 'K', :text => 'Krankenhaus' ],
   [ :id => 'P', :text => 'Praxis' ],
-  [ :id => 'O', :text => 'sonstiges' ]
+  [ :id => 'O', :text => 'sonstiges' ],
+  [ :id => '0', :text => 'nicht definiert']
 ]
 
 Referralmedical.delete_all
 rms.each do |rm|
   Referralmedical.create(rm)
+  sleep 1
 end
 
 p 'Creating referralauthorities: '
@@ -286,12 +308,14 @@ ras = [
   [ :id => 'C', :text => 'jobcenter' ],
   [ :id => 'W', :text => 'Wohnungsamt' ],
   [ :id => 'B', :text => 'BAMF' ],
-  [ :id => 'O', :text => 'sonstiges' ]
+  [ :id => 'O', :text => 'sonstiges' ],
+  [ :id => '0', :text => 'nicht definiert']
 ]
 
 Referralauthority.delete_all
 ras.each do |ra|
   Referralauthority.create(ra)
+  sleep 1
 end
 
 p 'Creating successfulinsurances: '
@@ -311,6 +335,7 @@ ss = [
 Successfulinsurance.delete_all
 ss.each do |s|
   Successfulinsurance.create(s)
+  sleep 1
 end
 
 p 'Creating failedinsurances: '
@@ -326,6 +351,7 @@ fs = [
 Failedinsurance.delete_all
 fs.each do |f|
   Failedinsurance.create(f)
+  sleep 1
 end
 
 p 'Creating users: '
@@ -337,3 +363,9 @@ users = [
 users.each do |user|
   User.create(user)
 end
+
+p 'Creating sample client'
+Client.create( [ :id => '17XX0000', :firstname => 'sample', :lastname => 'sample', :birthdate => "01.01.1900",
+:sex => Sex.find_by_id('U'), :homeplace => Homeplace.find_by_id('U'), :citizenship => Citizenship.find_by_id('000'),
+:legalstatus => Legalstatus.find_by_id('U'), :familystatus => Familystatus.find_by_id('U'), :childrencount => '0',
+:datefirstcontact => Date.today(), :referrer => Referrer.find_by_id('U') ]);

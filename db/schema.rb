@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(version: 20170304182139) do
     t.string   "translatorused_id",           limit: 1
     t.boolean  "has_insuranceproblem"
     t.boolean  "has_paymentproblem"
+    t.boolean  "has_legalproblem"
     t.boolean  "has_housingproblem"
     t.boolean  "has_workproblem"
     t.boolean  "has_psychosocialproblem"

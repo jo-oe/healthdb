@@ -1,35 +1,58 @@
-<p id="notice"><%= notice %></p>
-
 <h1><%= t(:clients) %></h1>
+
+<% if (notice) %>
+  <p id="notice"><%= notice %></p>
+<% end %>
+
+<%= form_tag(clients_path, method: "get") %>
 
 <table class='clienttable'>
   <thead>
     <tr>
-      <th colspan="5"></th>
-      <th class="rotate"><div><span><%= t(:code) %></span></div></th>
-      <th class="rotate"><div><span><%= t(:lastname) %></span></div></th>
-      <th class="rotate"><div><span><%= t(:firstname) %></span></div></th>
-      <th class="rotate"><div><span><%= t(:birthdate) %></span></div></th>
-      <th class="rotate"><div><span><%= t(:sex) %></span></div></th>
-      <th class="rotate"><div><span><%= t(:homeplace) %></span></div></th>
-      <th class="rotate"><div><span><%= t(:citizenship) %></span></div></th>
-      <th class="rotate"><div><span><%= t(:legalstatus) %></span></div></th>
-      <th class="rotate"><div><span><%= t(:familystatus) %></span></div></th>
-      <th class="rotate"><div><span><%= t(:childrencount) %></span></div></th>
-      <th class="rotate"><div><span><%= t(:datefirstcontact) %></span></div></th>
-      <th class="rotate"><div><span><%= t(:referrer) %></span></div></th>
-      <th class="rotate"><div><span><%= t(:referrerfreetext) %></span></div></th>
+      <th colspan="4"></th>
+      <th class="rotate"><div><span><%= label(:client, :id) %></span></div></th>
+      <th class="rotate"><div><span><%= label(:client, :lastname) %></span></div></th>
+      <th class="rotate"><div><span><%= label(:client, :firstname) %></span></div></th>
+      <th class="rotate"><div><span><%= label(:client, :birthdate) %></span></div></th>
+      <th class="rotate"><div><span><%= label(:client, :sex) %></span></div></th>
+      <th class="rotate"><div><span><%= label(:client, :homeplace) %></span></div></th>
+      <th class="rotate"><div><span><%= label(:client, :citizenship) %></span></div></th>
+      <th class="rotate"><div><span><%= label(:client, :legalstatus) %></span></div></th>
+      <th class="rotate"><div><span><%= label(:client, :familystatus) %></span></div></th>
+      <th class="rotate"><div><span><%= label(:client, :childrencount) %></span></div></th>
+      <th class="rotate"><div><span><%= label(:client, :datefirstcontact) %></span></div></th>
+      <th class="rotate"><div><span><%= label(:client, :referrer) %></span></div></th>
+      <th class="rotate"><div><span><%= label(:client, :referrerfreetext) %></span></div></th>
     </tr>
   </thead>
 
   <tbody>
+    <tr>
+      <td colspan="4" class="hdb-clientsearch-desc">
+        <%= link_to t(:reset_search), clients_path, class: 'btn btn-sm btn-resetsearch' %>
+        <%= submit_tag t(:search_for), class: 'btn btn-sm btn-search' %>
+      </td>
+      <td class="hdb-clientsearch-field"><%= text_field_tag :id, params[:id], class: "form-control hdb-clientsearch-input" %></td>
+      <td class="hdb-clientsearch-field"><%= text_field_tag :lastname, params[:lastname], class: "form-control hdb-clientsearch-input" %></td>
+      <td class="hdb-clientsearch-field"><%= text_field_tag :firstname, params[:firstname], class: "form-control hdb-clientsearch-input" %></td>
+      <td class="hdb-clientsearch-field"><%= text_field_tag :birthdate, params[:birthdate], class: "form-control hdb-clientsearch-input" %></td>
+      <td class="hdb-clientsearch-field"><%= text_field_tag :sex_id, params[:sex_id], class: "form-control hdb-clientsearch-input" %></td>
+      <td class="hdb-clientsearch-field"><%= text_field_tag :homeplace_id, params[:homeplace_id], class: "form-control hdb-clientsearch-input" %></td>
+      <td class="hdb-clientsearch-field"><%= text_field_tag :citizenship_id, params[:citizenship_id], class: "form-control hdb-clientsearch-input" %></td>
+      <td class="hdb-clientsearch-field"><%= text_field_tag :legalstatus_id, params[:legalstatus_id], class: "form-control hdb-clientsearch-input" %></td>
+      <td class="hdb-clientsearch-field"><%= text_field_tag :familystatus_id, params[:familystatus_id], class: "form-control hdb-clientsearch-input" %></td>
+      <td class="hdb-clientsearch-field"><%= text_field_tag :childrencount, params[:childrencount], class: "form-control hdb-clientsearch-input" %></td>
+      <td class="hdb-clientsearch-field"><%= text_field_tag :datefirstcontact, params[:datefirstcontact], class: "form-control hdb-clientsearch-input" %></td>
+      <td class="hdb-clientsearch-field"><%= text_field_tag :referrer_id, params[:referrer_id], class: "form-control hdb-clientsearch-input" %></td>
+      <td class="hdb-clientsearch-field"><%= text_field_tag :referrerfreetext, params[:referrerfreetext], class: "form-control hdb-clientsearch-input" %></td>
+    </tr>
+
     <% @clients.each do |client| %>
       <tr>
-        <td><%= link_to t(:show), client %></td>
         <td><%= link_to t(:edit), edit_client_path(client) %></td>
-        <td><%= link_to t(:addcontact), new_contact_path(:client_id => client.id) %></td>
-        <td><%= link_to t(:listcontacts), contacts_path(:client_id => client.id) %></td>
-        <td><%= link_to t(:destroy), client, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to t(:add_contact), new_contact_path(:client_id => client.id) %></td>
+        <td><%= link_to t(:list_contacts), contacts_path(:client_id => client.id) %></td>
+        <td><%= link_to t(:destroy), client, method: :delete, data: { confirm: t(:deleteclientconfirm) } %></td>
         <td><%= client.id %></td>
         <td><%= client.lastname %></td>
         <td><%= client.firstname %></td>

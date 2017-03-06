@@ -8,7 +8,6 @@
 </head>
 
 <body>
-
   <div class='container-fluid'>
     <div class='row statusline'>
       <div class='col-sm-3'>
@@ -35,7 +34,7 @@
       <% if !current_user %>
         <%= link_to 'Anmelden', '/login', class: 'btn btn-sm btn-login' %>
       <% else %>
-        <%= link_to t(:newclient), new_client_path, class: 'btn btn-sm btn-clientnew' %>
+        <%= link_to t(:new_client), new_client_path, class: 'btn btn-sm btn-clientnew' %>
         <%= link_to 'Klientenliste', clients_path, class: 'btn btn-sm btn-clientindex' %>
         <%= link_to 'Abmelden', '/logout', class: 'btn btn-sm btn-logout' %>
       <% end %>
@@ -47,7 +46,5 @@
       </div>
     </div>
   </div>
-
-
 </body>
 </html>

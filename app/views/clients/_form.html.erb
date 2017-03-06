@@ -1,7 +1,7 @@
 <%= form_for(client, html: {class: "form-horizontal client-form"}) do |f| %>
 <% if client.errors.any? %>
 <div id="error_explanation">
-  <h2><%= pluralize(client.errors.count, "error") %> prohibited this client from being saved:</h2>
+  <h2><%= pluralize(client.errors.count, t(:error)) %> <%= t(:client_prohibited_save) %></h2>
 
   <ul>
     <% client.errors.full_messages.each do |message| %>
@@ -11,80 +11,88 @@
 </div>
 <% end %>
 
-  <div class="row">
-    <%= f.label t(:client_id), class: 'col-sm-2 control-label' %>
-    <div class="col-sm-4" id='div_client_id'>
-      <%= f.text_field :id, class: 'form-control' %>
-    </div>
-  </div>
+<table class="hdb-form-layout-table">
+  <tr class="field hdb-form-row">
+    <td class="hdb-form-label"><%= f.label :id, class: "hdb-label" %></td>
+    <td class="hdb-form-field" id='td_client_id'><%= f.text_field :id, class: "form-control hdb-form-input" %></td>
+  </tr>
 
-  <div class="row">
-    <%= f.label t(:lastname), class: 'col-sm-2 control-label' %>
-    <div class="col-sm-4" id='div_client_lastname'><%= f.text_field :lastname, class: 'form-control'  %></div>
+  <tr class="field hdb-form-row">
+    <td class="hdb-form-label"><%= f.label :lastname, class: 'hdb-label' %></td>
+    <td class="hdb-form-field" id='td_client_lastname'><%= f.text_field :lastname, class: "form-control hdb-form-input" %></td>
 
-    <%= f.label t(:firstname), class: 'col-sm-2 control-label' %>
-    <div class="col-sm-4" id='div_client_firstname'><%= f.text_field :firstname, class: 'form-control'  %></div>
-  </div>
+    <td class="hdb-form-label"><%= f.label :firstname, class: 'hdb-label' %></td>
+    <td class="hdb-form-field" id='td_client_firstname'><%= f.text_field :firstname, class: "form-control hdb-form-input" %></td>
+  </tr>
 
-  <div class="row">
-    <%= f.label t(:birthdate), class: 'col-sm-2 control-label' %>
-    <div class="col-sm-4"><%= f.text_field :birthdate, :value => client.birthdate, class: 'form-control', :id => "datepicker" %></div>
+  <tr class="field hdb-form-row">
+    <td class="hdb-form-label"><%= f.label :birthdate, class: 'hdb-label' %></td>
+    <td class="hdb-form-field" id='td_client_birthdate'><%= f.date_field :birthdate, class: "form-control hdb-form-input", :id => "client_birthdate_datepicker" %></td>
 
-    <%= f.label t(:sex), class: 'col-sm-2 control-label' %>
-    <div class="col-sm-4"><%= f.collection_select :sex_id, Sex.all, :id, :text, {prompt: true}, {:class => 'form-control'} %></div>
-  </div>
+    <td class="hdb-form-label"><%= f.label :sex, class: 'hdb-label' %></td>
+    <td class="hdb-form-field"><%= f.collection_select :sex_id, Sex.order('created_at'), :id, :text, {prompt: true}, {:class => "form-control hdb-form-input hdb-form-select" } %></td>
+  </tr>
 
-  <div class="row">
-    <%= f.label t(:homeplace), class: 'col-sm-2 control-label'  %>
-    <div class="col-sm-4"><%= f.collection_select :homeplace_id, Homeplace.all, :id, :text, {prompt: true}, {:class => 'form-control'} %></div>
-  </div>
+  <tr class="field hdb-form-row">
+    <td class="hdb-form-label"><%= f.label :homeplace, class: 'hdb-label' %></td>
+    <td class="hdb-form-field"><%= f.collection_select :homeplace_id, Homeplace.order('created_at'), :id, :text, {prompt: true}, {:class => "form-control hdb-form-input hdb-form-select" } %></td>
+  </tr>
 
-  <div class="row">
-    <%= f.label t(:citizenship), class: 'col-sm-2 control-label' %>
+  <tr class="field hdb-form-row">
+    <td class="hdb-form-label"><%= f.label :citizenship, class: 'hdb-label' %></td>
+    <td class="hdb-form-field-nest">
+      <table class="hdb-form-table-nest">
+        <tr>
+          <td class="hdb-form-nest-w80">
+            <div class='hdb-typeahead-div-w80' id='div_client_citizenship_typeahead'>
+              <%= f.text_field :citizenship, class: "form-control typeahead hdb-form-input", id: "citizenship_input", placeholder: 'Staat' %>
+            </div>
+          </td>
+          <td class="hdb-form-nest-w20">
+            <%= f.collection_select :citizenship_id, Citizenship.all, :id, :id, {prompt: true}, {:class => 'form-control hdb-form-input'} %>
+          </td>
+        </tr>
+      </table>
+    </td>
 
-    <div class="col-sm-3" id='citizenship_typeahead'>
-      <input class='form-control typeahead' id='citizenship_input', type='text', placeholder='Staat'>
-    </div>
-    <div class="col-sm-1">
-      <%= f.collection_select :citizenship_id, Citizenship.all, :id, :id, {prompt: true}, {:class => 'form-control'} %>
-    </div>
+    <td class="hdb-form-label"><%= f.label :legalstatus, class: 'hdb-label' %></td>
+    <td class="hdb-form-field"><%= f.collection_select :legalstatus_id, Legalstatus.order('created_at'), :id, :text, {prompt: true}, {:class => "form-control hdb-form-input hdb-form-select" } %></td>
+  </tr>
 
-    <%= f.label t(:legalstatus), class: 'col-sm-2 control-label'   %>
-    <div class="col-sm-4"><%= f.collection_select :legalstatus_id, Legalstatus.all, :id, :text, {prompt: true}, {:class => 'form-control'}  %></div>
-  </div>
+  <tr class="field hdb-form-row">
+    <td class="hdb-form-label"><%= f.label :familystatus, class: 'hdb-label' %></td>
+    <td class="hdb-form-field"><%= f.collection_select :familystatus_id, Familystatus.order('created_at'), :id, :text, {prompt: true}, {:class => "form-control hdb-form-input hdb-form-select" } %></td>
 
-  <div class="row">
-    <%= f.label t(:familystatus), class: 'col-sm-2 control-label'   %>
-    <div class="col-sm-4"><%= f.collection_select :familystatus_id, Familystatus.all, :id, :text, {prompt: true}, {:class => 'form-control'}  %></div>
+    <td class="hdb-form-label"><%= f.label :childrencount, class: 'hdb-label' %></td>
+    <td class="hdb-form-field"><%= f.number_field :childrencount, :value => '0', :min => '-1', :max => '20', class: "form-control hdb-form-input" %></td>
+  </tr>
 
-    <%= f.label t(:childrencount), class: 'col-sm-2 control-label'   %>
-    <div class="col-sm-4"><%= f.number_field :childrencount, :value => '0', :min => '0', :max => '20', class: 'form-control' %></div>
-  </div>
-
-  <div class="row">
-    <%= f.label t(:datefirstcontact), class: 'col-sm-2 control-label' %>
+  <tr class="field hdb-form-row">
     <%
     if !client.datefirstcontact
       client.datefirstcontact = Date.today
     end
     %>
-    <div class="col-sm-4"><%= f.date_field :datefirstcontact, value: client.datefirstcontact, class: 'form-control', :id => "datepicker2" %></div>
-  </div>
+    <td class="hdb-form-label"><%= f.label :datefirstcontact, class: 'hdb-label' %></td>
+    <td class="hdb-form-field" id='td_client_datefirstcontact'><%= f.date_field :datefirstcontact, value: client.datefirstcontact, class: "form-control hdb-form-input", :id => "client_datefirstcontact_datepicker" %></td>
+  </tr>
 
-  <div class="row">
-    <%= f.label t(:referrer), class: 'col-sm-2 control-label' %>
-    <div class="col-sm-4"><%= f.collection_select :referrer_id, Referrer.all, :id, :text, {prompt: true}, {:class => 'form-control'}  %></div>
+  <tr class="field hdb-form-row">
+    <td class="hdb-form-label"><%= f.label :referrer, class: 'hdb-label' %></td>
+    <td class="hdb-form-field"><%= f.collection_select :referrer_id, Referrer.order('created_at'), :id, :text, {prompt: true}, {:class => "form-control hdb-form-input hdb-form-select" } %></td>
 
-    <%= f.label t(:referrerfreetext), class: 'col-sm-2 control-label', id: 'client_referrerfreetext_label' %>
-    <div class="col-sm-4"><%= f.text_field :referrerfreetext, class: 'form-control' %></div>
-  </div>
+    <td class="hdb-form-label"><%= f.label :referrerfreetext, class: 'hdb-label', id: 'client_referrerfreetext_label' %></td>
+    <td class="hdb-form-field" id='td_client_referrerfreetext'><%= f.text_field :referrerfreetext, class: "form-control hdb-form-input" %></td>
+  </tr>
 
-  <div class="row"><div class="col-sm-12">&nbsp;</div></div>
+  <tr class="actions">
+    <td colspan="4" class="hdb-form-buttons">
+      <button type="submit" id="btnSubmit" class="btn btn-primary" disabled="disabled"><%= t(:save_client) %></button>
+      <%= link_to t(:list_contacts), contacts_path(:client_id => client.id), class: 'btn btn-warning' %>
+      <%= link_to 'Abbrechen', clients_path, class: 'btn btn-danger' %></div>
+    </td>
+  </tr>
 
-  <div class="row">
-    <div class="col-sm-2"><button type="submit" id="btnSubmit" class="btn btn-primary" disabled="disabled">Klient_in speichern</button></div>
-    <div class="col-sm-2"><%= link_to 'Abbrechen', clients_path, class: 'btn btn-warning' %></div>
-  </div>
-
+</table>
 
 <% end %>

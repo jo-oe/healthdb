@@ -1,70 +1,71 @@
-<p id="notice"><%= notice %></p>
+<h1><%= t(:contacts) %></h1>
 
-<h1>Contacts</h1>
+<% if (notice) %>
+  <p id="notice"><%= notice %></p>
+<% end %>
 
-<table>
+<table class='clienttable'>
   <thead>
     <tr>
-      <th>Client</th>
-      <th>Contactdate</th>
-      <th>Counsellor</th>
-      <th>Contactreason</th>
-      <th>Contactreasonfreetext</th>
-      <th>Insurancestatus</th>
-      <th>Counselledperson</th>
-      <th>Translatorused</th>
-      <th>Has insuranceproblem</th>
-      <th>Has paymentproblem</th>
-      <th>Has housingproblem</th>
-      <th>Has workproblem</th>
-      <th>Has psychosocialproblem</th>
-      <th>Has healthproblem</th>
-      <th>Insuranceproblem</th>
-      <th>Healthproblem</th>
-      <th>Referral</th>
-      <th>Referralcaritas</th>
-      <th>Referraldiakonie</th>
-      <th>Referralothercounselling</th>
-      <th>Referralmedical</th>
-      <th>Referralauthority</th>
-      <th>Successfulinsurance</th>
-      <th>Failedinsurance</th>
-      <th>Comment</th>
-      <th colspan="3"></th>
+      <th colspan="2" class="rotate"><div><span></span></div></th>
+      <th class="rotate"><div><span><%= label( :contact, :client_id ) %></span></div></th>
+      <th class="rotate"><div><span><%= label( :contact, :contactdate) %></span></div></th>
+      <th class="rotate"><div><span><%= label( :contact, :counsellor) %></span></div></th>
+      <th class="rotate"><div><span><%= label( :contact, :contactreason) %></span></div></th>
+      <th class="rotate"><div><span><%= label( :contact, :contactreasonfreetext) %></span></div></th>
+      <th class="rotate"><div><span><%= label( :contact, :insurancestatus) %></span></div></th>
+      <th class="rotate"><div><span><%= label( :contact, :counselledperson) %></span></div></th>
+      <th class="rotate"><div><span><%= label( :contact, :translatorused) %></span></div></th>
+      <th class="rotate"><div><span><%= label( :contact, :has_insuranceproblem) %></span></div></th>
+      <th class="rotate"><div><span><%= label( :contact, :has_paymentproblem) %></span></div></th>
+      <th class="rotate"><div><span><%= label( :contact, :has_housingproblem) %></span></div></th>
+      <th class="rotate"><div><span><%= label( :contact, :has_workproblem) %></span></div></th>
+      <th class="rotate"><div><span><%= label( :contact, :has_psychosocialproblem) %></span></div></th>
+      <th class="rotate"><div><span><%= label( :contact, :has_healthproblem) %></span></div></th>
+      <th class="rotate"><div><span><%= label( :contact, :insuranceproblem) %></span></div></th>
+      <th class="rotate"><div><span><%= label( :contact, :healthproblem) %></span></div></th>
+      <th class="rotate"><div><span><%= label( :contact, :referral) %></span></div></th>
+      <th class="rotate"><div><span><%= label( :contact, :referralcaritas) %></span></div></th>
+      <th class="rotate"><div><span><%= label( :contact, :referraldiakonie) %></span></div></th>
+      <th class="rotate"><div><span><%= label( :contact, :referralothercounselling) %></span></div></th>
+      <th class="rotate"><div><span><%= label( :contact, :referralmedical) %></span></div></th>
+      <th class="rotate"><div><span><%= label( :contact, :referralauthority) %></span></div></th>
+      <th class="rotate"><div><span><%= label( :contact, :successfulinsurance) %></span></div></th>
+      <th class="rotate"><div><span><%= label( :contact, :failedinsurance) %></span></div></th>
+      <th class="rotate"><div><span><%= label( :contact, :comment) %></span></div></th>
     </tr>
   </thead>
 
   <tbody>
     <% @contacts.each do |contact| %>
       <tr>
-        <td><%= contact.client %></td>
+        <td><%= link_to t(:edit), edit_contact_path(contact) %></td>
+        <td><%= link_to t(:destroy), contact, method: :delete, data: { confirm: t(:deletecontactconfirm) } %></td>
+        <td><%= link_to contact.client_id, edit_client_path(contact.client) %></td>
         <td><%= contact.contactdate %></td>
-        <td><%= contact.counsellor %></td>
-        <td><%= contact.contactreason %></td>
+        <td><%= contact.counsellor_id %></td>
+        <td><%= contact.contactreason_id %></td>
         <td><%= contact.contactreasonfreetext %></td>
-        <td><%= contact.insurancestatus %></td>
-        <td><%= contact.counselledperson %></td>
-        <td><%= contact.translatorused %></td>
+        <td><%= contact.insurancestatus_id %></td>
+        <td><%= contact.counselledperson_id %></td>
+        <td><%= contact.translatorused_id %></td>
         <td><%= contact.has_insuranceproblem %></td>
         <td><%= contact.has_paymentproblem %></td>
         <td><%= contact.has_housingproblem %></td>
         <td><%= contact.has_workproblem %></td>
         <td><%= contact.has_psychosocialproblem %></td>
         <td><%= contact.has_healthproblem %></td>
-        <td><%= contact.insuranceproblem %></td>
-        <td><%= contact.healthproblem %></td>
-        <td><%= contact.referral %></td>
-        <td><%= contact.referralcaritas %></td>
-        <td><%= contact.referraldiakonie %></td>
-        <td><%= contact.referralothercounselling %></td>
-        <td><%= contact.referralmedical %></td>
-        <td><%= contact.referralauthority %></td>
-        <td><%= contact.successfulinsurance %></td>
-        <td><%= contact.failedinsurance %></td>
+        <td><%= contact.insuranceproblem_id %></td>
+        <td><%= contact.healthproblem_id %></td>
+        <td><%= contact.referral_id %></td>
+        <td><%= contact.referralcaritas_id %></td>
+        <td><%= contact.referraldiakonie_id %></td>
+        <td><%= contact.referralothercounselling_id %></td>
+        <td><%= contact.referralmedical_id %></td>
+        <td><%= contact.referralauthority_id %></td>
+        <td><%= contact.successfulinsurance_id %></td>
+        <td><%= contact.failedinsurance_id %></td>
         <td><%= contact.comment %></td>
-        <td><%= link_to 'Show', contact %></td>
-        <td><%= link_to 'Edit', edit_contact_path(contact) %></td>
-        <td><%= link_to 'Destroy', contact, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -72,4 +73,6 @@
 
 <br>
 
-<%= link_to 'New Contact', new_contact_path %>
+<% if (params[:client_id]) %>
+<%= link_to t(:add_contact), new_contact_path(:client_id => params[:client_id]) %>
+<% end %>

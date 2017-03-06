@@ -20,25 +20,93 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 de:
-  client: "Klient_in"
-  clients: "Stammdatensätze (Klienten)"
-  newclient: "Neuer Stammdatensatz (Klient_in)"
-  editclient: "Stammdatensatz (Klient_in) bearbeiten"
-  client_id: "Code"
-  lastname: "Familienname"
-  firstname: "Vorname"
-  birthdate: "Geburtsdatum"
-  sex: "Geschlecht"
-  homeplace: "Wohnort"
-  citizenship: "Staatsangehörigkeit"
-  legalstatus: "Aufenthaltsstatus"
-  familystatus: "Familiensituation"
-  childrencount: "Anzahl der Kinder"
-  datefirstcontact: "Erstkontakt am:"
-  referrer: "Vermittelt von:"
-  referrerfreetext: "sonstige hier eingeben:"
+  activerecord:
+    attributes:
+      client:
+        id: "Code"
+        lastname: "Familienname"
+        firstname: "Vorname"
+        birthdate: "Geburtsdatum"
+        sex: "Geschlecht"
+        homeplace: "Wohnort"
+        citizenship: "Staatsangehörigkeit"
+        legalstatus: "Aufenthaltsstatus"
+        familystatus: "Familiensituation"
+        childrencount: "Anzahl der Kinder"
+        datefirstcontact: "Erstkontakt am:"
+        referrer: "Vermittelt von:"
+        referrerfreetext: "sonstige hier eingeben:"
+
+      contact:
+        client_id: "Klientencode"
+        contactdate: "Kontaktdatum"
+        counsellor: "Berater_in"
+        contactreason: "Kontaktanlass aktuell"
+        contactreasonfreetext: "sonstiges hier eingeben:"
+        insurancestatus: "Versicherungsstatus/Kostenträger"
+        counselledperson: "Beratene Person"
+        translatorused: "Dolmetscher"
+        identifiedproblems: "Identifizierte Probleme"
+        has_insuranceproblem: "Versicherung"
+        has_paymentproblem: "Kosten Krankenhaus/ambulante Versorgung"
+        has_housingproblem: "Wohnung"
+        has_legalproblem: "Aufenthaltsstatus"
+        has_workproblem: "Arbeit/soziale Absicherung"
+        has_psychosocialproblem: "Psychosoziale Probleme"
+        has_healthproblem: "Gesundheit"
+        insuranceproblem: "Problem mit Versicherung:"
+        healthproblem: "Problem mit Gesundheit:"
+        referral: "Vermittlung"
+        referralcaritas: "Einrichtung (Caritas):"
+        referraldiakonie: "Einrichtung (Diakonie)"
+        referralothercounselling: "Beratungsstelle:"
+        referralmedical: "Einrichtung:"
+        referralauthority: "Behörde:"
+        successfulinsurance: "erfolgreich versichert bei:"
+        failedinsurance: "Zugang zu Versicherung gescheitert:"
+        comment: "Sonstiges/interne Notiz"
+
+  helpers:
+    label:
+      client:
+        :activerecord.attributes.client
+      contact:
+        :activerecord.attributes.contact
 
   back: "zurück"
+  show: "anzeigen"
+  new: "Neu"
+  edit: "bearbeiten"
+  add_contact: "Neuer Kontakt"
+  list_contacts: "Kontakte anzeigen"
+  destroy: "löschen"
+  search_for: "Suche nach:"
+  reset_search: "Suche zurücksetzen"
 
+  deleteclientconfirm: "Sind Sie sicher, dass Sie den Klienten vollständig löschen wollen?\n(Das wird nur funktionieren, wenn alle Kontakte dieses Klienten vorher gelöscht wurden)"
+  deletecontactconfirm: "Sind Sie sicher, dass Sie den Kontakt vollständig löschen wollen?"
+
+  client: "Klient_in"
+  clients: "Stammdatensätze (Klienten)"
+  new_client: "Neuer Stammdatensatz (Klient_in)"
+  edit_client: "Stammdatensatz (Klient_in) bearbeiten"
+  edit_client_cancel_warning: "Achtung, die aktuellen Eingaben hier werden beim Wechsel zu den Klientendaten verworfen!"
+  save_client: "Stammdatensatz speichern und neuen Kontakt anlegen"
+
+  client_successfully_created: "Stammdatensatz erfolgreich angelegt."
+  client_successfully_updated: "Stammdatensatz erfolgreich aktualisiert."
+  client_successfully_destroyed: "Stammdatensatz wurde gelöscht."
+  client_prohibited_save: "haben das Speichern dieses Kontaktdatensatzes verhindert:"
+
+  contacts: "Kontaktdatensätze"
   client_data: "Klientendaten"
-  newcontact: "Neuen Kontakt erfassen"
+  new_contact: "Neuen Kontakt erfassen"
+  edit_contact: "Kontaktdatensatz bearbeiten"
+  save_contact: "Kontaktdatensatz speichern"
+
+  contact_successfully_created: "Kontaktdatensatz erfolgreich angelegt."
+  contact_successfully_updated: "Kontaktdatensatz erfolgreich aktualisiert."
+  contact_successfully_destroyed: "Kontaktdatensatz wurde gelöscht."
+  contact_prohibited_save: "haben das Speichern dieses Kontaktdatensatzes verhindert:"
+
+  error: "Fehler"

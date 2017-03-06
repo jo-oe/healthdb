@@ -4,7 +4,11 @@ class ContactsController < ApplicationController
   # GET /contacts
   # GET /contacts.json
   def index
-    @contacts = Contact.all
+    if params[:client_id]
+      @contacts = Contact.where("client_id = ?", params[:client_id])
+    else
+      @contacts = Contact.all
+    end
   end
 
   # GET /contacts/1
@@ -30,7 +34,7 @@ class ContactsController < ApplicationController
 
     respond_to do |format|
       if @contact.save
-        format.html { redirect_to @contact, notice: 'Contact was successfully created.' }
+        format.html { redirect_to contacts_path(@contact.client_id), notice: t(:contact_successfully_created) }
         format.json { render :show, status: :created, location: @contact }
       else
         format.html { render :new }
@@ -44,7 +48,7 @@ class ContactsController < ApplicationController
   def update
     respond_to do |format|
       if @contact.update(contact_params)
-        format.html { redirect_to @contact, notice: 'Contact was successfully updated.' }
+        format.html { redirect_to contacts_path(@contact.client_id), notice: t(:contact_successfully_updated) }
         format.json { render :show, status: :ok, location: @contact }
       else
         format.html { render :edit }
@@ -58,7 +62,7 @@ class ContactsController < ApplicationController
   def destroy
     @contact.destroy
     respond_to do |format|
-      format.html { redirect_to contacts_url, notice: 'Contact was successfully destroyed.' }
+      format.html { redirect_to contacts_path(@contact.client_id), notice: t(:contact_successfully_destroyed) }
       format.json { head :no_content }
     end
   end
@@ -71,6 +75,6 @@ class ContactsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def contact_params
-      params.require(:contact).permit(:client_id, :contactdate, :counsellor_id, :contactreason_id, :contactreasonfreetext, :insurancestatus_id, :counselledperson_id, :translatorused_id, :has_insuranceproblem, :has_paymentproblem, :has_housingproblem, :has_workproblem, :has_psychosocialproblem, :has_healthproblem, :insuranceproblem_id, :healthproblem_id, :referral_id, :referralcaritas_id, :referraldiakonie_id, :referralothercounselling_id, :referralmedical_id, :referralauthority_id, :successfulinsurance_id, :failedinsurance_id, :comment)
+      params.require(:contact).permit(:client_id, :contactdate, :counsellor_id, :contactreason_id, :contactreasonfreetext, :insurancestatus_id, :counselledperson_id, :translatorused_id, :has_insuranceproblem, :has_paymentproblem, :has_legalproblem, :has_housingproblem, :has_workproblem, :has_psychosocialproblem, :has_healthproblem, :insuranceproblem_id, :healthproblem_id, :referral_id, :referralcaritas_id, :referraldiakonie_id, :referralothercounselling_id, :referralmedical_id, :referralauthority_id, :successfulinsurance_id, :failedinsurance_id, :comment)
     end
 end

@@ -11,6 +11,7 @@ class CreateContacts < ActiveRecord::Migration[5.0]
       t.belongs_to :translatorused, type: :string, limit: 1, foreign_key: true
       t.boolean :has_insuranceproblem
       t.boolean :has_paymentproblem
+      t.boolean :has_legalproblem
       t.boolean :has_housingproblem
       t.boolean :has_workproblem
       t.boolean :has_psychosocialproblem

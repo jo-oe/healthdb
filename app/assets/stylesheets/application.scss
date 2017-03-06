@@ -1,25 +1,27 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_self
- */
+* This is a manifest file that'll be compiled into application.css, which will include all the files
+* listed below.
+*
+* Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+* or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+*
+* You're free to add application-wide styles to this file and they'll appear at the bottom of the
+* compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+* files in this directory. Styles in this file should be added after the last require_* statement.
+* It is generally better to create a new file per style scope.
+*
+*= require_tree .
+*= require_self
+*/
 
 @import "bootstrap";
 @import "bootstrap-datepicker3";
 @import "typeaheadjs";
 
-h1 {
-  padding-top: 0.5em;
+label {
+  margin: 0;
 }
+
 
 .statusline {
   font-size: small;
@@ -27,32 +29,132 @@ h1 {
 }
 
 #statustime {
-  text-align: right
+  text-align: right !important;
+  font-weight: bold;
+}
+
+.btn {
+  text-decoration: none;
+  vertical-align: middle;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+  padding-bottom: 3px !important;
+  padding-top: 4px !important;
+  margin: 2px;
+  font-family: verdana, arial, helvetica, sans-serif !important;
+}
+
+.btn-primary {
+  color: #F0F0F0 !important;
+  font-weight: bold !important;
+  background-color: #2868b0 !important;
+  background: linear-gradient(to bottom right, #2870c0, #286080);
+  border: #084070 solid 2px !important;
+  &:hover {
+    color: #FFFFFF !important;
+    background: linear-gradient(to bottom right, #2880f0, #287090);
+  }
+}
+
+.btn-primary.disabled, .btn-primary:disabled {
+  color: #808080 !important;
+  background-color: #2060a0 !important;
+  background: linear-gradient(to bottom right, #2870b0, #185080);
+  border: #0004080 solid 2px !important;
+}
+
+.btn-warning {
+  color: #f0f0f0 !important;
+  font-weight: bold !important;
+  background: linear-gradient(to bottom right, #d08020, #a07010);
+  border: #906000 solid 2px !important;
+  &:hover {
+    color: #FFFFFF !important;
+    background: linear-gradient(to bottom right, #f09020, #c07010);
+  }
+}
+
+.btn-danger {
+  color: #f0f0f0 !important;
+  font-weight: bold !important;
+  background: linear-gradient(to bottom right, #e05040, #803020);
+  border: #702010 solid 2px !important;
+  &:hover {
+    color: #FFFFFF !important;
+    background: linear-gradient(to bottom right, #ff6050, #c04020);
+  }
 }
 
 .btn-clientnew {
-  background-color: #337ab7;
-  color: #FFFFFF;
-  font-weight: bold;
+  color: #F0F0F0 !important;
+  font-weight: bold !important;
+  background-color: #2868b0 !important;
+  background: linear-gradient(to bottom right, #2870c0, #286080);
+  border: #084070 solid 2px !important;
+  &:hover {
+    color: #FFFFFF !important;
+    background: linear-gradient(to bottom right, #2880f0, #287090);
+  }
 }
 
-.btn-clientindex {
-  background-color: #5bc0de;
-  color: #FFFFFF;
-  font-weight: bold;
+.btn-clientindex, .btn-edit-client {
+  color: #F0F0F0 !important;
+  font-weight: bold !important;
+  background-color: #3090b0 !important;
+  background: linear-gradient(to bottom right, #3098d0, #308890);
+  border: #307090 solid 2px !important;
+  &:hover {
+    color: #FFFFFF !important;
+    background: linear-gradient(to bottom right, #30a8f0, #3098b0);
+  }
 }
+
+
 
 .btn-logout {
-  background-color: lighten(#000, 20%);
-  color: #FFFFFF;
-  font-weight: bold;
+  color: #F0F0F0 !important;
+  background: linear-gradient(to bottom right, #505050, #101010);
+  font-weight: bold !important;
+  border: #000000 solid 2px !important;
+  &:hover {
+    color: #FFFFFF !important;
+    background: linear-gradient(to bottom right, #808080, #202020);
+  }
 }
 
 .btn-login {
-  background-color: #A00000;
-  color: #FFFFFF;
-  font-weight: bold;
+  color: #f0f0f0 !important;
+  font-weight: bold !important;
+  background: linear-gradient(to bottom right, #e05040, #803020);
+  border: #702010 solid 2px !important;
+  &:hover {
+    color: #FFFFFF !important;
+    background: linear-gradient(to bottom right, #ff6050, #c04020);
+  }
 }
+
+.btn-search {
+  color: #101010 !important;
+  font-weight: bold !important;
+  background: linear-gradient(to bottom right, #e8e8e8, #b8b8b8);
+  border: #A8A8A8 solid 2px !important;
+  &:hover {
+    color: #000000 !important;
+    background: linear-gradient(to bottom right, #F8F8F8, #C0C0C0);
+  }
+}
+
+.btn-resetsearch {
+  color: #101010 !important;
+  font-weight: bold !important;
+  background: linear-gradient(to bottom right, #FFF8B0, #F0E080);
+  border: #F0E090 solid 2px !important;
+  &:hover {
+    color: #000000 !important;
+    background: linear-gradient(to bottom right, #FFFFD0, #F8E8A0);
+  }
+}
+
 
 .form-control {
   vertical-align: middle;
@@ -76,18 +178,19 @@ select.form-control {
 }
 
 .clienttable {
-    border: 0px solid #909090;
-    border-collapse: separate;
-    border-spacing: 0;
+  width: 93%;
+  border: 0px solid #909090;
+  border-collapse: separate;
+  border-spacing: 0;
 }
 
 .clienttable td, .clienttable th {
-    border: 1px solid #D0D0D0;
+  border: 1px solid #D0D0D0;
 }
 
 .clienttable tr td, .clienttable tr th {
-    border-right: 0;
-    border-top: 0;
+  border-right: 0;
+  border-top: 0;
 }
 
 .clienttable tr th {
@@ -95,12 +198,12 @@ select.form-control {
 }
 
 .clienttable tr:last-child td {
-    border-bottom: 0;
+  border-bottom: 0;
 }
 
 .clienttable tr td:first-child,
 .clienttable tr th:first-child {
-    border-left: 0;
+  border-left: 0;
 }
 
 
@@ -112,10 +215,10 @@ select.form-control {
 
 .clienttable th.rotate > div {
   transform:
-    /* Magic Numbers */
-    translate(22px, 27px)
-    /* 45 is really 360 - 45 */
-    rotate(315deg);
+  /* Magic Numbers */
+  translate(22px, 27px)
+  /* 45 is really 360 - 45 */
+  rotate(315deg);
   width: 30px;
 }
 
@@ -131,7 +234,6 @@ select.form-control {
   color: #FF0000;
 }
 
-
 table.hdb-form-layout-table {
   border: 0;
   padding: 0;
@@ -141,10 +243,7 @@ table.hdb-form-layout-table {
 }
 
 tr.hdb-form-row {
-  padding-left: 2px;
-  padding-top: 0;
-  padding-bottom: 0;
-  padding-right: 2px;
+  padding: 0;
   text-align: left;
   height: 22px;
 }
@@ -154,43 +253,76 @@ tr.hdb-form-row-grouptitle {
 }
 
 td.hdb-form-grouptitle {
-  padding-left: 60px;
-  padding-top: 10px;
+  padding-left: 90px;
+  padding-top: 4px;
+  padding-bottom: 0px;
   font-weight: bold;
 }
 
 td.hdb-form-field {
+  vertical-align: middle;
   text-align: left;
-  width: 288px;
-  padding-right: 20px;
-  height: 22px;
+  height: 20px;
+  width: 280px;
+}
+
+td.hdb-form-field-nest {
+  vertical-align: middle;
+  text-align: left;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  height: 20px;
+  width: 280px;
+}
+
+table.hdb-form-table-nest {
+  border-width: 0;
+  padding: 0;
+  table-layout:fixed;
+}
+
+td.hdb-form-nest-w80 {
+  padding-right: 3px;
+  width: 80%;
+}
+
+td.hdb-form-nest-w20 {
+  width: 20%;
+  padding-right: 4px;
 }
 
 td.hdb-form-label {
   text-align: right;
   padding-right: 10px;
-  width: 192px;
-  height: 20px;
+  width: 200px;
   vertical-align: middle;
+  margin: 0;
+}
+
+.hdb-form-select {
+  padding-left: 0px !important;
+  margin: 0;
 }
 
 .hdb-label {
   vertical-align: middle;
   text-align: right;
-  height: 100%;
   margin: 0;
 }
 
 td.hdb-form-checkboxlabel {
   text-align: left;
+  padding-left: 7px;
   min-width: 220px;
   padding-right: 20px;
+  height: 24px;
+  vertical-align: middle;
 }
 
 td.hdb-form-checkbox {
   text-align: right;
-  padding-left: 40px;
-  padding-right: 10px;
+  padding-right: 0px;
 }
 
 .hdb-radio-box {
@@ -199,53 +331,94 @@ td.hdb-form-checkbox {
 }
 
 .hdb-form-input {
-  height: 22px !important ;
-  padding-top: 1px !important ;
-  padding-bottom: 1px !important ;
-  padding-left: 5px !important ;
-  padding-right: 10px !important ;
-  margin: 1px;
+  height: 22px !important;
+  padding-top: 2px;
+  padding-bottom: 1px;
+  padding-left: 4px;
+  padding-right: 2px;
+  display: inline;
 }
 
+.tt-hint {
+  padding-left: -1px !important;
+  padding-top: 1px !important;
+  color: #A0A0A0 !important;
+  border: 0;
+  background: transparent !important;
+}
+
+.tt-menu {
+  top: 100% !important;
+}
+
+
+
 .hdb-form-radio-label {
-  padding-left: 162px;
-  padding-right: 50px;
+  padding-left: 180px;
   text-align: left;
   vertical-align: middle;
+  margin: 0;
+  height: 24px;
 }
 
 .hdb-form-radio {
+  text-align: left;
   box-sizing: content-box;
-  margin-right: 10px;
+  margin-right: 7px;
   margin-bottom: 2px;
   vertical-align: middle;
   height: 100%;
-  width: 20px;
 }
 
-table.hdb-client-data {
+table.hdb-client-data-table {
+  border: 0px;
+  padding: 0px;
+  margin: 0px;
+  border-collapse: true;
   background-color: #F0F0F0;
   text-align: left;
-  width: 70%;
+  width: 800px;
 }
 
 .hdb-form-noinput-headrow {
   text-align: left;
   font-weight: bold;
   border-bottom: 1px solid #303030;
+  padding-bottom: 0px;
+  padding-top: 2px;
 }
 
 .hdb-form-noinput-headcol {
-  padding-left: 100px;
+  padding-left: 150px;
+  padding-top: 3px;
+  padding-bottom: 0px;
+  margin-top: 5px;
+  vertical-align: top !important;
 }
 
 .hdb-form-noinput-label {
-  width: 150px;
+  width: 185px;
   text-align: right;
+  padding-top: 2px;
+  padding-bottom: 2px;
 }
 
 .hdb-form-noinput-field {
-  width: 192px;
+  width: 215px;
   text-align: left;
   padding-left: 5px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+.hdb-form-buttons {
+  padding-left: 20px;
+  padding-top: 10px;
+  text-align: left;
+  padding-bottom: 30px;
+}
+
+.client-edit-cancel-warning {
+  padding-left: 10px;
+  color: #E00000;
 }
