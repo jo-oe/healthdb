@@ -19,6 +19,8 @@
 //= require typeahead.js/typeahead.bundle
 //= require_tree .
 
+`
+
 function updateStatustime() {
   var d = new Date();
   document.getElementById('statustime').innerHTML = d.toLocaleString('de-DE');
@@ -27,3 +29,5 @@ function updateStatustime() {
 window.onload = function () {
   setInterval(updateStatustime, 1000);
 };
+
+`
