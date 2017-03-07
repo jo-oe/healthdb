@@ -1,3 +1,4 @@
+
 function checkToggleContactreasonFreetext () {
   if ( $('#contact_contactreason_id').val() == "O") {
     $('#contact_contactreasonfreetext').prop('hidden', false);

@@ -17,7 +17,7 @@ CSV.foreach('db/countries.csv', col_sep: ',', headers: true) do |row|
   Citizenship.create(row.to_h)
 end
 
-p 'Creating sexes: '
+p 'Creating sexes'
 ss = [
   [ :id => 'F', :text => 'weiblich' ],
   [ :id => 'M', :text => 'männlich' ],
@@ -30,7 +30,7 @@ ss.each do |s|
   sleep 1
 end
 
-p 'Creating homeplaces: '
+p 'Creating homeplaces'
 hs = [
   [ :id => 'U', :text => 'unbekannt' ],
   [ :id => 'K', :text => 'Köln' ],
@@ -44,7 +44,7 @@ hs.each do |h|
   sleep 1
 end
 
-p 'Creating legalstatuses: '
+p 'Creating legalstatuses'
 ls = [
   [ :id => 'U', :text => 'unbekannt' ],
   [ :id => 'E', :text => 'EU-Bürger' ],
@@ -76,7 +76,7 @@ fs.each do |f|
   sleep 1
 end
 
-p 'Creating referrers: '
+p 'Creating referrers'
 rs = [
   [ :id => 'U', :text => 'unbekannt' ],
   [ :id => 'G', :text => 'Gesundheitsamt' ],
@@ -97,7 +97,7 @@ end
 
 # Contact selection fields initialisation
 
-p 'Creating contactreasons: '
+p 'Creating contactreasons'
 cs = [
   [ :id => 'V', :text => 'Versicherung (allgemein)' ],
   [ :id => 'K', :text => 'Krankenhaus-Kosten' ],
@@ -113,7 +113,7 @@ cs.each do |c|
   sleep 1
 end
 
-p 'Creating insurancestatuses: '
+p 'Creating insurancestatuses'
 is = [
   [ :id => 'N', :text => 'keine Versicherung' ],
   [ :id => 'G', :text => 'GKV-Karte (SGB oder AsylbLG)' ],
@@ -130,7 +130,7 @@ is.each do |i|
   sleep 1
 end
 
-p 'Creating counselledpersons: '
+p 'Creating counselledpersons'
 cs = [
   [ :id => 'K', :text => 'Klient_in' ],
   [ :id => 'P', :text => 'Eltern' ],
@@ -147,7 +147,7 @@ cs.each do |c|
   sleep 1
 end
 
-p 'Creating translatoruseds: '
+p 'Creating translatoruseds'
 ts = [
   [ :id => 'N', :text => 'nicht erforderlich' ],
   [ :id => 'P', :text => 'professionell aus Projekt' ],
@@ -164,23 +164,7 @@ ts.each do |t|
   sleep 1
 end
 
-p 'Creating problems: '
-pbs = [
-  [ :id => 'V', :text => 'Versicherung' ],
-  [ :id => 'K', :text => 'Kosten medizinische Versorgung (Krankenhaus/ambulant)' ],
-  [ :id => 'W', :text => 'Wohnung' ],
-  [ :id => 'A', :text => 'Arbeit/soziale Absicherung' ],
-  [ :id => 'P', :text => 'psychosoziale Probleme' ],
-  [ :id => 'G', :text => 'Gesundheit' ]
-]
-
-Problem.delete_all
-is.each do |pb|
-  Problem.create(pb)
-  sleep 1
-end
-
-p 'Creating insuranceproblems: '
+p 'Creating insuranceproblems'
 is = [
   [ :id => 'G', :text => 'Versicherung klären allgemein' ],
   [ :id => 'S', :text => 'Beitragsschulden' ],
@@ -198,7 +182,7 @@ is.each do |i|
   sleep 1
 end
 
-p 'Creating healthproblems: '
+p 'Creating healthproblems'
 hs = [
   [ :id => 'S', :text => 'somatisch' ],
   [ :id => 'P', :text => 'psychisch' ],
@@ -215,7 +199,7 @@ hs.each do |h|
   sleep 1
 end
 
-p 'Creating referrals: '
+p 'Creating referrals'
 rs = [
   [ :id => 'N', :text => 'keine' ],
   [ :id => 'D', :text => 'innerhalb Diakonie' ],
@@ -232,7 +216,7 @@ rs.each do |r|
   sleep 1
 end
 
-p 'Creating referralcaritas: '
+p 'Creating referralcaritas'
 rcs = [
   [ :id => 'F', :text => 'SKF' ],
   [ :id => 'M', :text => 'SKM' ],
@@ -250,7 +234,7 @@ rcs.each do |rc|
   sleep 1
 end
 
-p 'Creating referraldiakonies: '
+p 'Creating referraldiakonies'
 rds = [
   [ :id => 'M', :text => 'FD Migration' ],
   [ :id => 'B', :text => 'MBE' ],
@@ -265,7 +249,7 @@ rds.each do |rd|
   sleep 1
 end
 
-p 'Creating referralothercounsellings: '
+p 'Creating referralothercounsellings'
 ros = [
   [ :id => 'F', :text => 'Flüchtlingsrat' ],
   [ :id => 'R', :text => 'Rom e.V.' ],
@@ -284,7 +268,7 @@ ros.each do |ro|
   sleep 1
 end
 
-p 'Creating referralmedicals: '
+p 'Creating referralmedicals'
 rms = [
   [ :id => 'M', :text => 'Gesundheitsamt' ],
   [ :id => 'B', :text => 'Malteser Migranten Medizin' ],
@@ -300,7 +284,7 @@ rms.each do |rm|
   sleep 1
 end
 
-p 'Creating referralauthorities: '
+p 'Creating referralauthorities'
 ras = [
   [ :id => 'S', :text => 'Sozialamt' ],
   [ :id => 'A', :text => 'Ausländeramt' ],
@@ -318,7 +302,7 @@ ras.each do |ra|
   sleep 1
 end
 
-p 'Creating successfulinsurances: '
+p 'Creating successfulinsurances'
 ss = [
   [ :id => '0', :text => 'nicht erhoben' ],
   [ :id => 'G', :text => 'Pflichtversicherung GKV' ],
@@ -338,7 +322,7 @@ ss.each do |s|
   sleep 1
 end
 
-p 'Creating failedinsurances: '
+p 'Creating failedinsurances'
 fs = [
   [ :id => 'S', :text => 'Beitragsschulden' ],
   [ :id => 'V', :text => 'Vorversicherungszeiten' ],
@@ -355,7 +339,7 @@ fs.each do |f|
   sleep 1
 end
 
-p 'Creating users: '
+p 'Creating users'
 users = [
   [ :id => '1', :signature => "00", :username => "admin", :password_digest => "$2a$10$phCeSW/EI1KfHMj3HIfZxO7Lmn1taci4Yb2z9DPaTt3ZeXc6o2.Mm" ],
   [ :id => '2', :signature => "T1", :username => "testuser1", :password_digest => "$2a$10$Rnvk4ciJP1lLIx0UuJq4OuoG.E9mUqx7DhZqJ8TK1kzVVW/GOKcsq"]

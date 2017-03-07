@@ -1,5 +1,4 @@
 
-
 function addSearchTypeahead( field ) {
   console.log("Adding typeahead for field "+field);
 

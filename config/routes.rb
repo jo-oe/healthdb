@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   resources :contacts
-  resources :problems
   resources :referralcaritas
   resources :counselledpersons
   resources :failedinsurances

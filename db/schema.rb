@@ -143,12 +143,6 @@ ActiveRecord::Schema.define(version: 20170304182139) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "problems", id: :string, limit: 1, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "text"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "referralauthorities", id: :string, limit: 1, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "text"
     t.datetime "created_at", null: false
