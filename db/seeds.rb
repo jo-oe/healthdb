@@ -345,7 +345,7 @@ fs = [
   [ :id => 'W', :text => 'Weigerung der Kasse bei SGB XII' ],
   [ :id => 'N', :text => 'kein nachweisbarer Anspruch auf Sozialleistungen' ],
   [ :id => 'A', :text => 'Aufenthaltsstatus' ],
-  [ :id => 'O', :text => 'sonstiges' ]
+  [ :id => 'O', :text => 'sonstiges' ],
   [ :id => '0', :text => 'nicht erhoben' ]
 ]
 
