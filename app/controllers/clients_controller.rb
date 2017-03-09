@@ -5,10 +5,28 @@ class ClientsController < ApplicationController
   # GET /clients
   # GET /clients.json
   def index
-    if(params['filter']="yes")
+    if(params['filter']=="yes")
       @clients = Client.where(nil)
       Client.new.attributes.each do |attr_name, attr_value|
-        @clients = @clients.where("#{attr_name} like ?", "%"+params[attr_name]+"%") if params[attr_name].present?
+        if (attr_name == "birthdate")
+          if (params['birthdate_selectrange'] == "true" )
+            @birthdate_rangestart = params['birthdate_rangestart'].to_date
+            @birthdate_rangeend = params['birthdate_rangeend'].to_date
+            p "start: " + @birthdate_rangestart.to_s + ", end: " + @birthdate_rangeend.to_s
+            @clients = @clients.where("birthdate >= ? and birthdate <= ?", @birthdate_rangestart, @birthdate_rangeend)
+          end
+        elsif (attr_name == "datefirstcontact")
+          if (params['datefirstcontact_selectrange'] == "true" )
+            @datefirstcontact_rangestart = params['datefirstcontact_rangestart'].to_date
+            @datefirstcontact_rangeend = params['datefirstcontact_rangeend'].to_date
+
+            @clients = @clients.where("datefirstcontact >= ? and datefirstcontact <= ?", @datefirstcontact_rangestart, @datefirstcontact_rangeend)
+          end
+
+        elsif (params[attr_name] && params[attr_name].length > 0)
+          @param = params[attr_name]
+          @clients = @clients.where("#{attr_name} like ?", "%"+@param+"%") if params[attr_name].present?
+        end
       end
     else
       @clients = Client.all

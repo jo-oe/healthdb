@@ -36,6 +36,8 @@ de:
         datefirstcontact: "Erstkontakt am:"
         referrer: "Vermittelt von:"
         referrerfreetext: "sonstige hier eingeben:"
+        birthdate_selectrange: "Zeitraum:"
+        datefirstcontact_selectrange: "Zeitraum:"
 
       contact:
         client_id: "Klientencode"
@@ -65,6 +67,7 @@ de:
         successfulinsurance: "erfolgreich versichert bei:"
         failedinsurance: "Zugang zu Versicherung gescheitert:"
         comment: "Sonstiges/interne Notiz"
+        contactdate_selectrange: "Zeitraum:"
 
   helpers:
     label:
@@ -95,6 +98,7 @@ de:
   edit_client: "Stammdatensatz bearbeiten"
   edit_client_cancel_warning: "Achtung, die aktuellen Eingaben zum Kontakt werden beim Wechsel zu den Stammdaten verworfen!"
   save_client: "Stammdatensatz speichern und neuen Kontakt anlegen"
+  list_clients: "Klientenliste"
 
   client_successfully_created: "Stammdatensatz erfolgreich angelegt."
   client_successfully_updated: "Stammdatensatz erfolgreich aktualisiert."
@@ -106,6 +110,7 @@ de:
   new_contact: "Neuen Kontakt erfassen"
   edit_contact: "Kontaktdatensatz bearbeiten"
   save_contact: "Kontaktdatensatz speichern"
+  list_contacts: "Kontaktliste"
 
   contact_successfully_created: "Kontaktdatensatz erfolgreich angelegt."
   contact_successfully_updated: "Kontaktdatensatz erfolgreich aktualisiert."

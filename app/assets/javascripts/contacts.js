@@ -88,6 +88,17 @@ function switchReferrals () {
   };
 }
 
+function toggleRangeContactdate () {
+  if ( $('#contactdate_selectrange').prop('checked') == true) {
+    $('#contactdate_rangestart').prop('hidden', false);
+    $('#contactdate_rangeend').prop('hidden', false);
+  } else {
+    $('#contactdate_rangestart').prop('hidden', true);
+    $('#contactdate_rangeend').prop('hidden', true);
+  }
+}
+
+
 
 $( document ).on('turbolinks:load', function() {
   $('#contactdate_datepicker').datepicker({
@@ -121,6 +132,37 @@ $( document ).on('turbolinks:load', function() {
   $('#contact_referral_id_b').on('change', switchReferrals);
   $('#contact_referral_id_o').on('change', switchReferrals);
   switchReferrals();
+
+  $('#contactdate_selectrange').on('change', toggleRangeContactdate);
+  toggleRangeContactdate();
+
+  $('#contactdate_rangestart').datepicker({
+    format: "dd.mm.yyyy",
+    startDate: "09.06.2016",
+    endDate: "today",
+    defaultViewDate: "today",
+    weekStart: 1,
+    maxViewMode: 3,
+    todayHighlight: true,
+    todayBtn: "linked",
+    clearBtn: true,
+    language: "de",
+    autoclose: true
+  });
+
+  $('#contactdate_rangeend').datepicker({
+    format: "dd.mm.yyyy",
+    startDate: "09.06.2016",
+    endDate: "today",
+    defaultViewDate: "today",
+    weekStart: 1,
+    maxViewMode: 3,
+    todayHighlight: true,
+    todayBtn: "linked",
+    clearBtn: true,
+    language: "de",
+    autoclose: true
+  });
 
 
 });

@@ -193,6 +193,29 @@ function checkToggleReferrerFreetext () {
     }
 }
 
+function toggleRangeBirthdate () {
+  if ( $('#birthdate_selectrange').prop('checked') == true) {
+    $('#birthdate_rangestart').prop('hidden', false);
+    $('#birthdate_rangeend').prop('hidden', false);
+  } else {
+    $('#birthdate_rangestart').prop('hidden', true);
+    $('#birthdate_rangeend').prop('hidden', true);
+  }
+}
+
+function toggleRangeDatefirstcontact () {
+  if ( $('#datefirstcontact_selectrange').prop('checked') == true) {
+    $('#datefirstcontact_rangestart').prop('hidden', false);
+    $('#datefirstcontact_rangeend').prop('hidden', false);
+  } else {
+    $('#datefirstcontact_rangestart').prop('hidden', true);
+    $('#datefirstcontact_rangeend').prop('hidden', true);
+  }
+}
+
+
+
+
   if( document.getElementsByClassName('client-form').length) {
 
     $.getJSON( "/citizenships.json", function( citizenship_json ) {
@@ -235,7 +258,8 @@ function checkToggleReferrerFreetext () {
       todayHighlight: true,
       todayBtn: "linked",
       clearBtn: true,
-      language: "de"
+      language: "de",
+      autoclose: true
     });
 
     $('#client_datefirstcontact_datepicker').datepicker({
@@ -247,7 +271,8 @@ function checkToggleReferrerFreetext () {
       todayHighlight: true,
       todayBtn: "linked",
       clearBtn: true,
-      language: "de"
+      language: "de",
+      autoclose: true
     });
 
     $('#client_citizenship_id').on('change', citizenshipIdChanged);
@@ -256,6 +281,75 @@ function checkToggleReferrerFreetext () {
 
     $('#client_referrer_id').on('change', checkToggleReferrerFreetext);
     checkToggleReferrerFreetext();
+
+
   };
+
+  $('#birthdate_selectrange').on('change', toggleRangeBirthdate);
+  toggleRangeBirthdate();
+
+  $('#birthdate_rangestart').datepicker({
+    format: "dd.mm.yyyy",
+    startDate: "01.01.1900",
+    endDate: "today",
+    weekStart: 1,
+    maxViewMode: 3,
+    startView: 3,
+    defaultViewDate: { year: 1970, month: 01, day: 01 },
+    todayHighlight: true,
+    todayBtn: "linked",
+    clearBtn: true,
+    language: "de",
+    autoclose: true
+  });
+
+  $('#birthdate_rangeend').datepicker({
+    format: "dd.mm.yyyy",
+    startDate: "01.01.1900",
+    endDate: "today",
+    weekStart: 1,
+    maxViewMode: 3,
+    startView: 3,
+    defaultViewDate: { year: 1970, month: 01, day: 01 },
+    todayHighlight: true,
+    todayBtn: "linked",
+    clearBtn: true,
+    language: "de",
+    autoclose: true
+  });
+
+  $('#datefirstcontact_selectrange').on('change', toggleRangeDatefirstcontact);
+  toggleRangeDatefirstcontact();
+
+  $('#datefirstcontact_rangestart').datepicker({
+    format: "dd.mm.yyyy",
+    startDate: "09.06.2016",
+    endDate: "today",
+    defaultViewDate: "today",
+    weekStart: 1,
+    maxViewMode: 3,
+    todayHighlight: true,
+    todayBtn: "linked",
+    clearBtn: true,
+    language: "de",
+    autoclose: true
+  });
+
+  $('#datefirstcontact_rangeend').datepicker({
+    format: "dd.mm.yyyy",
+    startDate: "09.06.2016",
+    endDate: "today",
+    defaultViewDate: "today",
+    weekStart: 1,
+    maxViewMode: 3,
+    todayHighlight: true,
+    todayBtn: "linked",
+    clearBtn: true,
+    language: "de",
+    autoclose: true
+  });
+
+
+
 
 });

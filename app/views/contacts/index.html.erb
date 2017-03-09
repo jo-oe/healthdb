@@ -4,6 +4,10 @@
   <p id="notice"><%= notice %></p>
 <% end %>
 
+<%= form_tag(contacts_path, method: "get") %>
+
+<%= link_to 'Diese Kontakte in Excel-Tabelle für Landesstatistik exportieren', contacts_path(request.parameters.merge({:format => :xls})) %>
+
 <table class='clienttable'>
   <thead>
     <tr>
@@ -18,6 +22,7 @@
       <th class="rotate"><div><span><%= label( :contact, :translatorused) %></span></div></th>
       <th class="rotate"><div><span><%= label( :contact, :has_insuranceproblem) %></span></div></th>
       <th class="rotate"><div><span><%= label( :contact, :has_paymentproblem) %></span></div></th>
+      <th class="rotate"><div><span><%= label( :contact, :has_legalproblem) %></span></div></th>
       <th class="rotate"><div><span><%= label( :contact, :has_housingproblem) %></span></div></th>
       <th class="rotate"><div><span><%= label( :contact, :has_workproblem) %></span></div></th>
       <th class="rotate"><div><span><%= label( :contact, :has_psychosocialproblem) %></span></div></th>
@@ -37,13 +42,61 @@
   </thead>
 
   <tbody>
+    <tr class="hdb-search-line">
+      <td colspan="2" class="hdb-search-desc">
+        <%= submit_tag t(:search_for), class: 'btn btn-sm btn-hdb-std btn-search' %>
+        <%= link_to t(:reset_search), contacts_path, class: 'btn btn-sm btn-hdb-std btn-resetsearch' %>
+        <%= hidden_field_tag :filter, "yes" %>
+      </td>
+      <td class="hdb-search-field"><%= text_field_tag :client_id, params[:client_id], class: "form-control hdb-search-input" %></td>
+      <td class="hdb-search-field">
+        <table class="hdb-searchform-minitable">
+          <tr class="hdb-searchform-row">
+            <td class="hdb-searchform-checkbox"><%= check_box_tag :contactdate_selectrange, true, params[:contactdate_selectrange] %></td>
+            <td class="hdb-searchform-checkboxlabel"><%= label :contact, :contactdate_selectrange, class: "hdb-search-label" %></td>
+          </tr>
+          <tr class="hdb-searchform-row">
+            <td colspan="2" class="hdb-search-subfield"><%= date_field_tag :contactdate_rangestart, params[:contactdate_rangestart], class: "form-control hdb-search-input" %></td>
+          </tr>
+          <tr class="hdb-searchform-row">
+            <td colspan="2" class="hdb-search-subfield"><%= date_field_tag :contactdate_rangeend, params[:contactdate_rangeend], class: "form-control hdb-search-input" %></td>
+          </tr>
+        </table>
+      </td>
+      <td class="hdb-search-field"><%= text_field_tag :counsellor_signature, params[:counsellor_signature], class: "form-control hdb-search-input" %></td>
+      <td class="hdb-search-field"><%= text_field_tag :contactreason_id, params[:contactreason_id], class: "form-control hdb-search-input" %></td>
+      <td class="hdb-search-field"><%= text_field_tag :contactreasonfreetext, params[:contactreasonfreetext], class: "form-control hdb-search-input" %></td>
+      <td class="hdb-search-field"><%= text_field_tag :insurancestatus_id, params[:insurancestatus_id], class: "form-control hdb-search-input" %></td>
+      <td class="hdb-search-field"><%= text_field_tag :counselledperson_id, params[:counselledperson_id], class: "form-control hdb-search-input" %></td>
+      <td class="hdb-search-field"><%= text_field_tag :translatorused_id, params[:translatorused_id], class: "form-control hdb-search-input" %></td>
+      <td class="hdb-search-field"><%= text_field_tag :has_insuranceproblem, params[:has_insuranceproblem], class: "form-control hdb-search-input" %></td>
+      <td class="hdb-search-field"><%= text_field_tag :has_paymentproblem, params[:has_paymentproblem], class: "form-control hdb-search-input" %></td>
+      <td class="hdb-search-field"><%= text_field_tag :has_legalproblem, params[:has_legalproblem], class: "form-control hdb-search-input" %></td>
+      <td class="hdb-search-field"><%= text_field_tag :has_workproblem, params[:has_workproblem], class: "form-control hdb-search-input" %></td>
+      <td class="hdb-search-field"><%= text_field_tag :has_psychosocialproblem, params[:has_psychosocialproblem], class: "form-control hdb-search-input" %></td>
+      <td class="hdb-search-field"><%= text_field_tag :has_healthproblem, params[:has_healthproblem], class: "form-control hdb-search-input" %></td>
+      <td class="hdb-search-field"><%= text_field_tag :insuranceproblem_id, params[:insuranceproblem_id], class: "form-control hdb-search-input" %></td>
+      <td class="hdb-search-field"><%= text_field_tag :healthproblem_id, params[:healthproblem_id], class: "form-control hdb-search-input" %></td>
+      <td class="hdb-search-field"><%= text_field_tag :referral, params[:referral], class: "form-control hdb-search-input" %></td>
+      <td class="hdb-search-field"><%= text_field_tag :referralcaritas_id, params[:referralcaritas_id], class: "form-control hdb-search-input" %></td>
+      <td class="hdb-search-field"><%= text_field_tag :referraldiakonie_id, params[:referraldiakonie_id], class: "form-control hdb-search-input" %></td>
+      <td class="hdb-search-field"><%= text_field_tag :referralothercounselling_id, params[:referralothercounselling_id], class: "form-control hdb-search-input" %></td>
+      <td class="hdb-search-field"><%= text_field_tag :referralmedical_id, params[:referralmedical_id], class: "form-control hdb-search-input" %></td>
+      <td class="hdb-search-field"><%= text_field_tag :referralauthority_id, params[:referralauthority_id], class: "form-control hdb-search-input" %></td>
+      <td class="hdb-search-field"><%= text_field_tag :successfulinsurance_id, params[:successfulinsurance_id], class: "form-control hdb-search-input" %></td>
+      <td class="hdb-search-field"><%= text_field_tag :failedinsurance_id, params[:failedinsurance_id], class: "form-control hdb-search-input" %></td>
+      <td class="hdb-search-field"><%= text_field_tag :comment, params[:comment], class: "form-control hdb-search-input" %></td>
+    </tr>
+
+
+
     <% @contacts.each do |contact| %>
       <tr>
         <td><%= link_to t(:edit), edit_contact_path(contact), class: 'btn btn-table-mini btn-contact-edit'  %></td>
         <td><%= link_to t(:destroy), contact, method: :delete, data: { confirm: t(:deletecontactconfirm) }, class: 'btn btn-table-mini btn-contact-delete'  %></td>
         <td><%= link_to contact.client_id, edit_client_path(contact.client) %></td>
         <td><%= contact.contactdate %></td>
-        <td><%= contact.counsellor_id %></td>
+        <td><%= contact.counsellor.signature %></td>
         <td><%= contact.contactreason_id %></td>
         <td><%= contact.contactreasonfreetext %></td>
         <td><%= contact.insurancestatus_id %></td>
@@ -51,6 +104,7 @@
         <td><%= contact.translatorused_id %></td>
         <td><%= contact.has_insuranceproblem %></td>
         <td><%= contact.has_paymentproblem %></td>
+        <td><%= contact.has_legalproblem %></td>
         <td><%= contact.has_housingproblem %></td>
         <td><%= contact.has_workproblem %></td>
         <td><%= contact.has_psychosocialproblem %></td>
@@ -73,6 +127,6 @@
 
 <br>
 
-<% if (params[:client_id]) %>
+<% if (Client.all.where('id = ?', params[:client_id]).any?)  %>
 <%= link_to t(:add_contact), new_contact_path(:client_id => params[:client_id]), class: 'btn btn-sm btn-hdb-std btn-contact-new'  %>
 <% end %>

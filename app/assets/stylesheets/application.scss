@@ -341,10 +341,85 @@ tr.hdb-form-contact-darker td {
   padding-bottom: 10px;
 }
 
+
+.hdb-clientsearch-buttons {
+  font-weight: bold;
+  text-align: right;
+  vertical-align: middle !important;
+  padding: 1px;
+}
+
+.hdb-contactsearch-buttons {
+  font-weight: bold;
+  text-align: right;
+  vertical-align: middle !important;
+  padding: 1px;
+}
+
+
+.hdb-search-line {
+  height: 85px;
+}
+
+.hdb-search-field {
+  vertical-align: text-top;
+  text-align: left !important;
+  padding: 2px;
+  margin: 0;
+}
+
+.hdb-search-subfield {
+  padding: 1px;
+  margin: 0;
+  border: none !important;
+}
+
+.hdb-searchform-minitable {
+  border: none;
+  border-collapse: collapse;
+}
+
+.hdb-searchform-row {
+  border: none;
+}
+
+.hdb-search-input {
+  font-family: verdana, arial, helvetica, sans-serif !important;
+  font-size: 13px !important;
+  line-height: 18px !important;
+  box-sizing: border-box;
+  height: 24px !important;
+  padding-top: 4px !important ;
+  padding-bottom: 1px !important ;
+  padding-left: 3px !important ;
+  padding-right: 3px !important ;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-bottom: 1px;
+  margin-top: 1px;
+  vertical-align: middle !important;
+  text-align: left;
+}
+
+td.hdb-searchform-checkboxlabel {
+  text-align: left !important;
+  padding-left: 2px;
+  padding-right: 2px;
+  height: 22px;
+  border: none;
+}
+
+td.hdb-searchform-checkbox {
+  text-align: left !important;
+  width: 24px;
+  border: none;
+}
+
 .client-edit-cancel-warning {
   padding-left: 10px;
   color: #E00000;
 }
+
 
 .btn {
   text-decoration: none;
@@ -457,7 +532,7 @@ tr.hdb-form-contact-darker td {
   }
 }
 
-.btn-contact-edit {
+.btn-contact-edit, .btn-contact-index {
   color: #F0F0F0 !important;
   background: linear-gradient(to bottom right, #48A070, #307048);
   border-color: #306040 !important;
