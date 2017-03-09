@@ -102,7 +102,7 @@
         <td><%= contact.insurancestatus_id %></td>
         <td><%= contact.counselledperson_id %></td>
         <td><%= contact.translatorused_id %></td>
-        <td><%= contact.has_insuranceproblem %></td>
+        <td><%= (contact.has_insuranceproblem)? "1" : "0" %></td>
         <td><%= contact.has_paymentproblem %></td>
         <td><%= contact.has_legalproblem %></td>
         <td><%= contact.has_housingproblem %></td>
