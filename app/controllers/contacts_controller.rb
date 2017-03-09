@@ -42,7 +42,6 @@ class ContactsController < ApplicationController
     respond_to do |format|
       format.html
       format.json
-      format.csv { send_data @products.to_csv }
       format.xls
     end
   end

@@ -270,8 +270,8 @@ end
 
 p 'Creating referralmedicals'
 rms = [
-  [ :id => 'M', :text => 'Gesundheitsamt' ],
-  [ :id => 'B', :text => 'Malteser Migranten Medizin' ],
+  [ :id => 'G', :text => 'Gesundheitsamt' ],
+  [ :id => 'M', :text => 'Malteser Migranten Medizin' ],
   [ :id => 'K', :text => 'Krankenhaus' ],
   [ :id => 'P', :text => 'Praxis' ],
   [ :id => 'O', :text => 'sonstiges' ],
