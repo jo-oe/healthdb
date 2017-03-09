@@ -137,7 +137,7 @@ cs = [
   [ :id => 'F', :text => 'andere Familienangehörige/Erwachsene' ],
   [ :id => 'V', :text => 'Vormund/Betreuer' ],
   [ :id => 'M', :text => 'Medizinische Einrichtung (Personal)' ],
-  [ :id => 'H', :text => 'sonstige profesionelle Helfer' ],
+  [ :id => 'H', :text => 'sonstige professionelle Helfer' ],
   [ :id => 'E', :text => 'ehrenamtliche Helfer' ],
 ]
 
