@@ -266,12 +266,12 @@
         <Cell><Data ss:Type="Number"><%= (contact.client.legalstatus_id == "U")? "1" : "0" %></Data></Cell>
 
         <% # Aktueller Versicherungsstatus %>
-        <Cell><Data ss:Type="Number"><%= (contact.client.insurancestatus_id == "N" || contact.client.insurancestatus_id == "U")? "1" : "0" %></Data></Cell>
-        <Cell><Data ss:Type="Number"><%= (contact.client.insurancestatus_id == "G")? "1" : "0" %></Data></Cell>
-        <Cell><Data ss:Type="Number"><%= (contact.client.insurancestatus_id == "P")? "1" : "0" %></Data></Cell>
-        <Cell><Data ss:Type="Number"><%= (contact.client.insurancestatus_id == "E")? "1" : "0" %></Data></Cell>
-        <Cell><Data ss:Type="Number"><%= (contact.client.insurancestatus_id == "A")? "1" : "0" %></Data></Cell>
-        <Cell><Data ss:Type="Number"><%= (contact.client.insurancestatus_id == "R")? "1" : "0" %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= (contact.insurancestatus_id == "N" || contact.insurancestatus_id == "U")? "1" : "0" %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= (contact.insurancestatus_id == "G")? "1" : "0" %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= (contact.insurancestatus_id == "P")? "1" : "0" %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= (contact.insurancestatus_id == "E")? "1" : "0" %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= (contact.insurancestatus_id == "A")? "1" : "0" %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= (contact.insurancestatus_id == "R")? "1" : "0" %></Data></Cell>
 
         <% # Beratung in deutsch möglich %>
         <Cell><Data ss:Type="String"><%= (contact.translatorused_id == "N")? "1" : "0" %></Data></Cell>
