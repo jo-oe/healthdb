@@ -19,7 +19,8 @@ class MainController < ApplicationController
     @success = system(@command);
 
     if @success
-      self.response.body = File.read('/data/backup/'+@filename, 'rb')
+      @filenamewithdir = "/data/backup/" << @filename
+      self.response.body = File.read(@filenamewithdir, 'rb')
     else
       redirect_to main_backup_path, alert: "Backup fehlgeschlagen!"
     end
