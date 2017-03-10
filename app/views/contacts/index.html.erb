@@ -6,9 +6,12 @@
 
 <%= form_tag(contacts_path, { :method => "get", :autocomplete => "off"}) %>
 
-<%= link_to 'Diese Kontakte in Excel-Tabelle für Landesstatistik exportieren', contacts_path(request.parameters.merge({:format => :xls})) %>
+<ul>
+  <li><%= link_to 'Angezeigte Kontakte in Excel-Tabelle für eigene Statistik exportieren', contacts_path(request.parameters.merge({:format => :xls})) %></li>
+  <li><%= link_to 'Angezeigte Kontakte in Excel-Tabelle für Landesstatistik exportieren', contacts_export_path(request.parameters.merge({:format => :xls})) %></li>
+</ul>
 
-<table class='clienttable'>
+<table class='contacttable'>
   <thead>
     <tr>
       <th colspan="2" class="rotate"><div><span></span></div></th>
@@ -103,12 +106,12 @@
         <td><%= contact.counselledperson_id %></td>
         <td><%= contact.translatorused_id %></td>
         <td><%= (contact.has_insuranceproblem)? "1" : "0" %></td>
-        <td><%= contact.has_paymentproblem %></td>
-        <td><%= contact.has_legalproblem %></td>
-        <td><%= contact.has_housingproblem %></td>
-        <td><%= contact.has_workproblem %></td>
-        <td><%= contact.has_psychosocialproblem %></td>
-        <td><%= contact.has_healthproblem %></td>
+        <td><%= (contact.has_paymentproblem)? "1" : "0" %></td>
+        <td><%= (contact.has_legalproblem)? "1" : "0" %></td>
+        <td><%= (contact.has_housingproblem)? "1" : "0" %></td>
+        <td><%= (contact.has_workproblem)? "1" : "0" %></td>
+        <td><%= (contact.has_psychosocialproblem)? "1" : "0" %></td>
+        <td><%= (contact.has_healthproblem)? "1" : "0" %></td>
         <td><%= contact.insuranceproblem_id %></td>
         <td><%= contact.healthproblem_id %></td>
         <td><%= contact.referral_id %></td>

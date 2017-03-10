@@ -102,6 +102,49 @@ class ContactsController < ApplicationController
     end
   end
 
+  def export
+    @contacts = Contact.where(nil)
+
+    if(params['filter']="yes")
+      Contact.new.attributes.each do |attr_name, attr_value|
+
+        if (attr_name == "counsellor_id")
+          if  (params['counsellor_signature'] && params['counsellor_signature'].length > 0)
+            if(User.where("signature = ?", params['counsellor_signature']).any?)
+              @c = User.find_by_signature(params['counsellor_signature'])
+              @contacts = @contacts.where(counsellor: @c)
+            else
+              @contacts = Contact.none
+            end
+          end
+
+        elsif (attr_name == "contactdate")
+          if (params['contactdate_selectrange'] == "true" )
+            @contactdate_rangestart = params['contactdate_rangestart'].to_date
+            @contactdate_rangeend = params['contactdate_rangeend'].to_date
+
+            @contacts = @contacts.where("contactdate >= ? and contactdate <= ?", @contactdate_rangestart, @contactdate_rangeend)
+          end
+        elsif (params[attr_name] && params[attr_name].length > 0)
+          @param = params[attr_name]
+          @contacts = @contacts.where("#{attr_name} like ?", "%"+@param+"%") if params[attr_name].present?
+        end
+      end
+
+    else
+      if (params[:client_id])
+        @contacts = Contact.where("client_id = ?", params[:client_id])
+      end
+    end
+
+    respond_to do |format|
+      format.html
+      format.json
+      format.xls
+    end
+  end
+
+
   private
   # Use callbacks to share common setup or constraints between actions.
   def set_contact

@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Sheet1">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String">Klientencode</Data></Cell>
+        <Cell><Data ss:Type="String">Geburtsdatum</Data></Cell>
+        <Cell><Data ss:Type="String">Geschlecht</Data></Cell>
+        <Cell><Data ss:Type="String">Wohnort</Data></Cell>
+        <Cell><Data ss:Type="String">Staatsangehörigkeit</Data></Cell>
+        <Cell><Data ss:Type="String">Aufenthaltsstatus</Data></Cell>
+        <Cell><Data ss:Type="String">Familiensituation</Data></Cell>
+        <Cell><Data ss:Type="String">Zahl der Kinder</Data></Cell>
+        <Cell><Data ss:Type="String">Datum Erstkontakt</Data></Cell>
+        <Cell><Data ss:Type="String">Vermittelt von:</Data></Cell>
+        <Cell><Data ss:Type="String">Vermittelt von (Freitext):</Data></Cell>
+      </Row>
+    <% @clients.each do |client| %>
+      <Row>
+        <Cell><Data ss:Type="String"><%= client.id %></Data></Cell>
+        <Cell><Data ss:Type="Date"><%= client.birthdate %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= client.sex.text %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= client.homeplace.text %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= client.citizenship.name %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= client.legalstatus.text %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= client.familystatus.text %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= client.childrencount %></Data></Cell>
+        <Cell><Data ss:Type="Date"><%= client.datefirstcontact %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= client.referrer.text %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= client.referrerfreetext %></Data></Cell>
+      </Row>
+    <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>

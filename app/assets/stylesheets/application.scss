@@ -53,32 +53,34 @@ select.form-control {
   padding: 0;
 }
 
-.clienttable {
+.clienttable, .contacttable {
   width: 93%;
   border: 0px solid #909090;
   border-collapse: separate;
   border-spacing: 0;
 }
 
-.clienttable td, .clienttable th {
+.clienttable td, .contacttable td, .clienttable th, .contacttable th {
   border: 1px solid #D0D0D0;
 }
 
-.clienttable tr td, .clienttable tr th {
+.clienttable tr td, .clienttable tr th, .contacttable tr td, .contacttable tr th{
   border-right: 0;
   border-top: 0;
 }
 
-.clienttable tr th {
+.clienttable tr th, .contacttable tr th {
   border-left: 0;
 }
 
-.clienttable tr:last-child td {
+.clienttable tr:last-child td, .contacttable tr:last-child td{
   border-bottom: 0;
 }
 
 .clienttable tr td:first-child,
-.clienttable tr th:first-child {
+.clienttable tr th:first-child,
+.contacttable tr td:first-child,
+.contacttable tr th:first-child {
   border-left: 0;
 }
 
@@ -98,7 +100,23 @@ select.form-control {
   width: 30px;
 }
 
-.clienttable th.rotate > div > span {
+.contacttable th.rotate {
+  /* Something you can count on */
+  height: 120px;
+  white-space: nowrap;
+}
+
+.contacttable th.rotate > div {
+  transform:
+  /* Magic Numbers */
+  translate(22px, 44px)
+  /* 45 is really 360 - 45 */
+  rotate(315deg);
+  width: 30px;
+}
+
+
+.clienttable th.rotate > div > span, .contacttable th.rotate > div > span {
   border-bottom: 1px solid #ccc;
   padding: 1px 3px;
 }

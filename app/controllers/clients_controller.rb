@@ -22,7 +22,7 @@ class ClientsController < ApplicationController
 
             @clients = @clients.where("datefirstcontact >= ? and datefirstcontact <= ?", @datefirstcontact_rangestart, @datefirstcontact_rangeend)
           end
-
+          
         elsif (params[attr_name] && params[attr_name].length > 0)
           @param = params[attr_name]
           @clients = @clients.where("#{attr_name} like ?", "%"+@param+"%") if params[attr_name].present?
@@ -31,6 +31,12 @@ class ClientsController < ApplicationController
     else
       @clients = Client.all
     end
+    respond_to do |format|
+      format.html
+      format.json
+      format.xls
+    end
+
   end
 
   # GET /clients/1

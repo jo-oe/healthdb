@@ -6,6 +6,8 @@
 
 <%= form_tag(clients_path, { :method => "get", :autocomplete => "off"}) %>
 
+<ul><li><%= link_to 'Angezeigte Stammdatensätze in Excel-Tabelle für eigene Statistik exportieren', clients_path(request.parameters.merge({:format => :xls})) %></li><ul>
+
 <table class='clienttable'>
   <thead>
     <tr>

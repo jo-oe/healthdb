@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
+  get 'contacts/export'
   resources :contacts
+
   resources :referralcaritas
   resources :counselledpersons
   resources :failedinsurances
