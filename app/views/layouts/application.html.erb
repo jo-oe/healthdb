@@ -14,14 +14,14 @@
         Datenverwaltung Clearingstelle
       </div>
       <div class='col-sm-3'>
+        Version 0.2
+      </div>
+      <div class='col-sm-3'>
         <% if current_user %>
           Benutzer_in: <%= current_user.username << " [" << current_user.signature << "]" %>
           <% else %>
             nicht angemeldet -  <%= link_to 'zum Login', '/login' %>
           <% end %>
-      </div>
-      <div class='col-sm-3'>
-        Version 0.2
       </div>
       <div class='col-sm-3' id='statustime'>
         <%= Time.now.strftime("%d.%m.%Y %H:%M:%S") %>
