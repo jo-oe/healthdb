@@ -13,9 +13,7 @@
       <div class='col-sm-3'>
         Datenverwaltung Clearingstelle
       </div>
-      <div class='col-sm-3'>
-        Version 0.2.1
-      </div>
+      <div class='col-sm-3'><%= t(:appversion) %></div>
       <div class='col-sm-3'>
         <% if current_user %>
           Benutzer_in: <%= current_user.username << " [" << current_user.signature << "]" %>
