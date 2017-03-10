@@ -7,23 +7,27 @@ class MainController < ApplicationController
   end
 
   def getbackup
-    @time = Time.now.strftime('%Y%m%d-%H%M%S')
-    @filename = "backup-" + @time + ".gpg"
-    p @filename
+    respond_to do |format|
+      format.gpg {
+        @time = Time.now.strftime('%Y%m%d-%H%M%S')
+        @filename = "backup-" + @time + ".gpg"
+        p @filename
 
-    self.response.headers["Content-Type"] ||= 'application/pgp-encrypted'
-    self.response.headers["Content-Disposition"] = "attachment; filename=#{@filename}"
-    self.response.headers['Last-Modified'] = Time.now.ctime.to_s
+        self.response.headers["Content-Type"] ||= 'application/pgp-encrypted'
+        self.response.headers["Content-Disposition"] = "attachment; filename=#{@filename}"
+        self.response.headers['Last-Modified'] = Time.now.ctime.to_s
 
-    @command = "sudo /opt/bin/backupdb.sh " + @time
-    @success = system(@command);
+        @command = "sudo /opt/bin/backupdb.sh " + @time
+        @success = system(@command);
 
-    if @success
-      @filenamewithdir = "/data/backup/" << @filename
-      @data = File.open(@filenamewithdir, "rb") {|io| io.read}
-      self.response.body = @data
-    else
-      redirect_to main_backup_path, alert: "Backup fehlgeschlagen!"
+        if @success
+          @filenamewithdir = "/data/backup/" << @filename
+          @data = File.open(@filenamewithdir, "rb") {|io| io.read}
+          self.response.body = @data
+        else
+          redirect_to main_backup_path, alert: "Backup fehlgeschlagen!"
+        end
+      }
     end
   end
 end
