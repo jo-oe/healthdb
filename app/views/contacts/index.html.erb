@@ -4,7 +4,7 @@
   <p id="notice"><%= notice %></p>
 <% end %>
 
-<%= form_tag(contacts_path, method: "get") %>
+<%= form_tag(contacts_path, { :method => "get", :autocomplete => "off"}) %>
 
 <%= link_to 'Diese Kontakte in Excel-Tabelle für Landesstatistik exportieren', contacts_path(request.parameters.merge({:format => :xls})) %>
 
