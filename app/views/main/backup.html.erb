@@ -9,6 +9,6 @@
 
 <p>Verschlüsseltes Backup erstellen:</p>
 
-<div><%= link_to t(:getbackup), main_getbackup_path(request.parameters.merge({:format => :gpg}), class: "btn btn-hdb-std btn-backup" %></div>
+<div><%= link_to t(:getbackup), main_getbackup_path(request.parameters.merge({:format => :gpg})), class: "btn btn-hdb-std btn-backup" %></div>
 
 <div>Bitte nach dem Klicken abwarten, bis der Download beginnt und Datei dann auf sicherem Datenträger speichern (z.B. externe Festplatte etc.)</div>
