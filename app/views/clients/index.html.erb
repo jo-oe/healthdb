@@ -4,7 +4,7 @@
   <p id="notice"><%= notice %></p>
 <% end %>
 
-<%= form_tag(clients_path, method: "get") %>
+<%= form_tag(clients_path, method: "get", { :autocomplete => "off"}) %>
 
 <table class='clienttable'>
   <thead>
