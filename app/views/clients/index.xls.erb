@@ -22,14 +22,14 @@
     <% @clients.each do |client| %>
       <Row>
         <Cell><Data ss:Type="String"><%= client.id %></Data></Cell>
-        <Cell><Data ss:Type="Date"><%= client.birthdate %></Data></Cell>
+        <Cell><Data ss:Type="DateTime"><%= client.birthdate %></Data></Cell>
         <Cell><Data ss:Type="String"><%= client.sex.text %></Data></Cell>
         <Cell><Data ss:Type="String"><%= client.homeplace.text %></Data></Cell>
         <Cell><Data ss:Type="String"><%= client.citizenship.name %></Data></Cell>
         <Cell><Data ss:Type="String"><%= client.legalstatus.text %></Data></Cell>
         <Cell><Data ss:Type="String"><%= client.familystatus.text %></Data></Cell>
         <Cell><Data ss:Type="Number"><%= client.childrencount %></Data></Cell>
-        <Cell><Data ss:Type="Date"><%= client.datefirstcontact %></Data></Cell>
+        <Cell><Data ss:Type="DateTime"><%= client.datefirstcontact %></Data></Cell>
         <Cell><Data ss:Type="String"><%= client.referrer.text %></Data></Cell>
         <Cell><Data ss:Type="String"><%= client.referrerfreetext %></Data></Cell>
       </Row>

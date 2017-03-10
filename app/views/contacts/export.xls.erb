@@ -140,9 +140,9 @@
         <Cell><Data ss:Type="String"></Data></Cell>
 
         <% # Geschlecht %>
-        <Cell><Data ss:Type="String"></Data>weiblich</Cell>
-        <Cell><Data ss:Type="String"></Data>männlich</Cell>
-        <Cell><Data ss:Type="String"></Data>unbekannt/andere</Cell>
+        <Cell><Data ss:Type="String">weiblich</Data></Cell>
+        <Cell><Data ss:Type="String">männlich</Data></Cell>
+        <Cell><Data ss:Type="String">unbekannt/andere</Data></Cell>
 
         <% # Aktueller Aufenthaltsstatus %>
         <Cell><Data ss:Type="String">EU-Bürger</Data></Cell>
@@ -190,7 +190,7 @@
 
         <% # Identifizierte Probleme: Gesundheit %>
         <Cell><Data ss:Type="String"></Data></Cell>
-        <Cell><Data ss:Type="String"></Data>bestehende Schwangerschaft</Cell>
+        <Cell><Data ss:Type="String">bestehende Schwangerschaft</Data></Cell>
 
         <% # Vermittlung in: andere Beratungsstelle %>
         <Cell><Data ss:Type="String"></Data></Cell>
@@ -274,7 +274,7 @@
         <Cell><Data ss:Type="Number"><%= (contact.insurancestatus_id == "R")? "1" : "0" %></Data></Cell>
 
         <% # Beratung in deutsch möglich %>
-        <Cell><Data ss:Type="String"><%= (contact.translatorused_id == "N")? "1" : "0" %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= (contact.translatorused_id == "N")? "1" : "0" %></Data></Cell>
 
         <% # Identifizierte Probleme: Versicherung %>
         <Cell><Data ss:Type="Number"><%= (contact.has_insuranceproblem && contact.insuranceproblem_id == "G")? "1" : "0" %></Data></Cell>
