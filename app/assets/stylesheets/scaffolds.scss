@@ -62,6 +62,10 @@ div {
   background-color: #FFD8D0;
 }
 
+#alert {
+  @extend .alert, .alert-danger, .alert-dismissible, .fade, .show;
+}
+
 #error_explanation {
   @extend .alert, .alert-danger, .alert-dismissible, .fade, .show;
 
