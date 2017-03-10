@@ -21,7 +21,7 @@ class MainController < ApplicationController
     if @success
       response.body = File.read('/data/backup/'+@filename, 'rb')
     else
-      redirect_to action: backup, alert: "Backup fehlgeschlagen!"
+      redirect_to 'backup', alert: "Backup fehlgeschlagen!"
     end
   end
 end
