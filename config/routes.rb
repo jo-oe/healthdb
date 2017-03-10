@@ -21,7 +21,9 @@ Rails.application.routes.draw do
   get '/signup' => 'users#new'
   post '/users' => 'users#create'
 
-  get 'main_menu/index'
+  get 'main/index'
+  get 'main/backup'
+  get 'main/getbackup'
 
   get 'citizenships/typeahead/:query' => 'citizenships#typeahead'
 
@@ -38,6 +40,6 @@ Rails.application.routes.draw do
     end
   end
 
-  root 'main_menu#index'
+  root 'main#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -32,41 +32,6 @@ label {
   font-weight: bold;
 }
 
-
-.btn-login {
-  color: #f0f0f0 !important;
-  font-weight: bold !important;
-  background: linear-gradient(to bottom right, #e05040, #803020);
-  border: #702010 solid 2px !important;
-  &:hover {
-    color: #FFFFFF !important;
-    background: linear-gradient(to bottom right, #ff6050, #c04020);
-  }
-}
-
-.btn-search {
-  color: #101010 !important;
-  font-weight: bold !important;
-  background: linear-gradient(to bottom right, #e8e8e8, #b8b8b8);
-  border: #A8A8A8 solid 2px !important;
-  &:hover {
-    color: #000000 !important;
-    background: linear-gradient(to bottom right, #F8F8F8, #C0C0C0);
-  }
-}
-
-.btn-resetsearch {
-  color: #101010 !important;
-  font-weight: bold !important;
-  background: linear-gradient(to bottom right, #FFF8B0, #F0E080);
-  border: #E8D870 solid 2px !important;
-  &:hover {
-    color: #000000 !important;
-    background: linear-gradient(to bottom right, #FFFFD0, #F8E8A0);
-  }
-}
-
-
 .form-control {
   vertical-align: middle;
   padding-left: 5px;
@@ -432,6 +397,7 @@ td.hdb-searchform-checkbox {
   font-family: verdana, arial, helvetica, sans-serif !important;
 }
 
+
 .btn-table-mini {
   white-space: normal;
   padding-left: 2px !important;
@@ -483,6 +449,40 @@ td.hdb-searchform-checkbox {
   &:hover {
     color: #FFFFFF !important;
     background: linear-gradient(to bottom right, #ff6050, #c04020);
+  }
+}
+
+
+.btn-login {
+  color: #f0f0f0 !important;
+  font-weight: bold !important;
+  background: linear-gradient(to bottom right, #e05040, #803020);
+  border: #702010 solid 2px !important;
+  &:hover {
+    color: #FFFFFF !important;
+    background: linear-gradient(to bottom right, #ff6050, #c04020);
+  }
+}
+
+.btn-search {
+  color: #101010 !important;
+  font-weight: bold !important;
+  background: linear-gradient(to bottom right, #e8e8e8, #b8b8b8);
+  border: #A8A8A8 solid 2px !important;
+  &:hover {
+    color: #000000 !important;
+    background: linear-gradient(to bottom right, #F8F8F8, #C0C0C0);
+  }
+}
+
+.btn-resetsearch {
+  color: #101010 !important;
+  font-weight: bold !important;
+  background: linear-gradient(to bottom right, #FFF8B0, #F0E080);
+  border: #E8D870 solid 2px !important;
+  &:hover {
+    color: #000000 !important;
+    background: linear-gradient(to bottom right, #FFFFD0, #F8E8A0);
   }
 }
 
@@ -549,5 +549,17 @@ td.hdb-searchform-checkbox {
   &:hover {
     color: #FFFFFF !important;
     background: linear-gradient(to bottom right, #ff6050, #c04020);
+  }
+}
+
+
+.btn-backup {
+  color: #F0F0F0 !important;
+  font-weight: bold !important;
+  background: linear-gradient(to bottom right, #B03090, #902070);
+  border: #801060 solid 2px !important;
+  &:hover {
+    color: #FFFFFF !important;
+    background: linear-gradient(to bottom right, #D010A0, #B01090);
   }
 }
