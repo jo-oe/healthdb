@@ -24,7 +24,7 @@ class MainController < ApplicationController
           @filenamewithdir = "/data/backup/" << @filename
           @data = File.open(@filenamewithdir, "rb") {|io| io.read}
           p @data
-          self.response.body = @data
+          self.response_body = @data
         else
           redirect_to main_backup_path, alert: "Backup fehlgeschlagen!"
         end
