@@ -11,7 +11,7 @@ class MainController < ApplicationController
     @filename = "backup-" + @time + ".gpg"
     p @filename
 
-        self.response.headers["Content-Type"] ||= 'application/pgp-encrypted'
+    self.response.headers["Content-Type"] ||= 'application/pgp-encrypted'
     self.response.headers["Content-Disposition"] = "attachment; filename=#{@filename}"
     self.response.headers['Last-Modified'] = Time.now.ctime.to_s
 
