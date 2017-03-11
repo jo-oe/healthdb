@@ -1,5 +1,5 @@
 #!/bin/sh
-sleep 10
+sleep 5
 cd /data/healthdb
 export SECRET_KEY_BASE="`cat .secret_environment`"
-/usr/local/rvm/bin/systemd_rails s -p 10081 -b `getip.sh | head -n1` -e production
+/usr/local/rvm/bin/systemd_rails s -p 10081 -b `/opt/bin/getip.sh | head -n1` -e production
