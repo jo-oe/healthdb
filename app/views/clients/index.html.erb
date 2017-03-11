@@ -4,7 +4,7 @@
   <p id="notice"><%= notice %></p>
 <% end %>
 
-<%= form_tag(clients_path, { :method => "get", :autocomplete => "off"}) %>
+<%= form_tag(clients_path, { :method => "get", :autocomplete => "off", :id => "client_searchform"}) %>
 
 <ul><li><%= link_to 'Angezeigte Stammdatensätze in Excel-Tabelle für eigene Statistik exportieren', clients_path(request.parameters.merge({:format => :xls})) %></li><ul>
 
@@ -54,7 +54,20 @@
       </td>
       <td class="hdb-search-field"><%= text_field_tag :sex_id, params[:sex_id], class: "form-control hdb-search-input" %></td>
       <td class="hdb-search-field"><%= text_field_tag :homeplace_id, params[:homeplace_id], class: "form-control hdb-search-input" %></td>
-      <td class="hdb-search-field"><%= text_field_tag :citizenship_id, params[:citizenship_id], class: "form-control hdb-search-input" %></td>
+      <td class="hdb-search-field">
+        <table class="hdb-searchform-minitable">
+          <tr class="hdb-searchform-row">
+            <td class="hdb-searchform-checkbox"><%= check_box_tag :citizenship_select, true, params[:citizenship_select] %></td>
+            <td class="hdb-searchform-checkboxlabel"><%= label :client, :citizenship_select, class: "hdb-search-label" %></td>
+          </tr>
+          <tr class="hdb-searchform-row">
+            <td colspan="2" class="hdb-search-subfield" id="citizenship_searchfield"><%= text_field_tag :citizenship, params[:citizenship], id: "citizenship_searchinput", placeholder: 'Staat', class: "form-control typeahead hdb-search-input" %></td>
+          </tr>
+          <tr class="hdb-searchform-row">
+            <td colspan="2" class="hdb-search-subfield"><%= select_tag :citizenship_id, options_from_collection_for_select(Citizenship.all, :id, :id, :citizenship_id), { :class => 'form-control hdb-form-input'} %></td>
+          </tr>
+        </table>
+      </td>
       <td class="hdb-search-field"><%= text_field_tag :legalstatus_id, params[:legalstatus_id], class: "form-control hdb-search-input" %></td>
       <td class="hdb-search-field"><%= text_field_tag :familystatus_id, params[:familystatus_id], class: "form-control hdb-search-input" %></td>
       <td class="hdb-search-field"><%= text_field_tag :childrencount, params[:childrencount], class: "form-control hdb-search-input" %></td>

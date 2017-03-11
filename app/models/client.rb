@@ -11,6 +11,7 @@ class Client < ApplicationRecord
   validates :id, presence: true, length: {minimum: 8, maximum: 8}
   validates :sex, presence: true
   validates :homeplace, presence: true
+  validates :birthdate, presence: true
   validates :citizenship, presence: true
   validates :legalstatus, presence: true
   validates :familystatus, presence: true

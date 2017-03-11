@@ -348,6 +348,7 @@ tr.hdb-form-contact-darker td {
   padding: 1px;
   margin: 0;
   border: none !important;
+  height: 28px !important;
 }
 
 .hdb-searchform-minitable {
@@ -431,7 +432,7 @@ td.hdb-searchform-checkbox {
   color: #F0F0F0 !important;
   background: linear-gradient(to bottom right, #2870c0, #286080);
   border-color: #084070 !important;
-  &:hover {
+  &:hover, &:focus {
     color: #FFFFFF !important;
     background: linear-gradient(to bottom right, #2880f0, #287090);
   }
@@ -447,7 +448,7 @@ td.hdb-searchform-checkbox {
   color: #f0f0f0 !important;
   background: linear-gradient(to bottom right, #d08020, #a07010);
   border-color: #906000 !important;
-  &:hover {
+  &:hover, &:focus {
     color: #FFFFFF !important;
     background: linear-gradient(to bottom right, #f09020, #c07010);
   }
@@ -457,7 +458,7 @@ td.hdb-searchform-checkbox {
   color: #f0f0f0 !important;
   background: linear-gradient(to bottom right, #e05040, #803020);
   border-color: #702010 !important;
-  &:hover {
+  &:hover, &:focus {
     color: #FFFFFF !important;
     background: linear-gradient(to bottom right, #ff6050, #c04020);
   }
@@ -469,7 +470,7 @@ td.hdb-searchform-checkbox {
   font-weight: bold !important;
   background: linear-gradient(to bottom right, #e05040, #803020);
   border: #702010 solid 2px !important;
-  &:hover {
+  &:hover, &:focus {
     color: #FFFFFF !important;
     background: linear-gradient(to bottom right, #ff6050, #c04020);
   }
@@ -480,7 +481,7 @@ td.hdb-searchform-checkbox {
   font-weight: bold !important;
   background: linear-gradient(to bottom right, #e8e8e8, #b8b8b8);
   border: #A8A8A8 solid 2px !important;
-  &:hover {
+  &:hover, &:focus {
     color: #000000 !important;
     background: linear-gradient(to bottom right, #F8F8F8, #C0C0C0);
   }
@@ -491,7 +492,7 @@ td.hdb-searchform-checkbox {
   font-weight: bold !important;
   background: linear-gradient(to bottom right, #FFF8B0, #F0E080);
   border: #E8D870 solid 2px !important;
-  &:hover {
+  &:hover, &:focus {
     color: #000000 !important;
     background: linear-gradient(to bottom right, #FFFFD0, #F8E8A0);
   }
@@ -501,7 +502,7 @@ td.hdb-searchform-checkbox {
   color: #F0F0F0 !important;
   background: linear-gradient(to bottom right, #505050, #101010);
   border-color: #000000 !important;
-  &:hover {
+  &:hover, &:focus {
     color: #FFFFFF !important;
     background: linear-gradient(to bottom right, #808080, #202020);
   }
@@ -511,7 +512,7 @@ td.hdb-searchform-checkbox {
   color: #F0F0F0 !important;
   background: linear-gradient(to bottom right, #2870c0, #286080);
   border-color: #084070 !important;
-  &:hover {
+  &:hover, &:focus {
     color: #FFFFFF !important;
     background: linear-gradient(to bottom right, #2880f0, #287090);
   }
@@ -527,7 +528,7 @@ td.hdb-searchform-checkbox {
   color: #F0F0F0 !important;
   background: linear-gradient(to bottom right, #3098D8, #308090);
   border-color: #307090!important;
-  &:hover {
+  &:hover, &:focus {
     color: #FFFFFF !important;
     background: linear-gradient(to bottom right, #30A8FF, #3098A8);
   }
@@ -537,7 +538,7 @@ td.hdb-searchform-checkbox {
   color: #F0F0F0 !important;
   background: linear-gradient(to bottom right, #00D030, #008010);
   border-color: #007010 !important;
-  &:hover {
+  &:hover, &:focus {
     color: #FFFFFF !important;
     background: linear-gradient(to bottom right, #10E040, #08A020);
   }
@@ -547,7 +548,7 @@ td.hdb-searchform-checkbox {
   color: #F0F0F0 !important;
   background: linear-gradient(to bottom right, #48A070, #307048);
   border-color: #306040 !important;
-  &:hover {
+  &:hover, &:focus {
     color: #FFFFFF !important;
     background: linear-gradient(to bottom right, #58C090, #409068);
   }
@@ -557,7 +558,7 @@ td.hdb-searchform-checkbox {
   color: #f0f0f0 !important;
   background: linear-gradient(to bottom right, #e05040, #803020);
   border-color: #702010 !important;
-  &:hover {
+  &:hover, &:focus {
     color: #FFFFFF !important;
     background: linear-gradient(to bottom right, #ff6050, #c04020);
   }
@@ -569,7 +570,7 @@ td.hdb-searchform-checkbox {
   font-weight: bold !important;
   background: linear-gradient(to bottom right, #B03090, #902070);
   border: #801060 solid 2px !important;
-  &:hover {
+  &:hover, &:focus {
     color: #FFFFFF !important;
     background: linear-gradient(to bottom right, #D010A0, #B01090);
   }

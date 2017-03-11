@@ -38,6 +38,7 @@ de:
         referrerfreetext: "sonstige hier eingeben:"
         birthdate_selectrange: "Zeitraum:"
         datefirstcontact_selectrange: "Zeitraum:"
+        citizenship_select: "auswählen:"
 
       contact:
         client_id: "Klientencode"

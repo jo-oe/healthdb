@@ -27,7 +27,7 @@
 
   <tr class="field hdb-form-row">
     <td class="hdb-form-label"><%= f.label :birthdate, class: 'hdb-label' %></td>
-    <td class="hdb-form-field" id='td_client_birthdate'><%= f.date_field :birthdate, class: "form-control hdb-form-input", :id => "client_birthdate_datepicker" %></td>
+    <td class="hdb-form-field" id='td_client_birthdate'><%= f.date_field :birthdate, value: client.birthdate, class: "form-control hdb-form-input", :id => "client_birthdate_datepicker" %></td>
 
     <td class="hdb-form-label"><%= f.label :sex, class: 'hdb-label' %></td>
     <td class="hdb-form-field"><%= f.collection_select :sex_id, Sex.order('created_at'), :id, :text, {prompt: true}, {:class => "form-control hdb-form-input hdb-form-select" } %></td>

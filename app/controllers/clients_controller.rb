@@ -22,7 +22,15 @@ class ClientsController < ApplicationController
 
             @clients = @clients.where("datefirstcontact >= ? and datefirstcontact <= ?", @datefirstcontact_rangestart, @datefirstcontact_rangeend)
           end
-          
+        elsif (attr_name == "citizenship_id")
+          p params['citizenship_select']
+          p params['citizenship']
+          p Citizenship.where("name = ?", params['citizenship'])
+          if (params['citizenship_select'] == "true" && Citizenship.where("name = ?", params['citizenship']).any?)
+            @citizenship_id = Citizenship.find_by_name(params['citizenship']).id
+            p @citizenship_id
+            @clients = @clients.where("citizenship_id = ?", @citizenship_id)
+          end
         elsif (params[attr_name] && params[attr_name].length > 0)
           @param = params[attr_name]
           @clients = @clients.where("#{attr_name} like ?", "%"+@param+"%") if params[attr_name].present?

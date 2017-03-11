@@ -1,15 +1,30 @@
 <?xml version="1.0"?>
 <?mso-application progid="Excel.Sheet"?>
 <Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
-  xmlns:o="urn:schemas-microsoft-com:office:office"
-  xmlns:x="urn:schemas-microsoft-com:office:excel"
-  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
-  xmlns:html="http://www.w3.org/TR/REC-html40">
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+xmlns:html="http://www.w3.org/TR/REC-html40">
   <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
     <Author>Clearingstelle Köln</Author>
     <LastAuthor>Clearingstelle Köln</LastAuthor>
     <Created><%= Time.now.strftime('%Y-%m-%dT%H:%M:%SZ') %></Created>
   </DocumentProperties>
+  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
+  </ExcelWorkbook>
+  <Styles>
+    <Style ss:ID="Default" ss:Name="Normal">
+      <Alignment ss:Vertical="Bottom"/>
+      <Borders/>
+      <Font/>
+      <Interior/>
+      <NumberFormat/>
+      <Protection/>
+    </Style>
+    <Style ss:ID="s21">
+      <NumberFormat ss:Format="Short Date"/>
+    </Style>
+  </Styles>
   <Worksheet ss:Name="Tabelle Kontakte">
     <Table>
       <Row>
@@ -43,7 +58,7 @@
     <% @contacts.each do |contact| %>
       <Row>
         <Cell><Data ss:Type="String"><%= contact.client_id %></Data></Cell>
-        <Cell><Data ss:Type="DateTime"><%= contact.contactdate.strftime('%Y-%m-%dT%H:%M:%SZ') %></Data></Cell>
+        <Cell ss:StyleID="s21"><Data ss:Type="DateTime"><%= contact.contactdate.strftime('%Y-%m-%dT%H:%M:%SZ') %></Data></Cell>
         <Cell><Data ss:Type="String"><%= contact.counsellor.username %></Data></Cell>
         <Cell><Data ss:Type="String"><%= contact.contactreason.text %></Data></Cell>
         <Cell><Data ss:Type="String"><%= contact.contactreasonfreetext %></Data></Cell>
