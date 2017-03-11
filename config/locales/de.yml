@@ -125,6 +125,11 @@ de:
   user_save: "Zugang speichern"
   users_show: "Benutzerliste anzeigen"
 
+  username: "Benutzername"
+  signature: "Kürzel"
+  password_digest: "Verschlüsseltes Passwort"
+
+
   contact_successfully_created: "Kontaktdatensatz erfolgreich angelegt."
   contact_successfully_updated: "Kontaktdatensatz erfolgreich aktualisiert."
   contact_successfully_destroyed: "Kontaktdatensatz wurde gelöscht."
