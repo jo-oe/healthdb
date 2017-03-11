@@ -70,6 +70,12 @@ de:
         comment: "Sonstiges/interne Notiz"
         contactdate_selectrange: "Zeitraum:"
 
+      user:
+        username: "Benutzername"
+        signature: "Kürzel (2 Zeichen)"
+        password: "Passwort"
+        password_confirmation: "Password (Wiederholung)"
+
   helpers:
     label:
       client:
@@ -92,6 +98,7 @@ de:
 
   deleteclientconfirm: "Sind Sie sicher, dass Sie den Klienten vollständig löschen wollen?\n(Das wird nur funktionieren, wenn alle Kontakte dieses Klienten vorher gelöscht wurden)"
   deletecontactconfirm: "Sind Sie sicher, dass Sie den Kontakt vollständig löschen wollen?"
+  deleteuserconfirm: "Sind Sie sicher, dass Sie den Benutzerzugang vollständig löschen wollen?\nACHTUNG: Alle Kontaktdatensätze, die mit diesem Zugang angelegt wurden, werden dann Fehler hervorrufen!\nWenn Sie den Zugang sperren möchten, ändern Sie einfach das Passwort!"
 
   client: "Klient_in"
   clients: "Stammdatensätze (Klienten)"
@@ -113,6 +120,11 @@ de:
   save_contact: "Kontaktdatensatz speichern"
   list_contacts: "Kontaktliste"
 
+  user_new: "Neuer Zugang"
+  user_edit: "Zugang bearbeiten"
+  user_save: "Zugang speichern"
+  users_show: "Benutzerliste anzeigen"
+
   contact_successfully_created: "Kontaktdatensatz erfolgreich angelegt."
   contact_successfully_updated: "Kontaktdatensatz erfolgreich aktualisiert."
   contact_successfully_destroyed: "Kontaktdatensatz wurde gelöscht."
@@ -122,4 +134,4 @@ de:
 
   getbackup: "Backup speichern"
 
-  appversion: "Version 0.2.9T (Testversion)"
+  appversion: "Version 0.3.0T (Testversion)"

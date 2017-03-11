@@ -246,13 +246,13 @@
         <Cell><Data ss:Type="Number"><%= (contact.client.referrer_id == "U" || contact.client.referrer_id == "S")? "1" : "0" %></Data></Cell>
 
         <% # Altersklassen %>
-        <Cell><Data ss:Type="Number"><%= (contact.contactdate < contact.client.birthdate.advance(years: 5))? "1" : 0 %></Data></Cell>
-        <Cell><Data ss:Type="Number"><%= (contact.contactdate >= contact.client.birthdate.advance(years: 5) && contact.contactdate < contact.client.birthdate.advance(years: 15))? "1" : 0 %></Data></Cell>
-        <Cell><Data ss:Type="Number"><%= (contact.contactdate >= contact.client.birthdate.advance(years: 15) && contact.contactdate < contact.client.birthdate.advance(years: 18))? "1" : 0 %></Data></Cell>
-        <Cell><Data ss:Type="Number"><%= (contact.contactdate >= contact.client.birthdate.advance(years: 18) && contact.contactdate < contact.client.birthdate.advance(years: 26))? "1" : 0 %></Data></Cell>
-        <Cell><Data ss:Type="Number"><%= (contact.contactdate >= contact.client.birthdate.advance(years: 26) && contact.contactdate < contact.client.birthdate.advance(years: 40))? "1" : 0 %></Data></Cell>
-        <Cell><Data ss:Type="Number"><%= (contact.contactdate >= contact.client.birthdate.advance(years: 40) && contact.contactdate < contact.client.birthdate.advance(years: 65))? "1" : 0 %></Data></Cell>
-        <Cell><Data ss:Type="Number"><%= (contact.contactdate >= contact.client.birthdate.advance(years: 65))? "1" : 0 %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= (contact.client.birthdate != Date.new(1900, 1, 1) && contact.contactdate < contact.client.birthdate.advance(years: 5))? "1" : 0 %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= (contact.client.birthdate != Date.new(1900, 1, 1) && contact.contactdate >= contact.client.birthdate.advance(years: 5) && contact.contactdate < contact.client.birthdate.advance(years: 15))? "1" : 0 %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= (contact.client.birthdate != Date.new(1900, 1, 1) && contact.contactdate >= contact.client.birthdate.advance(years: 15) && contact.contactdate < contact.client.birthdate.advance(years: 18))? "1" : 0 %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= (contact.client.birthdate != Date.new(1900, 1, 1) && contact.contactdate >= contact.client.birthdate.advance(years: 18) && contact.contactdate < contact.client.birthdate.advance(years: 26))? "1" : 0 %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= (contact.client.birthdate != Date.new(1900, 1, 1) && contact.contactdate >= contact.client.birthdate.advance(years: 26) && contact.contactdate < contact.client.birthdate.advance(years: 40))? "1" : 0 %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= (contact.client.birthdate != Date.new(1900, 1, 1) && contact.contactdate >= contact.client.birthdate.advance(years: 40) && contact.contactdate < contact.client.birthdate.advance(years: 65))? "1" : 0 %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= (contact.client.birthdate != Date.new(1900, 1, 1) && contact.contactdate >= contact.client.birthdate.advance(years: 65))? "1" : 0 %></Data></Cell>
 
         <% # Geschlecht %>
         <Cell><Data ss:Type="String"><%= contact.client.citizenship.name %></Data></Cell>
@@ -280,7 +280,7 @@
         <Cell><Data ss:Type="Number"><%= (contact.insurancestatus_id == "R")? "1" : "0" %></Data></Cell>
 
         <% # Beratung in deutsch möglich %>
-        <Cell><Data ss:Type="Number"><%= (contact.translatorused_id == "N")? "1" : "0" %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= (contact.translatorused_id == "D")? "1" : "0" %></Data></Cell>
 
         <% # Identifizierte Probleme: Versicherung %>
         <Cell><Data ss:Type="Number"><%= (contact.has_insuranceproblem && contact.insuranceproblem_id == "G")? "1" : "0" %></Data></Cell>
@@ -341,7 +341,7 @@
         <Cell><Data ss:Type="Number"><%= (contact.referral_id == "A" && contact.referralauthority_id == "O")? "1" : "0" %></Data></Cell>
 
         <% # Vermittlung in: sonstiges %>
-        <Cell><Data ss:Type="Number"><%= (contact.referral_id == "O")? "1" : "0" %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= (contact.referral_id == "V" || contact.referral_id == "O")? "1" : "0" %></Data></Cell>
 
         <% # ratsuchende Person erfolgreich versichert in: %>
         <Cell><Data ss:Type="Number"><%= (contact.successfulinsurance_id == "G")? "1" : "0" %></Data></Cell>

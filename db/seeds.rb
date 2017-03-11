@@ -149,7 +149,8 @@ end
 
 p 'Creating translatoruseds'
 ts = [
-  [ :id => 'N', :text => 'nicht erforderlich' ],
+  [ :id => 'D', :text => 'nicht erforderlich, auf deutsch' ],
+  [ :id => 'N', :text => 'nicht erforderlich, lingua franca' ],
   [ :id => 'P', :text => 'professionell aus Projekt' ],
   [ :id => 'M', :text => 'professionell mitgebracht' ],
   [ :id => 'F', :text => 'Freund/Familie' ],
@@ -207,6 +208,7 @@ rs = [
   [ :id => 'M', :text => 'medizinische Versorgung' ],
   [ :id => 'A', :text => 'Behörde' ],
   [ :id => 'B', :text => 'andere Beratungsstellen' ],
+  [ :id => 'V', :text => 'Krankenversicherung' ],
   [ :id => 'O', :text => 'sonstiges' ]
 ]
 

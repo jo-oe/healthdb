@@ -31,6 +31,10 @@
 
       <% if !current_user %>
         <%= link_to 'Anmelden', '/login', class: 'btn btn-sm btn-hdb-std btn-login' %>
+      <% elsif session[:user_id] == 1 %>
+        <%= link_to t(:user_new), new_user_path, class: 'btn btn-sm btn-hdb-std btn-warning' %>
+        <%= link_to t(:users_show), users_path, class: 'btn btn-sm btn-hdb-std btn-warning' %>
+        <%= link_to t(:logout), logout_path, class: 'btn btn-sm btn-hdb-std btn-logout' %>
       <% else %>
         <%= link_to t(:new_client), new_client_path, class: 'btn btn-sm btn-hdb-std btn-client-new' %>
         <%= link_to t(:list_clients), clients_path, class: 'btn btn-sm btn-hdb-std btn-client-index' %>
@@ -40,6 +44,14 @@
       <% end %>
       </div>
     </div>
+    <% if session[:user_id] == 1 %>
+    <p class="alert alert-warning">
+        Achtung: Sie sind als Administrator angemeldet!<br />
+        Bitte benutzen Sie den Administratorzugang nur um Benutzer anzulegen oder Einstellungen zu ändern.<br />
+        Sie sollten ganz genau wissen was Sie tun:<br />
+        Fehler in der Bedienung können zu einer nicht mehr verwendbaren Datenbank führen!
+    </p>
+    <% end %>
     <div class='row'>
       <div class='col-sm-12'>
         <%= yield %>

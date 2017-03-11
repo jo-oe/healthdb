@@ -1,37 +1,39 @@
 <%= form_for(user) do |f| %>
-  <% if user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+<% if user.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
-      <ul>
-      <% user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field hdb-form-field">
-    <%= f.label :username %>
-    <%= f.text_field :username %>
-  </div>
-
-  <div class="field hdb-form-field">
-    <%= f.label :signature %>
-    <%= f.text_field :signature %>
-  </div>
-
-  <div class="field hdb-form-field">
-    <%= f.label :password %>
-    <%= f.password_field :password %>
-  </div>
-
-  <div class="field hdb-form-field">
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <ul>
+    <% user.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
 <% end %>
+
+<table class="hdb-form-layout-table hdb-form-user">
+  <tr class="field hdb-form-row">
+    <td class="hdb-form-label"><%= f.label :username %></td>
+    <td class="hdb-form-field"><%= f.text_field :username, class: "form-control hdb-form-input" %></td>
+  </tr>
+
+  <tr class="field hdb-form-row">
+    <td class="hdb-form-label"><%= f.label :signature %></td>
+    <td class="hdb-form-field"><%= f.text_field :signature, class: "form-control hdb-form-input" %></td>
+  </tr>
+
+  <tr class="field hdb-form-row">
+    <td class="hdb-form-label"><%= f.label :password %></td>
+    <td class="hdb-form-field"><%= f.password_field :password, class: "form-control hdb-form-input" %></td>
+  </tr>
+
+  <tr class="field hdb-form-row">
+    <td class="hdb-form-label"><%= f.label :password_confirmation %></td>
+    <td class="hdb-form-field"><%= f.password_field :password_confirmation, class: "form-control hdb-form-input" %></td>
+  </tr>
+</table>
+<div class="actions">
+  <button type="submit" id="btnSubmit" class="btn btn-hdb-std btn-warning"><%= t(:user_save) %></button>
+  </div>
+
+  <% end %>

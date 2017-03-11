@@ -177,7 +177,8 @@
           <td class="hdb-form-label"><%= f.label :referralothercounselling, class: "hdb-label", id: "contact_referralothercounselling_id_label"  %></td>
           <td class="hdb-form-field"><%= f.collection_select :referralothercounselling_id, Referralothercounselling.order('created_at'), :id, :text, {prompt: true}, {:class => "form-control hdb-form-input hdb-form-select" } %></td>
         </tr>
-        <tr><td>&nbsp;</td></tr>
+        <tr class="field hdb-form-row"><td class="hdb-form-label">&nbsp;</td></tr>
+        <tr class="field hdb-form-row"><td class="hdb-form-label">&nbsp;</td></tr>
       </table>
     </td>
   </tr>
