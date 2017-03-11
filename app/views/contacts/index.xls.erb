@@ -10,10 +10,6 @@
     <LastAuthor>Clearingstelle Köln</LastAuthor>
     <Created><%= Time.now.strftime('%Y-%m-%dT%H:%M:%SZ') %></Created>
   </DocumentProperties>
-  <Styles>
-    <Style ss:ID="s62">
-      <NumberFormat ss:Format="Short Date"/>
-    </Style>
   <Worksheet ss:Name="Tabelle Kontakte">
     <Table>
       <Row>
@@ -47,7 +43,7 @@
     <% @contacts.each do |contact| %>
       <Row>
         <Cell><Data ss:Type="String"><%= contact.client_id %></Data></Cell>
-        <Cell ss:StyleID="s62"><Data ss:Type="DateTime"><%= contact.contactdate.strftime('%Y-%m-%dT%H:%M:%SZ') %></Data></Cell>
+        <Cell><Data ss:Type="DateTime"><%= contact.contactdate.strftime('%Y-%m-%dT%H:%M:%SZ') %></Data></Cell>
         <Cell><Data ss:Type="String"><%= contact.counsellor.username %></Data></Cell>
         <Cell><Data ss:Type="String"><%= contact.contactreason.text %></Data></Cell>
         <Cell><Data ss:Type="String"><%= contact.contactreasonfreetext %></Data></Cell>
