@@ -351,8 +351,8 @@ users.each do |user|
   User.create(user)
 end
 
-p 'Creating sample client'
-Client.create( [ :id => '17XX0000', :firstname => 'sample', :lastname => 'sample', :birthdate => "01.01.1900",
-:sex => Sex.find_by_id('U'), :homeplace => Homeplace.find_by_id('U'), :citizenship => Citizenship.find_by_id('000'),
-:legalstatus => Legalstatus.find_by_id('U'), :familystatus => Familystatus.find_by_id('U'), :childrencount => '0',
-:datefirstcontact => Date.today(), :referrer => Referrer.find_by_id('U') ]);
+#p 'Creating sample client'
+#Client.create( [ :id => '17XX0000', :firstname => 'sample', :lastname => 'sample', :birthdate => "01.01.1900",
+#:sex => Sex.find_by_id('U'), :homeplace => Homeplace.find_by_id('U'), :citizenship => Citizenship.find_by_id('000'),
+#:legalstatus => Legalstatus.find_by_id('U'), :familystatus => Familystatus.find_by_id('U'), :childrencount => '0',
+#:datefirstcontact => Date.today(), :referrer => Referrer.find_by_id('U') ]);
