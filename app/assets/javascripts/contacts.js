@@ -98,71 +98,112 @@ function toggleRangeContactdate () {
   }
 }
 
+function validateContactdate () {
+  cd = $('#contactdate_datepicker').val().split('.');
+  cdy = parseInt(cd[2]);
+  cdm = parseInt(cd[1])-1;
+  cdd = parseInt(cd[0]);
+  cdx = new Date(cdy, cdm, cdd, 3, 0, 0);
+
+  fcd = $('#client_datefirstcontact').html().split('.');
+  fcdy = parseInt(fcd[2]);
+  fcdm = parseInt(fcd[1])-1;
+  fcdd = parseInt(fcd[0]);
+  fcdx = new Date(fcdy, fcdm, fcdd, 3, 0, 0);
+
+  if(cdx < fcdx) {
+    $('#contactdate_datepicker').removeClass("form-control-success");
+    $('#contactdate_datepicker').addClass("form-control-warning");
+    $('#contactdate_field').removeClass("has-success");
+    $('#contactdate_field').addClass("has-warning");
+    $('#contactdate_warning').html("Kontaktdatum liegt vor Erstkontakt (Stammdatensatz)!")
+    $('#contactdate_warning').addClass("alert-warning");
+  } else {
+    $('#contactdate_datepicker').removeClass("form-control-warning");
+    $('#contactdate_datepicker').addClass("form-control-success");
+    $('#contactdate_field').removeClass("has-warning");
+    $('#contactdate_field').addClass("has-success");
+    $('#contactdate_warning').html("")
+    $('#contactdate_warning').removeClass("alert-warning");
+  }
+
+}
 
 
 $( document ).on('turbolinks:load', function() {
-  $('#contactdate_datepicker').datepicker({
-    format: "dd.mm.yyyy",
-    startDate: "09.06.2016",
-    endDate: "today",
-    defaultViewDate: "today",
-    weekStart: 1,
-    maxViewMode: 3,
-    todayHighlight: true,
-    todayBtn: "linked",
-    clearBtn: true,
-    language: "de"
-  });
+
+  if( $('.contact-form').length) {
+
+    $('#contactdate_datepicker').datepicker({
+      format: "dd.mm.yyyy",
+      startDate: "09.06.2016",
+      endDate: "today",
+      defaultViewDate: "today",
+      weekStart: 1,
+      maxViewMode: 3,
+      todayHighlight: true,
+      todayBtn: "linked",
+      clearBtn: true,
+      language: "de"
+    });
+
+    $('#contact_contactreason_id').on('change', checkToggleContactreasonFreetext);
+    checkToggleContactreasonFreetext();
+
+    $('#contact_has_insuranceproblem').on('change', toggleInsuranceProblem);
+    toggleInsuranceProblem();
+
+    $('#contact_has_healthproblem').on('change', toggleHealthProblem);
+    toggleHealthProblem();
+
+    $('#contact_referral_id_n').on('change', switchReferrals);
+    $('#contact_referral_id_d').on('change', switchReferrals);
+    $('#contact_referral_id_c').on('change', switchReferrals);
+    $('#contact_referral_id_m').on('change', switchReferrals);
+    $('#contact_referral_id_a').on('change', switchReferrals);
+    $('#contact_referral_id_b').on('change', switchReferrals);
+    $('#contact_referral_id_o').on('change', switchReferrals);
+    switchReferrals();
+
+    $('#contactdate_datepicker').on('change', validateContactdate);
+    validateContactdate();
+
+  }
+
+  if ( $('#contact_searchform').length ) {
 
 
-  $('#contact_contactreason_id').on('change', checkToggleContactreasonFreetext);
-  checkToggleContactreasonFreetext();
+    $('#contactdate_selectrange').on('change', toggleRangeContactdate);
+    toggleRangeContactdate();
 
-  $('#contact_has_insuranceproblem').on('change', toggleInsuranceProblem);
-  toggleInsuranceProblem();
+    $('#contactdate_rangestart').datepicker({
+      format: "dd.mm.yyyy",
+      startDate: "09.06.2016",
+      endDate: "today",
+      defaultViewDate: "today",
+      weekStart: 1,
+      maxViewMode: 3,
+      todayHighlight: true,
+      todayBtn: "linked",
+      clearBtn: true,
+      language: "de",
+      autoclose: true
+    });
 
-  $('#contact_has_healthproblem').on('change', toggleHealthProblem);
-  toggleHealthProblem();
-
-  $('#contact_referral_id_n').on('change', switchReferrals);
-  $('#contact_referral_id_d').on('change', switchReferrals);
-  $('#contact_referral_id_c').on('change', switchReferrals);
-  $('#contact_referral_id_m').on('change', switchReferrals);
-  $('#contact_referral_id_a').on('change', switchReferrals);
-  $('#contact_referral_id_b').on('change', switchReferrals);
-  $('#contact_referral_id_o').on('change', switchReferrals);
-  switchReferrals();
-
-  $('#contactdate_selectrange').on('change', toggleRangeContactdate);
-  toggleRangeContactdate();
-
-  $('#contactdate_rangestart').datepicker({
-    format: "dd.mm.yyyy",
-    startDate: "09.06.2016",
-    endDate: "today",
-    defaultViewDate: "today",
-    weekStart: 1,
-    maxViewMode: 3,
-    todayHighlight: true,
-    todayBtn: "linked",
-    clearBtn: true,
-    language: "de",
-    autoclose: true
-  });
-
-  $('#contactdate_rangeend').datepicker({
-    format: "dd.mm.yyyy",
-    startDate: "09.06.2016",
-    endDate: "today",
-    defaultViewDate: "today",
-    weekStart: 1,
-    maxViewMode: 3,
-    todayHighlight: true,
-    todayBtn: "linked",
-    clearBtn: true,
-    language: "de",
-    autoclose: true
-  });
+    $('#contactdate_rangeend').datepicker({
+      format: "dd.mm.yyyy",
+      startDate: "09.06.2016",
+      endDate: "today",
+      defaultViewDate: "today",
+      weekStart: 1,
+      maxViewMode: 3,
+      todayHighlight: true,
+      todayBtn: "linked",
+      clearBtn: true,
+      language: "de",
+      autoclose: true
+    });
 
 
+  }
 });

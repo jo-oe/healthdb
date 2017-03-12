@@ -26,4 +26,11 @@ class Contact < ApplicationRecord
   validates_associated :successfulinsurance
   validates_associated :failedinsurance
 
+  validate :validateContactdate
+
+  def validateContactdate()
+    if contactdate < client.datefirstcontact
+        errors.add(:contactdate, "liegt vor Erstkontakt (Stammdatensatz)")
+    end
+  end
 end

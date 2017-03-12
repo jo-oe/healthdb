@@ -4,7 +4,7 @@
   <p id="notice"><%= notice %></p>
 <% end %>
 
-<%= form_tag(contacts_path, { :method => "get", :autocomplete => "off"}) %>
+<%= form_tag(contacts_path, { :method => "get", :autocomplete => "off", :id => "contact_searchform"}) %>
 
 <ul>
   <li><%= link_to 'Angezeigte Kontakte in Excel-Tabelle für eigene Statistik exportieren', contacts_path(request.parameters.merge({:format => :xls})) %></li>
