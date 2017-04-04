@@ -53,6 +53,7 @@ ls = [
   [ :id => 'A', :text => 'Flüchtling im laufenden Verfahren (asylsuchend)' ],
   [ :id => 'B', :text => 'Flüchtling BÜMA' ],
   [ :id => 'F', :text => 'Flüchtling anerkannt' ],
+  [ :id => 'G', :text => 'Duldung'],
   [ :id => 'P', :text => 'Papierlos' ],
   [ :id => 'D', :text => 'Deutsche_r' ]
 ]
