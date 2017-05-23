@@ -87,6 +87,9 @@
         <Cell><Data ss:Type="String">Identifizierte Probleme: Gesundheit</Data></Cell>
         <Cell><Data ss:Type="String"></Data></Cell>
 
+        <% # Identifizierte Probleme: sonstiges %>
+        <Cell><Data ss:Type="String">Identifizierte Probleme: sonstiges</Data></Cell>
+
         <% # Vermittlung in: andere Beratungsstelle %>
         <Cell><Data ss:Type="String">Vermittlung in: andere Beratungsstelle</Data></Cell>
 
@@ -137,9 +140,9 @@
         <Cell><Data ss:Type="String">0-4</Data></Cell>
         <Cell><Data ss:Type="String">5-14</Data></Cell>
         <Cell><Data ss:Type="String">15-17</Data></Cell>
-        <Cell><Data ss:Type="String">18-25</Data></Cell>
-        <Cell><Data ss:Type="String">25-40</Data></Cell>
-        <Cell><Data ss:Type="String">41-65</Data></Cell>
+        <Cell><Data ss:Type="String">18-24</Data></Cell>
+        <Cell><Data ss:Type="String">25-39</Data></Cell>
+        <Cell><Data ss:Type="String">40-65</Data></Cell>
         <Cell><Data ss:Type="String">über 65</Data></Cell>
 
         <% # Staatsangehörigkeit %>
@@ -198,6 +201,9 @@
         <Cell><Data ss:Type="String"></Data></Cell>
         <Cell><Data ss:Type="String">bestehende Schwangerschaft</Data></Cell>
 
+        <% # Identifizierte Probleme: sonstiges %>
+        <Cell><Data ss:Type="String"></Data></Cell>
+
         <% # Vermittlung in: andere Beratungsstelle %>
         <Cell><Data ss:Type="String"></Data></Cell>
 
@@ -249,8 +255,8 @@
         <Cell><Data ss:Type="Number"><%= (contact.client.birthdate != Date.new(1900, 1, 1) && contact.contactdate < contact.client.birthdate.advance(years: 5))? "1" : 0 %></Data></Cell>
         <Cell><Data ss:Type="Number"><%= (contact.client.birthdate != Date.new(1900, 1, 1) && contact.contactdate >= contact.client.birthdate.advance(years: 5) && contact.contactdate < contact.client.birthdate.advance(years: 15))? "1" : 0 %></Data></Cell>
         <Cell><Data ss:Type="Number"><%= (contact.client.birthdate != Date.new(1900, 1, 1) && contact.contactdate >= contact.client.birthdate.advance(years: 15) && contact.contactdate < contact.client.birthdate.advance(years: 18))? "1" : 0 %></Data></Cell>
-        <Cell><Data ss:Type="Number"><%= (contact.client.birthdate != Date.new(1900, 1, 1) && contact.contactdate >= contact.client.birthdate.advance(years: 18) && contact.contactdate < contact.client.birthdate.advance(years: 26))? "1" : 0 %></Data></Cell>
-        <Cell><Data ss:Type="Number"><%= (contact.client.birthdate != Date.new(1900, 1, 1) && contact.contactdate >= contact.client.birthdate.advance(years: 26) && contact.contactdate < contact.client.birthdate.advance(years: 40))? "1" : 0 %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= (contact.client.birthdate != Date.new(1900, 1, 1) && contact.contactdate >= contact.client.birthdate.advance(years: 18) && contact.contactdate < contact.client.birthdate.advance(years: 25))? "1" : 0 %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= (contact.client.birthdate != Date.new(1900, 1, 1) && contact.contactdate >= contact.client.birthdate.advance(years: 25) && contact.contactdate < contact.client.birthdate.advance(years: 40))? "1" : 0 %></Data></Cell>
         <Cell><Data ss:Type="Number"><%= (contact.client.birthdate != Date.new(1900, 1, 1) && contact.contactdate >= contact.client.birthdate.advance(years: 40) && contact.contactdate < contact.client.birthdate.advance(years: 65))? "1" : 0 %></Data></Cell>
         <Cell><Data ss:Type="Number"><%= (contact.client.birthdate != Date.new(1900, 1, 1) && contact.contactdate >= contact.client.birthdate.advance(years: 65))? "1" : 0 %></Data></Cell>
 
@@ -309,6 +315,9 @@
         <% # Identifizierte Probleme: Gesundheit %>
         <Cell><Data ss:Type="Number"><%= (contact.has_healthproblem)? "1" : "0" %></Data></Cell>
         <Cell><Data ss:Type="Number"><%= (contact.has_healthproblem && contact.healthproblem_id == "R")? "1" : "0" %></Data></Cell>
+
+        <% # Identifizierte Probleme: sonstiges %>
+        <Cell><Data ss:Type="Number">0</Data></Cell>
 
         <% # Vermittlung in: andere Beratungsstelle %>
         <Cell><Data ss:Type="String"><%=
