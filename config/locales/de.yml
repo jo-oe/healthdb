@@ -95,6 +95,9 @@ de:
   login: "Anmeldung"
   log_in: "Anmelden ..."
   login_failed: "Anmeldung fehlgeschlagen"
+  logout: "Abmelden"
+
+  backup: "Backup"
 
   deleteclientconfirm: "Sind Sie sicher, dass Sie den Klienten vollständig löschen wollen?\n(Das wird nur funktionieren, wenn alle Kontakte dieses Klienten vorher gelöscht wurden)"
   deletecontactconfirm: "Sind Sie sicher, dass Sie den Kontakt vollständig löschen wollen?"
