@@ -25,7 +25,6 @@ class MainController < ApplicationController
           @data = File.open(@filenamewithdir, "rb") {|io| io.read}
           p @data
           self.response_body = @data
-          redirect_to main_backup_path, notice: "Backup gespeichtert..."
         else
           redirect_to main_backup_path, alert: "Backup fehlgeschlagen!"
         end
