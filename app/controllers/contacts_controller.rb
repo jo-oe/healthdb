@@ -5,6 +5,9 @@ class ContactsController < ApplicationController
   # GET /contacts
   # GET /contacts.json
   def index
+    @timestamp = Time.now.strftime("%Y%d%m-%H%M%S")
+
+
     @contacts = Contact.where(nil)
 
     if(params['filter']="yes")
@@ -42,7 +45,7 @@ class ContactsController < ApplicationController
     respond_to do |format|
       format.html
       format.json
-      format.xls
+      format.xls { headers["Content-Disposition"] = "attachment; filename=\"contact-export-#{@timestamp}\".xlsx" }
     end
   end
 
@@ -140,7 +143,7 @@ class ContactsController < ApplicationController
     respond_to do |format|
       format.html
       format.json
-      format.xls
+      format.xls { headers["Content-Disposition"] = "attachment; filename=\"contact-export-ministerium-#{@timestamp}\".xlsx" }
     end
   end
 
