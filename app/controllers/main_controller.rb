@@ -17,7 +17,7 @@ class MainController < ApplicationController
         self.response.headers["Content-Disposition"] = "attachment; filename=#{@filename}"
         self.response.headers['Last-Modified'] = Time.now.ctime.to_s
 
-        @command = "sudo /usr/local/bin/backupdb.sh " + @time
+        @command = "/usr/local/bin/backupdb.sh " + @time
         @success = system(@command);
 
         if @success
