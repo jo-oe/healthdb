@@ -5,7 +5,7 @@ class ClientsController < ApplicationController
   # GET /clients
   # GET /clients.json
   def index
-    @timestamp = Time.now.strftime("%Y%d%m-%H%M%S")
+    @timestamp = Time.now.strftime("%Y%m%d-%H%M%S")
 
     if(params['filter']=="yes")
       @clients = Client.where(nil)

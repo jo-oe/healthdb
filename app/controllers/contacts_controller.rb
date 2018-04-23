@@ -5,7 +5,7 @@ class ContactsController < ApplicationController
   # GET /contacts
   # GET /contacts.json
   def index
-    @timestamp = Time.now.strftime("%Y%d%m-%H%M%S")
+    @timestamp = Time.now.strftime("%Y%m%d-%H%M%S")
 
     @contacts = Contact.where(nil)
 
@@ -107,7 +107,7 @@ class ContactsController < ApplicationController
   def export
     @contacts = Contact.where(nil)
 
-    @timestamp = Time.now.strftime("%Y%d%m-%H%M%S")
+    @timestamp = Time.now.strftime("%Y%m%d-%H%M%S")
 
     if(params['filter']="yes")
       Contact.new.attributes.each do |attr_name, attr_value|
