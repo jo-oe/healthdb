@@ -6,7 +6,7 @@ class ClientsController < ApplicationController
   # GET /clients.json
   def index
     @timestamp = Time.now.strftime("%Y%d%m-%H%M%S")
-    
+
     if(params['filter']=="yes")
       @clients = Client.where(nil)
       Client.new.attributes.each do |attr_name, attr_value|
@@ -44,7 +44,7 @@ class ClientsController < ApplicationController
     respond_to do |format|
       format.html
       format.json
-      format.xls { headers["Content-Disposition"] = "attachment; filename=\"clients-export-#{@timestamp}\".xlsx" }
+      format.xls { headers["Content-Disposition"] = "attachment; filename=\"clients-export-#{@timestamp}.xlsx\"" }
     end
 
   end

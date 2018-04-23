@@ -7,7 +7,6 @@ class ContactsController < ApplicationController
   def index
     @timestamp = Time.now.strftime("%Y%d%m-%H%M%S")
 
-
     @contacts = Contact.where(nil)
 
     if(params['filter']="yes")
@@ -45,7 +44,7 @@ class ContactsController < ApplicationController
     respond_to do |format|
       format.html
       format.json
-      format.xls { headers["Content-Disposition"] = "attachment; filename=\"contact-export-#{@timestamp}\".xlsx" }
+      format.xls { headers["Content-Disposition"] = "attachment; filename=\"contact-export-#{@timestamp}.xlsx\"" }
     end
   end
 
@@ -108,6 +107,8 @@ class ContactsController < ApplicationController
   def export
     @contacts = Contact.where(nil)
 
+    @timestamp = Time.now.strftime("%Y%d%m-%H%M%S")
+
     if(params['filter']="yes")
       Contact.new.attributes.each do |attr_name, attr_value|
 
@@ -143,7 +144,7 @@ class ContactsController < ApplicationController
     respond_to do |format|
       format.html
       format.json
-      format.xls { headers["Content-Disposition"] = "attachment; filename=\"contact-export-ministerium-#{@timestamp}\".xlsx" }
+      format.xls { headers["Content-Disposition"] = "attachment; filename=\"contact-export-ministerium-#{@timestamp}.xlsx\"" }
     end
   end
 
