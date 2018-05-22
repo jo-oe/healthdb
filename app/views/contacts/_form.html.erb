@@ -73,7 +73,7 @@
     end
     %>
     <td class="hdb-form-label"><%= f.label :contactdate, class: "hdb-label" %></td>
-    <td class="hdb-form-field" id="contactdate_field"><%= f.date_field :contactdate, :value => contact.contactdate, class: "form-control hdb-form-input", :id => "contactdate_datepicker" %></td>
+    <td class="hdb-form-field" id="contactdate_field"><%= f.text_field :contactdate, :value => contact.contactdate, class: "form-control hdb-form-input", :id => "contactdate_datepicker" %></td>
     <td colspan="2" class="hdb-form-label hdb-form-warning" id="contactdate_warning"></td>
   </tr>
 
