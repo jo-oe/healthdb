@@ -58,6 +58,7 @@ gem 'rails-i18n'
 
 
 #gem 'bootstrap-sass'
+gem 'popper_js'
 gem 'bootstrap'
 gem 'autoprefixer-rails'
 gem 'bootstrap-datepicker-rails'
