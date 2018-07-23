@@ -44,7 +44,7 @@ class ClientsController < ApplicationController
     respond_to do |format|
       format.html
       format.json
-      format.xls { headers["Content-Disposition"] = "attachment; filename=\"clients-export-#{@timestamp}.xlsx\"" }
+      format.xls { headers["Content-Disposition"] = "attachment; filename=\"clients-export-#{@timestamp}.xls\"" }
     end
 
   end

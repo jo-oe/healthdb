@@ -44,7 +44,7 @@ class ContactsController < ApplicationController
     respond_to do |format|
       format.html
       format.json
-      format.xls { headers["Content-Disposition"] = "attachment; filename=\"contact-export-#{@timestamp}.xlsx\"" }
+      format.xls { headers["Content-Disposition"] = "attachment; filename=\"contact-export-#{@timestamp}.xls\"" }
     end
   end
 
@@ -144,7 +144,7 @@ class ContactsController < ApplicationController
     respond_to do |format|
       format.html
       format.json
-      format.xls { headers["Content-Disposition"] = "attachment; filename=\"contact-export-ministerium-#{@timestamp}.xlsx\"" }
+      format.xls { headers["Content-Disposition"] = "attachment; filename=\"contact-export-ministerium-#{@timestamp}.xls\"" }
     end
   end
 
