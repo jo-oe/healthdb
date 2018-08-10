@@ -59,10 +59,10 @@
             <td class="hdb-searchform-checkboxlabel"><%= label :contact, :contactdate_selectrange, class: "hdb-search-label" %></td>
           </tr>
           <tr class="hdb-searchform-row">
-            <td colspan="2" class="hdb-search-subfield"><%= date_field_tag :contactdate_rangestart, params[:contactdate_rangestart], class: "form-control hdb-search-input" %></td>
+            <td colspan="2" class="hdb-search-subfield"><%= text_field_tag :contactdate_rangestart, params[:contactdate_rangestart], class: "form-control hdb-search-input" %></td>
           </tr>
           <tr class="hdb-searchform-row">
-            <td colspan="2" class="hdb-search-subfield"><%= date_field_tag :contactdate_rangeend, params[:contactdate_rangeend], class: "form-control hdb-search-input" %></td>
+            <td colspan="2" class="hdb-search-subfield"><%= text_field_tag :contactdate_rangeend, params[:contactdate_rangeend], class: "form-control hdb-search-input" %></td>
           </tr>
         </table>
       </td>
